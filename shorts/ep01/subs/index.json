@@ -1,0 +1,38 @@
+{
+ "langs": [
+  {
+   "code": "th",
+   "name": "ไทย"
+  },
+  {
+   "code": "en",
+   "name": "English"
+  },
+  {
+   "code": "zh",
+   "name": "中文"
+  },
+  {
+   "code": "ja",
+   "name": "日本語"
+  },
+  {
+   "code": "ko",
+   "name": "한국어"
+  },
+  {
+   "code": "lo",
+   "name": "ລາວ"
+  },
+  {
+   "code": "my",
+   "name": "မြန်မာ"
+  },
+  {
+   "code": "vi",
+   "name": "Tiếng Việt"
+  }
+ ],
+ "source": "script",
+ "cues": 16
+}

@@ -10,3 +10,6 @@ First 2 lessons of every course are free by default (lesson.free true/false over
 Public image-to-video page, no login. Env: `COMFY_URL` (private render node URL, required, no default; feature is disabled without it), optional `STUDIO_SALT` (IP-hash salt).
 Browser only talks to `/api/studio/*`; errors are generic; uploads are re-encoded with sharp (metadata stripped); outputs re-encoded with ffmpeg (no metadata, small PureFxAi watermark), served by unguessable token for 24 h.
 Safeguards: 1 concurrent job, free jobs wait while the render node has any other queued/running job, per-IP/day limit, global daily cap, max queue, prompt filter, terms checkbox. Admin > Free Video Engine: on/off + caps. Requires `npm i` (sharp, busboy) and ffmpeg.
+
+## Soft subtitles
+After an episode video is rendered, run `node server/tools/make-subs.js shorts/<ep-dir>` (needs script.md with `## Shot N (m:ss-m:ss)` + quoted Thai dialogue). Writes `subs/th.vtt`, AI-translated `en/zh/ja/ko/lo/my/vi.vtt` (one Gemini call per episode, cached; reruns reuse translations) and `subs/index.json`. Commit the subs folder. Players load them automatically.

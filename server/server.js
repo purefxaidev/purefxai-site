@@ -8,7 +8,7 @@ const SYSTEM=`You are the friendly customer assistant of PureFxAi, a brand selli
 Courses: AI Fundamentals (AI พื้นฐาน), AI for Forex/Gold Trading (educational only, no profit guarantee, trading is risky), Prompt Engineering, AI Automation, Vibe Coding (build websites/apps by talking to AI such as Cursor and ChatGPT: prompts to code to deploy; included from Pro up).
 Packages: Starter, Pro (recommended), VIP Mentor, Lifetime. All prices are placeholders "฿X,XXX" — say prices will be confirmed by the team; never invent prices, dates, instructor credentials, or results.
 Free resources: 6-episode AI basics videos (incl. Vibe Coding) and AI Tutor exercises on the site. For enrollment, direct users to the contact form on the page. Never give financial advice. Do not use emoji; plain text only.`;;
-const MIME={'.html':'text/html; charset=utf-8','.png':'image/png','.js':'text/javascript','.css':'text/css','.json':'application/json','.apk':'application/vnd.android.package-archive','.jpg':'image/jpeg','.mp4':'video/mp4'};
+const MIME={'.html':'text/html; charset=utf-8','.png':'image/png','.js':'text/javascript','.css':'text/css','.json':'application/json','.apk':'application/vnd.android.package-archive','.jpg':'image/jpeg','.mp4':'video/mp4','.vtt':'text/vtt; charset=utf-8'};
 
 // ---- Shorts: likes + comments with JSON persistence ----
 const DATA=path.join(process.env.DATA_DIR?path.resolve(process.env.DATA_DIR):path.join(__dirname,'data'),'shorts.json');fs.mkdirSync(path.dirname(DATA),{recursive:true});
@@ -57,7 +57,7 @@ const server=http.createServer(async(req,res)=>{
   catch(e){res.writeHead(502);return res.end(JSON.stringify({error:'upstream',detail:String(e.message||e)}))}}
  let p=u.pathname==='/'?'/index.html':u.pathname;const f=path.normalize(path.join(ROOT,p));
  if(!f.startsWith(ROOT)||f.includes(path.sep+'server')){res.writeHead(404);return res.end()}
- fs.readFile(f,(e,d)=>{if(e){res.writeHead(404);return res.end('Not found')}res.writeHead(200,{'content-type':MIME[path.extname(f)]||'application/octet-stream'});res.end(d)});
+ fs.readFile(f,(e,d)=>{if(e){res.writeHead(404);return res.end('Not found')}const H={'content-type':MIME[path.extname(f)]||'application/octet-stream'};if(/[\\/]subs[\\/][\w-]+\.(vtt|json)$/.test(f)){H['access-control-allow-origin']='*';H['cache-control']='public, max-age=600'}res.writeHead(200,H);res.end(d)});
 });
 // Live voice proxy: browser <-> /api/live <-> Gemini Live (key added server-side)
 const wss=new WebSocketServer({server,path:'/api/live'});
