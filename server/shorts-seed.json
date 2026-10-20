@@ -13,10 +13,16 @@
    "order": 2
   },
   {
+   "id": "romance",
+   "th": "รักหวาน",
+   "en": "Sweet Romance",
+   "order": 3
+  },
+  {
    "id": "melodrama",
    "th": "ละครน้ำเน่า",
    "en": "Thai Melodrama",
-   "order": 3
+   "order": 4
   }
  ],
  "series": [
@@ -100,6 +106,27 @@
      "cover": "shorts/cartoon/ep01/cover.jpg",
      "cap_th": "",
      "cap_en": ""
+    }
+   ]
+  },
+  {
+   "id": "pfx-romance",
+   "genre": "romance",
+   "th": "กาแฟแก้วนี้ ฉันชงให้เธอ",
+   "en": "The Coffee I Make for You",
+   "cover": "shorts/romance/cover.jpg",
+   "desc_th": "บาริสต้าสาวกับหนุ่มโปรแกรมเมอร์ขี้อายที่สั่งเมนูไม่ซ้ำทุกวัน รักหวานอบอุ่นในร้านกาแฟเล็กๆ",
+   "desc_en": "A barista and a shy programmer who orders something different every day: a warm, sweet romance in a tiny coffee shop.",
+   "episodes": [
+    {
+     "id": "romance-ep01",
+     "n": 1,
+     "th": "เมนูที่ไม่เคยซ้ำ",
+     "en": "The Order That Never Repeats",
+     "video": "shorts/romance/ep01/ep01.mp4",
+     "cover": "shorts/romance/ep01/cover.jpg",
+     "cap_th": "เขาสั่งเมนูไม่ซ้ำมาสามสิบวัน เพราะอยากคุยกับเธอนานขึ้นอีกนิด",
+     "cap_en": "He has ordered something different for thirty days, just to talk to her a little longer."
     }
    ]
   },

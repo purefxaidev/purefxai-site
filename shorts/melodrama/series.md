@@ -1,3 +1,5 @@
+> Status: planned for later (after the sweet-romance series).
+
 # รักร้าวในคฤหาสน์ทอง (Heartbreak in the Golden Mansion)
 
 Genre: ละครน้ำเน่า / Thai melodrama (soap opera) · Vertical 9:16 · ~2 min per episode (8 clips x 15 s) · Thai dialogue · PG-13
