@@ -57,7 +57,7 @@ const server=http.createServer(async(req,res)=>{
   catch(e){res.writeHead(502);return res.end(JSON.stringify({error:'upstream',detail:String(e.message||e)}))}}
  let p=u.pathname==='/'?'/index.html':u.pathname;const f=path.normalize(path.join(ROOT,p));
  if(!f.startsWith(ROOT)||f.includes(path.sep+'server')){res.writeHead(404);return res.end()}
- fs.readFile(f,(e,d)=>{if(e){res.writeHead(404);return res.end('Not found')}const H={'content-type':MIME[path.extname(f)]||'application/octet-stream'};if(/[\\/]subs[\\/][\w-]+\.(vtt|json)$/.test(f)){H['access-control-allow-origin']='*';H['cache-control']='public, max-age=600'}res.writeHead(200,H);res.end(d)});
+ fs.readFile(f,(e,d)=>{if(e){res.writeHead(404);return res.end('Not found')}const H={'content-type':MIME[path.extname(f)]||'application/octet-stream'};if(/[\\/]subs[\\/][\w-]+\.(vtt|json)$/.test(f)){H['access-control-allow-origin']='*';H['cache-control']='public, max-age=600'}if(/[\\/]downloads[\\/]version\.json$/.test(f)){H['access-control-allow-origin']='*';H['cache-control']='no-store'}res.writeHead(200,H);res.end(d)});
 });
 // Live voice proxy: browser <-> /api/live <-> Gemini Live (key added server-side)
 const wss=new WebSocketServer({server,path:'/api/live'});
