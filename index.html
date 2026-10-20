@@ -84,6 +84,32 @@ html,body{overflow-x:hidden}@media(min-width:901px){.mo{display:none}.hero h1{wh
 .bubble.tb{display:flex;gap:12px;align-items:flex-start}
 @media(max-width:900px){.hero{background:linear-gradient(rgba(11,13,18,.82),rgba(11,13,18,.92)),image-set(url(assets/hero-bg.webp) type("image/webp"),url(assets/hero-bg.jpg) type("image/jpeg")) center/cover}.why-banner{aspect-ratio:16/9}.why-banner p{left:16px;bottom:14px;font-size:1rem;right:16px}}
 .ctabs{display:flex;gap:8px;overflow-x:auto;justify-content:center;flex-wrap:wrap;margin:0 0 22px}.ctabs a{padding:7px 16px;border-radius:20px;border:1px solid #2c3343;color:#aab;font-size:.9rem;white-space:nowrap;text-decoration:none}.ctabs a.on{border-color:#e8b84a;color:#111;background:linear-gradient(135deg,#e8b84a,#f5d27a)}.tag.free{background:rgba(70,200,120,.14);border:1px solid #3fbf7a;color:#7fe0a8}.fl{list-style:none;padding:0;margin:10px 0 0;font-size:.85rem}.fl li{margin:6px 0}.fl a{color:inherit;text-decoration:none}.fl a:hover{color:#e8b84a}
+.fd{position:relative;padding:0!important;margin:0!important;height:calc(100svh - 64px);min-height:520px;overflow:hidden;background:#05060a;display:flex;justify-content:center;align-items:center}
+.fd-bg{position:absolute;inset:-40px;background-size:cover;background-position:center;filter:blur(40px) brightness(.35) saturate(1.2);transform:scale(1.1);transition:background-image .4s}
+.fd-ph{position:relative;height:100%;aspect-ratio:9/16;max-width:100%;background:#000;overflow:hidden}
+@media(min-width:700px){.fd-ph{height:calc(100% - 28px);border-radius:26px;border:1px solid rgba(232,184,74,.35);box-shadow:0 30px 80px -20px rgba(0,0,0,.9),0 0 50px rgba(232,184,74,.18)}}
+@media(max-width:699px){.fd-ph{width:100%;aspect-ratio:auto}}
+.fd-feed{height:100%;overflow-y:scroll;scroll-snap-type:y mandatory;scrollbar-width:none;overscroll-behavior:contain}.fd-feed::-webkit-scrollbar{display:none}
+.fd-it{position:relative;height:100%;scroll-snap-align:start;scroll-snap-stop:always;background:#000 center/cover no-repeat}
+.fd-it video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:transparent}
+.fd-pp{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.85);pointer-events:none;opacity:0;transition:opacity .2s}.fd-it.paused .fd-pp{opacity:1}
+.fd-soon{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.75));text-align:center;padding:20px}.fd-soon b{font-family:Kanit,sans-serif;font-size:1.6rem;color:var(--gold,#e8b84a);letter-spacing:1px}
+.fd-ov{position:absolute;left:0;right:0;bottom:0;padding:70px 76px 18px 16px;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent);color:#fff;pointer-events:none}
+.fd-ov .ep{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:1px;color:#111;background:linear-gradient(135deg,#e8b84a,#f5d27a);padding:2px 9px;border-radius:10px;margin-bottom:6px}
+.fd-ov h3{font-family:Kanit,sans-serif;font-size:1.15rem;margin:0 0 4px}.fd-ov p{font-size:.86rem;opacity:.85;margin:0;line-height:1.45}.fd-ov small{display:block;font-size:.75rem;opacity:.7;margin-bottom:3px}
+.fd-bar{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.18)}.fd-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#e8b84a,#f5d27a)}
+.fd-rail{position:absolute;right:8px;bottom:120px;display:flex;flex-direction:column;gap:16px;z-index:3}
+.fd-rail button,.fd-mute{background:rgba(0,0,0,.35);border:0;color:#fff;width:52px;padding:8px 0;border-radius:14px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;font:500 .72rem Prompt,sans-serif;backdrop-filter:blur(6px)}
+.fd-rail button.on{color:#ff5a6e}.fd-rail button.on svg path{fill:currentColor}
+.fd-mute{position:absolute;top:14px;right:12px;width:44px;height:44px;padding:0;justify-content:center;border-radius:50%;z-index:3}
+.fd-sheet{position:absolute;left:0;right:0;bottom:0;height:68%;background:rgba(14,16,22,.97);border-radius:18px 18px 0 0;transform:translateY(102%);transition:transform .3s;z-index:5;display:flex;flex-direction:column;border-top:1px solid rgba(232,184,74,.3)}.fd-sheet.open{transform:none}
+.fd-sh{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid #222}.fd-sh button{background:none;border:0;color:#fff;cursor:pointer}
+.fd-body{flex:1;overflow:auto;padding:10px 16px}.fd-body .cm{padding:8px 0;border-bottom:1px solid #1c1f28;font-size:.88rem}.fd-body .cm small{opacity:.6;margin-left:8px;font-size:.72rem}.fd-body .cm p{margin:3px 0 0}
+.fd-body .eli{display:flex;gap:12px;align-items:center;padding:8px;border-radius:12px;cursor:pointer;border:1px solid transparent}.fd-body .eli.on{border-color:#e8b84a}.fd-body .eli .c{width:54px;aspect-ratio:9/16;border-radius:8px;background:#1d2230 center/cover}.fd-body .eli span{font-size:.75rem;opacity:.7}
+.fd-form{display:flex;gap:6px;padding:10px 12px;border-top:1px solid #222}.fd-form input{min-width:0;background:#0b0d12;border:1px solid #2c3343;color:#fff;border-radius:10px;padding:9px 10px;font:inherit;font-size:.85rem}#fdName{width:30%}#fdText{flex:1}.fd-form .btn{padding:8px 14px}.fd-sheet.eps .fd-form{display:none}
+.fd-err{color:#ff8a8a;font-size:.8rem;padding:0 14px 8px}
+.fd-toast{position:absolute;left:50%;top:40%;transform:translateX(-50%);background:rgba(0,0,0,.8);color:#fff;padding:8px 16px;border-radius:20px;font-size:.85rem;opacity:0;transition:opacity .3s;pointer-events:none;z-index:6}.fd-toast.on{opacity:1}
+.fd .rv,.fd.rv{opacity:1!important;transform:none!important}@media(max-width:699px){.fd-rail{bottom:170px}.fd-ov{padding-right:70px}}.fd-hint{position:absolute;bottom:-24px;left:0;right:0;text-align:center;font-size:.72rem;color:rgba(255,255,255,.45)}@media(max-width:699px){.fd-hint{display:none}}
 </style><style>.vr-en{display:none}html[lang=en] .vr-en{display:inline}html[lang=en] .vr-th{display:none}
 .vrg{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-top:22px}
 .vrc{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:1px solid rgba(212,175,55,.45);background:#0b0b0b;cursor:pointer}
@@ -146,6 +172,15 @@ footer{background:linear-gradient(0deg,#07080c,transparent)}
 <ul id="navL"><li><a href="studio.html" data-t="stdN" style="color:var(--gold)"></a></li><li><a href="#why" data-t="n1"></a></li><li><a href="#courses" data-t="n2"></a></li><li><a href="#videos" data-t="n3"></a></li><li><a href="#shorts" data-t="st"></a></li><li><a href="#tutor" data-t="n4"></a></li><li><a href="#pricing" data-t="n5"></a></li><li><a href="#faq">FAQ</a></li><li class="mo"><a href="learn.html" data-t="lmsL"></a></li><li class="mo"><a href="#contact" data-t="cta"></a></li></ul>
 <div class="nr"><div class="lang"><button data-l="th">TH</button><button data-l="en">EN</button></div><a href="learn.html" class="btn o cta" style="padding:9px 16px"><span data-t="lmsL"></span></a><a href="#contact" class="btn cta" data-t="cta"></a><button class="burger" id="burger" aria-label="menu"></button></div></div></nav>
 
+<section id="shorts" class="fd" aria-label="Shorts">
+<div class="fd-bg" id="fdBg"></div>
+<div class="fd-ph"><div class="fd-feed" id="fdFeed"></div>
+<button class="fd-mute" id="fdMute" aria-label="sound"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m23 9-6 6M17 9l6 6"/></svg></button>
+<div class="fd-rail"><button id="fdLike" aria-label="like"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg><span id="fdLikes">0</span></button><button id="fdCmt" aria-label="comments"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg><span id="fdCmts">0</span></button><button id="fdShare" aria-label="share"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg><span data-t="fshare"></span></button><button id="fdList" aria-label="episodes"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span data-t="feps"></span></button></div>
+<div class="fd-sheet" id="fdSheet"><div class="fd-sh"><b id="fdSheetT"></b><button id="fdClose" aria-label="close"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div><div class="fd-body" id="fdBody"></div>
+<form id="fdForm" class="fd-form"><input id="fdName" maxlength="40" autocomplete="nickname"><input id="fdText" maxlength="300" required><button class="btn" data-t="fsend"></button></form><div id="fdErr" class="fd-err"></div></div>
+<div class="fd-toast" id="fdToast"></div>
+<div class="fd-hint" data-t="fhint"></div></div></section>
 <header class="hero"><picture class="hero-ph"><source srcset="assets/hero-model.webp" type="image/webp"><img src="assets/hero-model.jpg" alt="PureFxAi" width="660" height="712" fetchpriority="high"></picture><div class="wrap"><span class="tag">AI Academy by PureFxAi</span><h1 data-h="h1"></h1><p data-t="hp"></p><div class="acts"><a href="#courses" class="btn" data-t="hb1"></a><a href="#tutor" class="btn o" data-t="hb2"></a><a href="studio.html" class="btn o" data-t="stdN"></a></div></div></header>
 
 <section id="why"><div class="wrap"><h2 data-t="wt"></h2><p class="sub" data-t="ws"></p><div class="why-banner"><picture><source srcset="assets/workspace.webp" type="image/webp"><img src="assets/workspace.jpg" alt="AI workspace" loading="lazy"></picture><p data-t="wb"></p></div><div class="grid" id="whyG"></div></div></section>
@@ -160,13 +195,6 @@ footer{background:linear-gradient(0deg,#07080c,transparent)}
 <div class="vp"><div class="player" id="player"></div><div><h3 id="vTitle"></h3><p id="vDesc" class="mut"></p><a id="vEx" href="#tutor" class="btn o" style="margin-top:12px" data-t="vex"></a></div></div>
 <div class="grid" id="epG" style="margin-top:26px"></div></div></section>
 
-<section id="shorts" class="alt"><div class="wrap"><h2 data-t="st"></h2><p class="sub"><span data-t="ss"></span> <span class="ph" data-t="sph"></span></p>
-<div class="sh"><div class="sp"><div class="sv" id="sv"><video id="svid" playsinline muted preload="metadata"></video><div class="sph" id="sPh"></div>
-<div class="sov"><div class="sep" id="sEp"></div><div class="stl" id="sTitle"></div><div class="sbar" id="sBar"></div></div>
-<div class="sside"><button id="sLike" class="sbtn" aria-label="like"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span id="sLikes">0</span></button>
-<button id="sSnd" class="sbtn" aria-label="sound"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 5 6 9H2v6h4l5 4z"/><path id="sWave" d="M15.5 8.5a5 5 0 0 1 0 7"/></svg><span data-t="snd"></span></button>
-<button id="sNext" class="sbtn" aria-label="next"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 4 10 8-10 8zM19 5v14"/></svg><span data-t="snx"></span></button></div></div></div>
-<div class="sr"><div class="slist" id="sList"></div><div class="scm"><h3 data-t="sct"></h3><form id="sForm"><input id="sName" maxlength="40" data-p="scn"><textarea id="sText" maxlength="300" rows="2" required data-p="scp"></textarea><div class="srow"><small id="sCnt" class="mut">0/300</small><small id="sErr" class="ph"></small><button class="btn" data-t="scs"></button></div></form><div id="sCm"></div></div></div></div></div></section>
 <style>
 .sh{display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:28px;align-items:start}
 .sv{position:relative;aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:#000;border:1px solid rgba(232,184,74,.35);box-shadow:0 0 40px rgba(232,184,74,.1)}
@@ -353,29 +381,44 @@ const SHORTS=[
 {id:"ep04",cover:"shorts/ep04/cover.jpg",clips:[],th:"ชายในผ้าคลุม",en:"The Hooded Figure"},
 {id:"ep05",cover:"shorts/ep05/cover.jpg",clips:[],th:"ระดับเทพ",en:"God Tier"}];
 let sI=0,cI=0;const liked=JSON.parse(localStorage.getItem('pfx_liked')||'{}');
-function sRender(){sList.innerHTML=SHORTS.map((e,i)=>`<div class="sit ${i==sI?'on':''}" onclick="sPlay(${i},0,true)"><div class="cv" style="background-image:url('${e.cover}'),linear-gradient(160deg,#1d2230,#2a2410)"><span><b>EP${i+1}</b><br>${e[L]}</span></div>${e.clips.length?'':`<span class="soon">${t('soon')}</span>`}</div>`).join('');sMeta()}
-function sMeta(){const e=SHORTS[sI];sEp.textContent=t('sser')+' · EP'+(sI+1);sTitle.textContent=e[L];
- sBar.innerHTML=(e.clips.length?e.clips:[0]).map((_,k)=>`<i class="${k<=cI&&e.clips.length?'on':''}"></i>`).join('');
- sPh.innerHTML=`<b>EP${sI+1}: ${e[L]}</b>${t('vsoon')}<br><small>${e.clips[0]||'shorts/'+e.id+'/'}</small>`;sPh.style.backgroundImage=`linear-gradient(rgba(11,13,18,.55),rgba(11,13,18,.85)),url('${e.cover}'),linear-gradient(160deg,#1d2230,#2a2410)`;
- sLike.classList.toggle('on',!!liked[e.id])}
-function sPlay(i,c,user){sI=i;cI=c||0;const e=SHORTS[sI];sRender();sLoad();
- if(!e.clips.length){svid.removeAttribute('src');svid.load();sPh.style.display='flex';return}
- svid.src=e.clips[cI];sPh.style.display='flex';const p=svid.play();p&&p.catch(()=>{})}
-svid.onloadeddata=()=>sPh.style.display='none';svid.onerror=()=>{sPh.style.display='flex'};
-svid.onended=()=>{const e=SHORTS[sI];if(cI<e.clips.length-1)sPlay(sI,cI+1);else sNextEp()};
-function sNextEp(){for(let k=1;k<=SHORTS.length;k++){const j=(sI+k)%SHORTS.length;if(SHORTS[j].clips.length){if(j<=sI&&k>0&&j==sI)return;return sPlay(j,0)}}}
-sNext.onclick=()=>sPlay((sI+1)%SHORTS.length,0,true);
-sSnd.onclick=()=>{svid.muted=!svid.muted;sWave.style.display=svid.muted?'none':'';if(!svid.muted)svid.play().catch(()=>{})};sWave.style.display='none';
-sv.onclick=e=>{if(e.target.closest('.sbtn'))return;svid.paused?svid.play().catch(()=>{}):svid.pause()};
-async function sLoad(){const e=SHORTS[sI];try{const r=await fetch('/api/shorts/'+e.id);if(!r.ok)throw 0;const j=await r.json();if(e!==SHORTS[sI])return;sLikes.textContent=j.likes;
- sCm.innerHTML=j.comments.length?j.comments.map(c=>`<div class="cm"><b>${c.name}</b><small>${new Date(c.at).toLocaleString(L=='th'?'th-TH':'en-US')}</small><p>${c.text}</p></div>`).join(''):`<p class="mut">${t('sno')}</p>`}catch(x){sCm.innerHTML=`<p class="mut">${t('off')}</p>`}}
-sLike.onclick=async()=>{const e=SHORTS[sI],un=!!liked[e.id];try{const r=await fetch(`/api/shorts/${e.id}/like`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({unlike:un})});const j=await r.json();if(!r.ok){sErr.textContent=t(r.status==429?'rl':'off');return}
- un?delete liked[e.id]:liked[e.id]=1;localStorage.setItem('pfx_liked',JSON.stringify(liked));sLikes.textContent=j.likes;sMeta()}catch(x){sErr.textContent=t('off')}};
-sText.oninput=()=>sCnt.textContent=sText.value.length+'/300';
-sForm.onsubmit=async ev=>{ev.preventDefault();sErr.textContent='';const e=SHORTS[sI];try{const r=await fetch(`/api/shorts/${e.id}/comments`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({name:sName.value,text:sText.value})});
- if(!r.ok){sErr.textContent=t(r.status==429?'rl':'off');return}sText.value='';sCnt.textContent='0/300';sLoad()}catch(x){sErr.textContent=t('off')}};
-new IntersectionObserver(en=>{if(!en[0].isIntersecting)svid.pause();else if(svid.src&&svid.paused)svid.play().catch(()=>{})},{threshold:.4}).observe(sv);
-const _r2=render;render=function(){_r2();if(window.sList){sRender();sLoad()}};render();sPlay(0,0);
+Object.assign(T.th,{fshare:"แชร์",feps:"ตอน",fsend:"ส่ง",fhint:"เลื่อนขึ้น-ลง หรือใช้ปุ่มลูกศร เพื่อดูตอนถัดไป",fcm:"ความคิดเห็น",fname:"ชื่อ",ftext:"เขียนความคิดเห็น...",fcopied:"คัดลอกลิงก์แล้ว",ftap:"แตะเพื่อเปิดเสียง",fsoon:"เร็วๆ นี้",free:"ดูฟรี ไม่ต้องล็อกอิน"});
+Object.assign(T.en,{fshare:"Share",feps:"Episodes",fsend:"Send",fhint:"Scroll, swipe or use arrow keys for the next episode",fcm:"Comments",fname:"Name",ftext:"Add a comment...",fcopied:"Link copied",ftap:"Tap to unmute",fsoon:"Coming soon",free:"Free to watch, no login"});
+const CAP={ep01:{th:"ชายหนุ่มขี้แพ้ถูกดึงไปต่างโลก และได้พบกับหน้าต่างระบบสีทองที่จะสอนเขาทุกอย่าง",en:"A down-on-his-luck young man is pulled into another world and meets a golden system window that will teach him everything."},
+ ep02:{th:"บทเรียนแรกในเมืองตลาด: ใช้ข้อมูล ไม่ใช่ดวง",en:"First lesson in the market town: data, not luck."},ep03:{th:"ความโลภคือศัตรูตัวจริง",en:"Greed is the real enemy."},ep04:{th:"ใครคือชายในผ้าคลุม",en:"Who is the hooded figure?"},ep05:{th:"การก้าวสู่ระดับเทพ",en:"The rise to god tier."}};
+let fI=0,fMuted=true,fCur=null;const fItems=[];
+function fToast(m){fdToast.textContent=m;fdToast.classList.add('on');clearTimeout(fToast.t);fToast.t=setTimeout(()=>fdToast.classList.remove('on'),1600)}
+async function fDetect(){await Promise.all(SHORTS.map(async e=>{if(e.clips.length)return;try{const r=await fetch(`shorts/${e.id}/${e.id}.mp4`,{method:'HEAD'});if(r.ok&&/video/.test(r.headers.get('content-type')||''))e.clips=[`shorts/${e.id}/${e.id}.mp4`]}catch(x){}}))}
+function fBuild(){fdFeed.innerHTML=SHORTS.map((e,i)=>`<div class="fd-it" data-i="${i}" style="background-image:url('${e.cover}'),linear-gradient(160deg,#1d2230,#2a2410)">${e.clips.length?`<div class="fd-pp"><svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16l13-8z" fill="currentColor"/></svg></div>`:`<div class="fd-soon"><b>${t('fsoon')}</b><span>EP${i+1}</span></div>`}<div class="fd-ov"><span class="ep">EP${i+1}</span><small>${t('sser')}${e.clips.length?' · '+t('free'):''}</small><h3>${e[L]}</h3><p>${(CAP[e.id]||{})[L]||''}</p></div><div class="fd-bar"><i></i></div></div>`).join('');
+ fItems.length=0;fdFeed.querySelectorAll('.fd-it').forEach(el=>fItems.push(el));
+ fItems.forEach(el=>el.onclick=ev=>{const v=el.querySelector('video');if(!v)return;if(fMuted){fSetMute(false);return}if(v.paused){v.play().catch(()=>{});el.classList.remove('paused')}else{v.pause();el.classList.add('paused')}});
+ const io=new IntersectionObserver(en=>en.forEach(x=>{if(x.isIntersecting&&x.intersectionRatio>.6)fActivate(+x.target.dataset.i)}),{root:fdFeed,threshold:[.6]});fItems.forEach(el=>io.observe(el));fActivate(fI,true)}
+function fVid(i,pre){const e=SHORTS[i],el=fItems[i];if(!e||!el||!e.clips.length)return null;let v=el.querySelector('video');
+ if(!v){v=document.createElement('video');v.playsInline=true;v.setAttribute('playsinline','');v.muted=fMuted;v.loop=false;v.poster=e.cover;v.preload=pre?'auto':'metadata';v.src=e.clips[0];el.prepend(v);
+  v.ontimeupdate=()=>{el.querySelector('.fd-bar i').style.width=(v.currentTime/v.duration*100||0)+'%'};v.onended=()=>{if(i<SHORTS.length-1&&SHORTS[i+1].clips.length)fGo(i+1);else{v.currentTime=0;v.play().catch(()=>{})}}}return v}
+function fActivate(i,force){if(i===fI&&!force&&fCur)return;fI=i;const e=SHORTS[i];fdBg.style.backgroundImage=`url('${e.cover}')`;
+ fItems.forEach((el,k)=>{const v=el.querySelector('video');if(v&&k!==i){v.pause();if(Math.abs(k-i)>1){v.removeAttribute('src');v.load();v.remove()}}});
+ const v=fVid(i);fCur=v;fVid(i+1,true);if(v&&fVisible){v.muted=fMuted;v.play().then(()=>fItems[i].classList.remove('paused')).catch(()=>fItems[i].classList.add('paused'))}
+ fdLike.classList.toggle('on',!!liked[e.id]);fStats();if(fdSheet.classList.contains('open'))fdSheet.classList.contains('eps')?fEps():fComments()}
+function fGo(i){i=Math.max(0,Math.min(SHORTS.length-1,i));fdFeed.scrollTo({top:fItems[i].offsetTop,behavior:'smooth'})}
+function fSetMute(m){fMuted=m;fItems.forEach(el=>{const v=el.querySelector('video');if(v)v.muted=m});fdMute.innerHTML=m?`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m23 9-6 6M17 9l6 6"/></svg>`:`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>`;if(!m&&fCur&&fCur.paused)fCur.play().catch(()=>{});if(m)fToast(t('ftap'))}
+fdMute.onclick=ev=>{ev.stopPropagation();fSetMute(!fMuted)};
+let fData={};async function fStats(){const e=SHORTS[fI];try{const r=await fetch('/api/shorts/'+e.id);if(!r.ok)throw 0;const j=await r.json();fData[e.id]=j;if(e!==SHORTS[fI])return;fdLikes.textContent=j.likes;fdCmts.textContent=j.comments.length}catch(x){fdLikes.textContent='-';fdCmts.textContent='-'}}
+fdLike.onclick=async()=>{const e=SHORTS[fI],un=!!liked[e.id];try{const r=await fetch(`/api/shorts/${e.id}/like`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({unlike:un})});const j=await r.json();if(!r.ok)return fToast(t(r.status==429?'rl':'off'));
+ un?delete liked[e.id]:liked[e.id]=1;localStorage.setItem('pfx_liked',JSON.stringify(liked));fdLikes.textContent=j.likes;fdLike.classList.toggle('on',!un)}catch(x){fToast(t('off'))}};
+function fComments(){fdSheet.classList.remove('eps');fdSheetT.textContent=t('fcm')+' · EP'+(fI+1);const j=fData[SHORTS[fI].id];
+ fdBody.innerHTML=j?(j.comments.length?j.comments.map(c=>`<div class="cm"><b>${c.name}</b><small>${new Date(c.at).toLocaleString(L=='th'?'th-TH':'en-US')}</small><p>${c.text}</p></div>`).join(''):`<p class="mut">${t('sno')}</p>`):`<p class="mut">${t('off')}</p>`}
+function fEps(){fdSheet.classList.add('eps');fdSheetT.textContent=t('sser');fdBody.innerHTML=SHORTS.map((e,i)=>`<div class="eli ${i==fI?'on':''}" data-i="${i}"><div class="c" style="background-image:url('${e.cover}')"></div><div><b>EP${i+1} ${e[L]}</b><br><span>${e.clips.length?t('free'):t('fsoon')}</span></div></div>`).join('');
+ fdBody.querySelectorAll('.eli').forEach(x=>x.onclick=()=>{fdSheet.classList.remove('open');fGo(+x.dataset.i)})}
+fdCmt.onclick=async()=>{await fStats();fComments();fdSheet.classList.add('open')};fdList.onclick=()=>{fEps();fdSheet.classList.add('open')};fdClose.onclick=()=>fdSheet.classList.remove('open');
+fdShare.onclick=async()=>{const url=location.origin+location.pathname+'#ep'+(fI+1),e=SHORTS[fI];try{if(navigator.share&&matchMedia('(pointer:coarse)').matches)await navigator.share({title:'PureFxAi - '+e[L],url});else{await navigator.clipboard.writeText(url);fToast(t('fcopied'))}}catch(x){}};
+fdForm.onsubmit=async ev=>{ev.preventDefault();fdErr.textContent='';const e=SHORTS[fI];try{const r=await fetch(`/api/shorts/${e.id}/comments`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({name:fdName.value,text:fdText.value})});
+ if(!r.ok){fdErr.textContent=t(r.status==429?'rl':'off');return}fdText.value='';await fStats();fComments()}catch(x){fdErr.textContent=t('off')}};
+let fVisible=true;new IntersectionObserver(en=>{fVisible=en[0].isIntersecting;if(!fCur)return;if(!fVisible)fCur.pause();else fCur.play().catch(()=>{})},{threshold:.35}).observe(shorts);
+addEventListener('keydown',ev=>{if(!fVisible||/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;if(ev.key=='ArrowDown'||ev.key=='PageDown'){ev.preventDefault();fGo(fI+1)}else if(ev.key=='ArrowUp'||ev.key=='PageUp'){ev.preventDefault();fGo(fI-1)}else if(ev.key==' '&&fCur){ev.preventDefault();fItems[fI].click()}else if(ev.key=='m')fSetMute(!fMuted)});
+let fWheel=0;fdFeed.addEventListener('wheel',ev=>{ev.preventDefault();if(Date.now()-fWheel<700||Math.abs(ev.deltaY)<12)return;fWheel=Date.now();fGo(fI+(ev.deltaY>0?1:-1))},{passive:false});
+function fLang(){fdName.placeholder=t('fname');fdText.placeholder=t('ftext');const keep=fI;fBuild();fdFeed.scrollTop=fItems[keep]?fItems[keep].offsetTop:0}
+(async()=>{const m=/^#ep(\d+)$/.exec(location.hash);if(m)fI=Math.min(SHORTS.length-1,Math.max(0,m[1]-1));await fDetect();fLang();fSetMute(true);const _r3=render;render=function(){_r3();fLang()}})();
+
 </script>
 <script type="module">
 /* three.js gold neural particle sphere; falls back silently to CSS gradient */
