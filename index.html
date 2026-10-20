@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html><html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>PureFxAi — คอร์สเรียน AI | AI Courses</title>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -221,9 +221,10 @@ img{max-width:100%}
 #navL .more{position:relative}#navL .sub{display:none;position:absolute;top:100%;right:0;min-width:190px;background:rgba(12,14,20,.97);border:1px solid rgba(232,184,74,.2);border-radius:12px;padding:8px;list-style:none;z-index:20}#navL .more:hover .sub,#navL .more:focus-within .sub{display:block}#navL .sub a{display:block;padding:8px 10px}
 @media(max-width:699px){.appc{grid-template-columns:1fr}.appph{width:180px}.mgrid{grid-template-columns:1fr}.pc{flex-basis:128px}.pgrid{grid-template-columns:repeat(2,1fr);gap:12px}#navL .sub{display:block;position:static;background:none;border:0;padding:0 0 0 12px}}
 </style>
-<script src="assets/subs.js"></script></head><body>
+<script src="assets/subs.js"></script><link rel="stylesheet" href="assets/pfx-nav.css"><link rel="stylesheet" href="assets/pfx-landing.css">
+</head><body>
 <nav><div class="wrap"><a href="#" class="logo">PureFx<span>Ai</span></a>
-<ul id="navL"><li><a href="#series" data-t="nSer"></a></li><li><a href="#cats" data-t="nCat"></a></li><li><a href="studio.html" data-t="nStu"></a></li><li><a href="#app" data-t="nApp"></a></li><li><a href="profile.html" data-t="nPro"></a></li><li class="more"><a href="#more" data-t="nMore"></a><ul class="sub"><li><a href="learn.html" data-t="lmsL"></a></li><li><a href="learn.html#checkout" data-t="n5"></a></li><li><a href="#more" data-t="n2"></a></li></ul></li></ul>
+<ul id="navL"><li><a href="series.html" data-t="nSer"></a></li><li><a href="series.html#cats" data-t="nCat"></a></li><li><a href="studio.html" data-t="nStu"></a></li><li><a href="#app" data-t="nApp"></a></li><li><a href="profile.html" data-t="nPro"></a></li><li class="more"><a href="#more" data-t="nMore"></a><ul class="sub"><li><a href="learn.html" data-t="lmsL"></a></li><li><a href="learn.html#checkout" data-t="n5"></a></li><li><a href="#more" data-t="n2"></a></li></ul></li></ul>
 <div class="nr"><div class="lang"><button data-l="th">TH</button><button data-l="en">EN</button></div><a href="learn.html" class="btn o cta" style="padding:9px 16px"><span data-t="lmsL"></span></a><a href="#contact" class="btn cta" data-t="cta"></a><button class="burger" id="burger" aria-label="menu"></button></div></div></nav>
 
 <section id="shorts" class="fd" aria-label="Shorts">
@@ -235,6 +236,7 @@ img{max-width:100%}
 <form id="fdForm" class="fd-form"><input id="fdName" maxlength="40" autocomplete="nickname"><input id="fdText" maxlength="300" required><button class="btn" data-t="fsend"></button></form><div id="fdErr" class="fd-err"></div></div>
 <div class="fd-toast" id="fdToast"></div>
 <div class="fd-hint" data-t="fhint"></div></div></section>
+<section id="landing" style="padding:0"><div id="pfxLanding" data-mode="home"></div></section>
 <section id="series"><div class="wrap"><h2 data-t="serT"></h2><p class="sub" data-t="serS"></p>
 <div class="row" id="rowCont"></div><div class="row" id="rowTrend"></div><div class="row" id="rowNew"></div>
 <h3 class="rh" id="cats" data-t="catT"></h3><div class="ctabs" id="serTabs"></div><div class="pgrid" id="serGrid"></div></div></section>
@@ -474,7 +476,7 @@ function fSaveUI(){const e=SHORTS[fI];if(!e)return;fdSave.classList.toggle('sv',
 fdSave.onclick=async()=>{const e=SHORTS[fI];if(!ME){fToast(t('login1'));setTimeout(()=>location.href='learn.html#login',1200);return}const on=!UD.saved.includes(e.id);
  try{const r=await fetch('/api/lms/me/shorts',{method:'POST',headers:{'content-type':'application/json','x-pfx':'1'},body:JSON.stringify({ep:e.id,action:on?'save':'unsave'})});if(r.ok){UD=await r.json();fSaveUI();if(on)fToast(t('saved1'))}}catch(x){}};
 const _likeOrig=fdLike.onclick;fdLike.onclick=async()=>{const e=SHORTS[fI],was=!!liked[e.id];await _likeOrig();if(ME&&!!liked[e.id]!==was)fetch('/api/lms/me/shorts',{method:'POST',headers:{'content-type':'application/json','x-pfx':'1'},body:JSON.stringify({ep:e.id,action:was?'unlike':'like'})}).catch(()=>{})};
-let lastP=0;function trackProg(e,v){if(Date.now()-lastP<8000)return;lastP=Date.now();const h=LH();h[e.id]={pos:v.currentTime,dur:v.duration||0,at:new Date().toISOString()};localStorage.setItem('pfx_hist',JSON.stringify(h));
+let lastP=0;function trackProg(e,v){if(v.currentTime<3||Date.now()-lastP<8000)return;lastP=Date.now();const h=LH();h[e.id]={pos:v.currentTime,dur:v.duration||0,at:new Date().toISOString()};localStorage.setItem('pfx_hist',JSON.stringify(h));
  if(ME)fetch('/api/lms/me/shorts',{method:'POST',headers:{'content-type':'application/json','x-pfx':'1'},body:JSON.stringify({ep:e.id,action:'progress',pos:v.currentTime,dur:v.duration||0})}).then(r=>r.ok&&r.json()).then(d=>{if(d)UD=d}).catch(()=>{})}
 async function loadSeries(){try{MAN=await (await fetch('/api/lms/series')).json()}catch(x){return false}
  ALL=[];for(const sr of MAN.series)for(const e of sr.episodes)ALL.push({id:e.id,n:e.n,sid:sr.id,genre:sr.genre,series:sr,th:e.th,en:e.en,date:e.date,cover:e.coverOk?e.cover:(sr.coverOk?sr.cover:e.cover),coverOk:e.coverOk,clips:e.available?[e.video]:[],cap:{th:e.cap_th,en:e.cap_en}});
@@ -490,10 +492,10 @@ function fBuild(){fdFeed.innerHTML=SHORTS.map((e,i)=>`<div class="fd-it" data-i=
  const io=new IntersectionObserver(en=>en.forEach(x=>{if(x.isIntersecting&&x.intersectionRatio>.6)fActivate(+x.target.dataset.i)}),{root:fdFeed,threshold:[.6]});fItems.forEach(el=>io.observe(el));fActivate(fI,true)}
 function fVid(i,pre){const e=SHORTS[i],el=fItems[i];if(!e||!el||!e.clips.length)return null;let v=el.querySelector('video');
  if(!v){v=document.createElement('video');v.playsInline=true;v.setAttribute('playsinline','');v.muted=fMuted;v.loop=false;v.poster=e.cover;v.preload=pre?'auto':'metadata';v.src=e.clips[0];el.prepend(v);window.PfxSubs&&PfxSubs.attach(v,e.clips[0],el);
-  v.ontimeupdate=()=>{el.querySelector('.fd-bar i').style.width=(v.currentTime/v.duration*100||0)+'%';trackProg(e,v)};if(fSeek){const s0=fSeek;fSeek=0;v.addEventListener('loadedmetadata',()=>{if(s0<v.duration-2)v.currentTime=s0},{once:true})}v.onended=()=>{if(i<SHORTS.length-1&&SHORTS[i+1].clips.length)fGo(i+1);else{v.currentTime=0;v.play().catch(()=>{})}}}return v}
+  v.ontimeupdate=()=>{el.querySelector('.fd-bar i').style.width=(v.currentTime/v.duration*100||0)+'%';trackProg(e,v)};if(!fSeek&&!pre){const hh=(UD.history||{})[e.id]||LH()[e.id];if(hh&&hh.pos>3&&!(hh.dur&&hh.pos>=hh.dur-3))fSeek=Math.floor(hh.pos)}if(fSeek){const s0=fSeek;fSeek=0;v.addEventListener('loadedmetadata',()=>{if(s0<v.duration-2)v.currentTime=s0},{once:true})}v.onended=()=>{if(i<SHORTS.length-1&&SHORTS[i+1].clips.length)fGo(i+1);else{v.currentTime=0;v.play().catch(()=>{})}}}return v}
 function fActivate(i,force){if(i===fI&&!force&&fCur)return;fI=i;const e=SHORTS[i];fdBg.style.backgroundImage=`url('${e.cover}')`;
  fItems.forEach((el,k)=>{const v=el.querySelector('video');if(v&&k!==i){v.pause();if(Math.abs(k-i)>1){v.removeAttribute('src');v.load();v.remove()}}});
- const v=fVid(i);fCur=v;fVid(i+1,true);if(v&&fVisible){v.muted=fMuted;v.play().then(()=>fItems[i].classList.remove('paused')).catch(()=>fItems[i].classList.add('paused'))}
+ const v=fVid(i);fCur=v;if(e.clips.length)fetch(`/api/shorts/${e.id}/view`,{method:"POST"}).catch(()=>{});fVid(i+1,true);if(v&&fVisible){v.muted=fMuted;v.play().then(()=>fItems[i].classList.remove('paused')).catch(()=>fItems[i].classList.add('paused'))}
  fdLike.classList.toggle('on',!!liked[e.id]);fSaveUI();fStats();if(fdSheet.classList.contains('open'))fdSheet.classList.contains('eps')?fEps():fComments()}
 function fGo(i){i=Math.max(0,Math.min(SHORTS.length-1,i));fdFeed.scrollTo({top:fItems[i].offsetTop,behavior:'smooth'})}
 function fSetMute(m){fMuted=m;fItems.forEach(el=>{const v=el.querySelector('video');if(v)v.muted=m});fdMute.innerHTML=m?`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="m23 9-6 6M17 9l6 6"/></svg>`:`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>`;if(!m&&fCur&&fCur.paused)fCur.play().catch(()=>{});if(m)fToast(t('ftap'))}
@@ -552,4 +554,5 @@ if(!RM){const els=document.querySelectorAll('section h2,section .sub,.grid>*,.wh
  if(matchMedia('(pointer:fine)').matches){const g=document.getElementById('cglow');addEventListener('pointermove',e=>{g.style.opacity=1;g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'},{passive:true})}}
 })();
 </script>
+<script src="assets/pfx-nav.js"></script><script src="assets/pfx-landing.js"></script>
 </body></html>

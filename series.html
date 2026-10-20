@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>PureFxAi - ซีรีส์</title>
+<meta name="theme-color" content="#0b0d12"><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/pfx-nav.css"><link rel="stylesheet" href="assets/pfx-landing.css">
+<style>body{margin:0;background:#0b0d12;color:#eee;font-family:Prompt,sans-serif}.tb{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:14px;padding:12px 5%;background:linear-gradient(rgba(5,6,10,.95),rgba(5,6,10,.6));backdrop-filter:blur(8px)}
+.tb .lo{font:700 1.3rem Kanit,sans-serif;color:#fff;text-decoration:none}.tb .lo span{color:#e8b84a}.tb nav{display:flex;gap:16px;margin-left:16px}.tb nav a{color:#ccd;text-decoration:none;font-size:.9rem}.tb nav a.on,.tb nav a:hover{color:#e8b84a}
+.tb .sp{flex:1}.tb .lg button{background:none;border:1px solid #2c3343;color:#aab;border-radius:8px;padding:4px 9px;cursor:pointer;font:500 .78rem Prompt}.tb .lg button.on{border-color:#e8b84a;color:#e8b84a}
+.tb .mb{background:none;border:0;color:#fff;cursor:pointer;display:flex}.tb .mb svg{width:24px}@media(max-width:860px){.tb nav{display:none}}</style></head><body>
+<header class="tb"><a class="lo" href="index.html">PureFx<span>Ai</span></a><nav><a href="index.html" data-k="home"></a><a href="series.html" class="on" data-k="ser"></a><a href="studio.html" data-k="stu"></a><a href="app.html" data-k="app"></a><a href="profile.html" data-k="pro"></a></nav><div class="sp"></div>
+<div class="lg"><button data-l="th">TH</button> <button data-l="en">EN</button></div><button class="mb" id="mb" aria-label="menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></header>
+<div id="pfxLanding" data-mode="full"></div>
+<script>(function(){const N={th:{home:"หน้าแรก",ser:"ซีรีส์",stu:"สตูดิโอ",app:"แอป",pro:"โปรไฟล์"},en:{home:"Home",ser:"Series",stu:"Studio",app:"App",pro:"Profile"}};
+let L=new URLSearchParams(location.search).get('lang')||localStorage.getItem('pfx_lang')||'th';
+function d(){document.documentElement.lang=L;document.title='PureFxAi - '+N[L].ser;document.querySelectorAll('[data-k]').forEach(a=>a.textContent=N[L][a.dataset.k]);document.querySelectorAll('.lg button').forEach(b=>b.classList.toggle('on',b.dataset.l==L))}
+document.querySelectorAll('.lg button').forEach(b=>b.onclick=()=>{L=b.dataset.l;localStorage.setItem('pfx_lang',L);d()});d();
+document.getElementById('mb').onclick=()=>window.PfxNav&&PfxNav.openMenu()})()</script>
+<script src="assets/pfx-nav.js"></script><script src="assets/pfx-landing.js"></script></body></html>

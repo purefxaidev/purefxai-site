@@ -18,18 +18,21 @@ const esc=x=>String(x).replace(/[&<>"'`]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;
 const RL=new Map();function limited(ip,key,max,win){const k=ip+key,now=Date.now(),a=(RL.get(k)||[]).filter(t=>now-t<win);a.push(now);RL.set(k,a);return a.length>max}
 setInterval(()=>RL.clear(),10*60*1000).unref();
 async function body(req,max=4096){let b='';for await(const c of req){b+=c;if(b.length>max)throw new Error('too_large')}return b?JSON.parse(b):{}}
-function shorts(req,res,u){const m=u.pathname.match(/^\/api\/shorts\/([a-z0-9-]{2,40})(?:\/(like|comments))?$/);if(!m)return false;
+function shorts(req,res,u){const m=u.pathname.match(/^\/api\/shorts\/([a-z0-9-]{2,40})(?:\/(like|comments|report|view))?$/);if(!m)return false;
  const ep=m[1],act=m[2],ip=req.socket.remoteAddress||'';const E=SH[ep]||(SH[ep]={likes:0,comments:[]});
  const J=(c,o)=>{res.writeHead(c,{'content-type':'application/json'});res.end(JSON.stringify(o))};
  (async()=>{try{
   if(req.method==='GET'&&!act)return J(200,{likes:E.likes,comments:E.comments.slice(-100).reverse()});
   if(req.method==='POST'&&act==='like'){if(limited(ip,'like'+ep,5,60000))return J(429,{error:'rate_limited'});const b=await body(req);E.likes=Math.max(0,E.likes+(b.unlike?-1:1));save();return J(200,{likes:E.likes})}
+  if(req.method==='POST'&&act==='view'){if(!limited(ip,'v'+ep,1,30*60000)){E.views=(E.views||0)+1;save()}return J(200,{views:E.views||0})}
+  if(req.method==='POST'&&act==='report'){if(limited(ip,'rp',5,36e5))return J(429,{error:'rate_limited'});const b=await body(req);const why=String(b.why||'').slice(0,60),note=String(b.note||'').slice(0,280);
+   (E.reports||(E.reports=[])).push({why:esc(why),note:esc(note),at:new Date().toISOString()});if(E.reports.length>200)E.reports.shift();save();return J(201,{ok:true})}
   if(req.method==='POST'&&act==='comments'){if(limited(ip,'cm',5,60000))return J(429,{error:'rate_limited'});const b=await body(req);
    const name=String(b.name||'').trim().slice(0,40)||'Guest',text=String(b.text||'').trim();
    if(!text||text.length>300)return J(400,{error:'invalid_length'});
-   const c={name:esc(name),text:esc(text),at:new Date().toISOString()};E.comments.push(c);if(E.comments.length>1000)E.comments.shift();save();return J(201,c)}
+   const c={id:require('crypto').randomBytes(6).toString('hex'),name:esc(name),text:esc(text),at:new Date().toISOString()};E.comments.push(c);if(E.comments.length>1000)E.comments.shift();save();chars.onComment(ep,c,E,save,req.headers['x-forwarded-for']?.split(',')[0]||ip);return J(201,c)}
   J(405,{error:'method'})}catch(e){J(400,{error:String(e.message||'bad_request')})}})();return true}
-const lms=require('./lms'),studio=require('./studio');let social=()=>false;try{social=require('./social')}catch(e){}
+const lms=require('./lms'),studio=require('./studio');const chars=require('./characters');let social=()=>false;try{social=require('./social')}catch(e){}
 const server=http.createServer(async(req,res)=>{
  const u=new URL(req.url,'http://x');
  res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('X-Frame-Options','SAMEORIGIN');res.setHeader('Referrer-Policy','strict-origin-when-cross-origin');res.setHeader('Permissions-Policy','camera=(), geolocation=(), microphone=(self)');res.setHeader('Cross-Origin-Opener-Policy','same-origin');
@@ -42,7 +45,9 @@ const server=http.createServer(async(req,res)=>{
   if(req.headers['x-pfx']!=='1'||!lms.isAdmin(req)){res.writeHead(401);return res.end('{"error":"admin_required"}')}
   let b='';for await(const c of req){b+=c;if(b.length>2000)break}let at='';try{at=JSON.parse(b).at}catch(e){}
   const E=SH[m[1]];const n=E?E.comments.length:0;if(E)E.comments=E.comments.filter(c=>c.at!==at);save();return res.end(JSON.stringify({removed:n-(E?E.comments.length:0)}))}}
- if(u.pathname==='/api/shorts-stats'&&req.method==='GET'){const eps={},rec=[];for(const[k,E]of Object.entries(SH)){eps[k]={likes:E.likes||0,comments:(E.comments||[]).length};for(const c of(E.comments||[]).slice(-10))rec.push({ep:k,...c})}rec.sort((a,b)=>a.at<b.at?1:-1);res.writeHead(200,{'content-type':'application/json','cache-control':'no-store'});return res.end(JSON.stringify({eps,recent:rec.slice(0,12)}))}
+ if(u.pathname==='/api/admin-shorts/reports'&&req.method==='GET'){res.setHeader('content-type','application/json');if(!lms.isAdmin(req)){res.writeHead(401);return res.end('{"error":"admin_required"}')}const out=[];for(const[k,E]of Object.entries(SH))for(const r of(E.reports||[]))out.push({ep:k,...r});out.sort((a,b)=>a.at<b.at?1:-1);return res.end(JSON.stringify({reports:out.slice(0,300)}))}
+ if(u.pathname==='/api/shorts-stats'&&req.method==='GET'){const eps={},rec=[];for(const[k,E]of Object.entries(SH)){eps[k]={likes:E.likes||0,views:E.views||0,comments:(E.comments||[]).length};for(const c of(E.comments||[]).slice(-10))rec.push({ep:k,...c})}rec.sort((a,b)=>a.at<b.at?1:-1);res.writeHead(200,{'content-type':'application/json','cache-control':'no-store'});return res.end(JSON.stringify({eps,recent:rec.slice(0,12)}))}
+ if(chars.route(req,res,u,SH,save))return;
  if(shorts(req,res,u))return;
  if(u.pathname==='/api/status'){res.writeHead(200,{'content-type':'application/json'});return res.end(JSON.stringify({configured:!!KEY}))}
  if(u.pathname==='/api/chat'&&req.method==='POST'){
