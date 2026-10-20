@@ -1,0 +1,128 @@
+{
+ "genres": [
+  {
+   "id": "isekai",
+   "th": "ต่างโลก",
+   "en": "Isekai",
+   "order": 1
+  },
+  {
+   "id": "cartoon",
+   "th": "การ์ตูน",
+   "en": "Anime / Cartoon",
+   "order": 2
+  },
+  {
+   "id": "melodrama",
+   "th": "ละครน้ำเน่า",
+   "en": "Thai Melodrama",
+   "order": 3
+  }
+ ],
+ "series": [
+  {
+   "id": "pfx-isekai",
+   "genre": "isekai",
+   "th": "ระบบ PureFxAi ต่างโลก",
+   "en": "PureFxAi System: Another World",
+   "cover": "shorts/ep01/cover.jpg",
+   "desc_th": "ชายหนุ่มขี้แพ้ถูกดึงไปต่างโลกพร้อมหน้าต่างระบบสีทองที่สอนเขาทุกอย่าง จากศูนย์สู่ระดับเทพ",
+   "desc_en": "A down-on-his-luck young man is pulled into another world with a golden system window that teaches him everything, from zero to god tier.",
+   "episodes": [
+    {
+     "id": "ep01",
+     "n": 1,
+     "th": "ไอ้ขี้แพ้กับหน้าต่างสีทอง",
+     "en": "The Loser and the Golden Window",
+     "video": "shorts/ep01/ep01.mp4",
+     "cover": "shorts/ep01/cover.jpg",
+     "date": "2026-10-19",
+     "cap_th": "ชายหนุ่มขี้แพ้ถูกดึงไปต่างโลก และได้พบกับหน้าต่างระบบสีทองที่จะสอนเขาทุกอย่าง",
+     "cap_en": "A down-on-his-luck young man is pulled into another world and meets a golden system window that will teach him everything."
+    },
+    {
+     "id": "ep02",
+     "n": 2,
+     "th": "เมืองตลาดแห่งโชคชะตา",
+     "en": "The Market Town of Chance",
+     "video": "shorts/ep02/ep02.mp4",
+     "cover": "shorts/ep02/cover.jpg",
+     "cap_th": "บทเรียนแรกในเมืองตลาด: ใช้ข้อมูล ไม่ใช่ดวง",
+     "cap_en": "First lesson in the market town: data, not luck."
+    },
+    {
+     "id": "ep03",
+     "n": 3,
+     "th": "วินัยเหนือความโลภ",
+     "en": "Discipline over Desire",
+     "video": "shorts/ep03/ep03.mp4",
+     "cover": "shorts/ep03/cover.jpg",
+     "cap_th": "ความโลภคือศัตรูตัวจริง",
+     "cap_en": "Greed is the real enemy."
+    },
+    {
+     "id": "ep04",
+     "n": 4,
+     "th": "ชายในผ้าคลุม",
+     "en": "The Hooded Figure",
+     "video": "shorts/ep04/ep04.mp4",
+     "cover": "shorts/ep04/cover.jpg",
+     "cap_th": "ใครคือชายในผ้าคลุม",
+     "cap_en": "Who is the hooded figure?"
+    },
+    {
+     "id": "ep05",
+     "n": 5,
+     "th": "ระดับเทพ",
+     "en": "God Tier",
+     "video": "shorts/ep05/ep05.mp4",
+     "cover": "shorts/ep05/cover.jpg",
+     "cap_th": "การก้าวสู่ระดับเทพ",
+     "cap_en": "The rise to god tier."
+    }
+   ]
+  },
+  {
+   "id": "pfx-cartoon",
+   "genre": "cartoon",
+   "th": "ซีรีส์การ์ตูน (ชื่อเรื่องเร็วๆ นี้)",
+   "en": "Cartoon series (title coming soon)",
+   "cover": "shorts/cartoon/cover.jpg",
+   "desc_th": "ซีรีส์การ์ตูนแนวตั้งเรื่องใหม่จาก PureFxAi",
+   "desc_en": "A new vertical cartoon series from PureFxAi.",
+   "episodes": [
+    {
+     "id": "cartoon-ep01",
+     "n": 1,
+     "th": "ตอนที่ 1",
+     "en": "Episode 1",
+     "video": "shorts/cartoon/ep01/ep01.mp4",
+     "cover": "shorts/cartoon/ep01/cover.jpg",
+     "cap_th": "",
+     "cap_en": ""
+    }
+   ]
+  },
+  {
+   "id": "pfx-melodrama",
+   "genre": "melodrama",
+   "th": "รักร้าวในคฤหาสน์ทอง",
+   "en": "Heartbreak in the Golden Mansion",
+   "cover": "shorts/melodrama/cover.jpg",
+   "desc_th": "สาวโรงงานกับทายาทตระกูลเศรษฐี รักสามเส้า ความลับครอบครัว และการทรยศที่ไม่มีใครคาดคิด",
+   "desc_en": "A factory girl and the heir of a wealthy family: a love triangle, family secrets and an unexpected betrayal.",
+   "episodes": [
+    {
+     "id": "melodrama-ep01",
+     "n": 1,
+     "th": "คืนฝนตกที่หน้าคฤหาสน์",
+     "en": "Rainy Night at the Mansion Gate",
+     "video": "shorts/melodrama/ep01/ep01.mp4",
+     "cover": "shorts/melodrama/ep01/cover.jpg",
+     "cap_th": "เธอแค่มาส่งของ แต่ได้เห็นความลับที่เปลี่ยนชีวิตทั้งตระกูล",
+     "cap_en": "She only came to deliver a package, but saw a secret that changes the whole family."
+    }
+   ]
+  }
+ ]
+}

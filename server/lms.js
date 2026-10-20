@@ -26,7 +26,7 @@ const user=req=>{const s=sess(req,'pfx_sess');const u=s&&db.users.find(x=>x.id==
 const isAdmin=req=>!!sess(req,'pfx_admin');
 const J=(res,c,o)=>{res.writeHead(c,{'content-type':'application/json','cache-control':'no-store'});res.end(JSON.stringify(o))};
 async function body(req,max=200000){let b='';for await(const c of req){b+=c;if(b.length>max)throw new Error('too_large')}return b?JSON.parse(b):{}}
-const pub=u=>({id:u.id,email:u.email,name:u.name,packages:u.packages,extraCourses:u.extraCourses,revoked:u.revoked,disabled:!!u.disabled,created:u.created});
+const pub=u=>({id:u.id,email:u.email,name:u.name,avatar:u.avatar?`/api/lms/avatar/${u.id}?v=${u.avatar}`:null,packages:u.packages,extraCourses:u.extraCourses,revoked:u.revoked,disabled:!!u.disabled,created:u.created});
 function access(u,c){if(!u)return false;if((u.revoked||[]).includes(c.id))return false;return (u.extraCourses||[]).includes(c.id)||c.packages.some(p=>(u.packages||[]).includes(p))}
 const lessons=c=>c.modules.flatMap(m=>m.lessons);
 function prog(u,c){const p=db.progress[u.id]||{},ls=lessons(c),d=ls.filter(l=>p[c.id+'/'+l.id]?.done).length;return{done:d,total:ls.length,pct:ls.length?Math.round(d/ls.length*100):0}}
@@ -59,6 +59,14 @@ async function cert(u,c,L,req){const r=issueCert(u,c),n=new Date(r.issued),o={ye
  const qr=await require('qrcode').toString(url,{type:'svg',margin:0,color:{dark:'#2a2214',light:'#0000'}});
  return require('./certtpl')({name:r.name,courseTh:c.th,courseEn:c.en,dateTh:n.toLocaleDateString('th-TH',o),dateEn:n.toLocaleDateString('en-GB',o),id:r.id,lang:L,qrSvg:qr,verifyUrl:url})}
 
+
+// ---- Shorts series manifest + per-user shorts data ----
+const ROOT=path.join(__dirname,'..');
+function seriesOut(){const seed=JSON.parse(fs.readFileSync(path.join(__dirname,'shorts-seed.json'),'utf8'));const m=db.shortsManifest||(db.shortsManifest=seed);
+ if(m!==seed){let ch=false;for(const g of seed.genres)if(!m.genres.some(x=>x.id===g.id)&&!(m.removed||[]).includes(g.id)){m.genres.push(g);ch=true}for(const x of seed.series)if(!m.series.some(y=>y.id===x.id)&&!(m.removed||[]).includes(x.id)){m.series.push(x);ch=true}if(ch)save()}
+ const ok=p=>{try{return /^shorts\/[\w\/.-]+$/.test(p)&&!p.includes('..')&&fs.statSync(path.join(ROOT,p)).size>0}catch(e){return false}};
+ return{genres:m.genres,series:m.series.map(s=>({...s,coverOk:ok(s.cover),episodes:s.episodes.map(e=>({...e,available:ok(e.video),coverOk:ok(e.cover)}))}))}}
+const SU=uid=>((db.shortsUser||={})[uid]||={saved:[],liked:[],history:{}});
 function isFree(c,l){if(typeof l.free==='boolean')return l.free;return lessons(c).indexOf(l)<2}
 module.exports=function handle(req,res,u){
  const p=u.pathname;if(!p.startsWith('/api/lms/'))return false;const r=p.slice(9),M=req.method,ip=req.socket.remoteAddress||'';
@@ -93,7 +101,22 @@ module.exports=function handle(req,res,u){
   const v=lessonVideo(c.id,l.id);if(!v)return J(res,404,{error:'no_video'});return stream(req,res,v.f,'video/mp4')}
  if((m=r.match(/^files\/([\w-]+)\/([\w-]+)$/))&&M==='GET'){const c=db.courses.find(x=>x.id===m[1]),l=c&&lessons(c).find(x=>x.id===m[2]);if(!l||!l.file||!(acc(c)||isFree(c,l)))return J(res,403,{error:'locked'});
   const f=path.join(MEDIA,'files',path.basename(l.file));if(!fs.existsSync(f))return J(res,404,{error:'missing'});res.setHeader('Content-Disposition',`attachment; filename="${path.basename(f)}"`);return stream(req,res,f,'application/octet-stream')}
+ if(r==='series'&&M==='GET')return J(res,200,seriesOut());
+ if(r==='avatar/'+(r.split('/')[1]||'')&&M==='GET'){const f=path.join(DIR,'avatars',path.basename(r.split('/')[1])+'.webp');if(!/^[\w-]+$/.test(r.split('/')[1])||!fs.existsSync(f))return J(res,404,{error:'not_found'});res.writeHead(200,{'content-type':'image/webp','cache-control':'public, max-age=300'});return fs.createReadStream(f).pipe(res)}
  if(!me)return J(res,401,{error:'login_required'});
+ if(r==='me/shorts'&&M==='GET')return J(res,200,SU(me.id));
+ if(r==='me/shorts'&&M==='POST'){const b=await body(req,4000),ep=String(b.ep||'');if(!/^[\w-]{2,40}$/.test(ep))return J(res,400,{error:'invalid'});const d=SU(me.id);
+  const tg=(k,on)=>{d[k]=d[k].filter(x=>x!==ep);if(on)d[k].unshift(ep);d[k]=d[k].slice(0,500)};
+  if(b.action==='save')tg('saved',true);else if(b.action==='unsave')tg('saved',false);else if(b.action==='like')tg('liked',true);else if(b.action==='unlike')tg('liked',false);
+  else if(b.action==='progress'){d.history[ep]={pos:Math.max(0,Number(b.pos)||0),dur:Math.max(0,Number(b.dur)||0),at:now()};const ks=Object.keys(d.history);if(ks.length>300){ks.sort((a,c)=>d.history[a].at<d.history[c].at?-1:1).slice(0,ks.length-300).forEach(k=>delete d.history[k])}}
+  else if(b.action==='clear-history')d.history={};else return J(res,400,{error:'invalid'});save();return J(res,200,d)}
+ if(r==='me/profile'&&M==='POST'){const ct=req.headers['content-type']||'';
+  if(/^multipart/.test(ct)){const parts={};let buf=[],big=false;await new Promise((ok,bad)=>{let bb;try{bb=Busboy({headers:req.headers,limits:{fileSize:3*1024*1024,files:1,fields:3,fieldSize:200}})}catch(e){return bad(e)}bb.on('field',(k,v)=>parts[k]=v);bb.on('file',(k,st)=>{st.on('data',x=>buf.push(x));st.on('limit',()=>big=true)});bb.on('close',ok);bb.on('error',bad);req.pipe(bb)});
+   if(big)return J(res,413,{error:'too_large'});if(parts.name!=null){const n=String(parts.name).trim().slice(0,80);if(n)me.name=n}
+   if(buf.length){let sharp;try{sharp=require('sharp')}catch(e){return J(res,500,{error:'server_error'})}const b=Buffer.concat(buf);try{const mt=await sharp(b,{limitInputPixels:30e6}).metadata();if(!['jpeg','png','webp'].includes(mt.format))throw 0;
+    const dd=path.join(DIR,'avatars');fs.mkdirSync(dd,{recursive:true});await sharp(b).rotate().resize(256,256,{fit:'cover'}).webp({quality:85}).toFile(path.join(dd,me.id+'.webp'));me.avatar=Date.now()}catch(e){return J(res,415,{error:'bad_image'})}}
+   save();return J(res,200,{user:pub(me)})}
+  const b=await body(req,2000);const n=String(b.name||'').trim().slice(0,80);if(!n)return J(res,400,{error:'invalid_name'});me.name=n;save();return J(res,200,{user:pub(me)})}
  if(r==='me'&&M==='GET')return J(res,200,{user:pub(me),orders:db.orders.filter(o=>o.uid===me.id).reverse().map(ordOut)});
  if((m=r.match(/^progress\/([\w-]+)\/([\w-]+)$/))&&M==='POST'){const c=db.courses.find(x=>x.id===m[1]),l=c&&lessons(c).find(x=>x.id===m[2]);if(!l||!access(me,c))return J(res,403,{error:'locked'});
   const b=await body(req,20000),k=c.id+'/'+l.id,pr=(db.progress[me.id]||={}),s=(pr[k]||={});
@@ -139,6 +162,10 @@ module.exports=function handle(req,res,u){
    o.status=b.action==='approve'?'approved':'rejected';o.decided=now();o.reason=String(b.reason||'').slice(0,300);if(b.amount!=null&&b.action==='approve')o.amount=Number(b.amount)||0;
    if(o.status==='approved'){const x=db.users.find(y=>y.id===o.uid);if(x)x.packages=[...new Set([...(x.packages||[]),o.package])]}save();return J(res,200,{order:ordOut(o)})}
   if(a==='courses'&&M==='GET')return J(res,200,{courses:db.courses,packages:PKGS,categories:db.categories});
+  if(a==='series'&&M==='GET')return J(res,200,{manifest:db.shortsManifest||seriesOut()&&db.shortsManifest});
+  if(a==='series'&&M==='POST'){const b=await body(req,300000),m=b.manifest;const idok=x=>/^[\w-]{2,40}$/.test(x||'');
+   if(!m||!Array.isArray(m.genres)||!Array.isArray(m.series)||!m.genres.every(g=>idok(g.id)&&g.th&&g.en)||!m.series.every(s=>idok(s.id)&&s.th&&s.en&&Array.isArray(s.episodes)&&s.episodes.every(e=>idok(e.id)&&/^shorts\/[\w\/.-]+\.mp4$/.test(e.video||'')&&!e.video.includes('..'))))return J(res,400,{error:'invalid_manifest'});
+   db.shortsManifest=m;save();return J(res,200,{ok:true})}
   if(a==='content'&&M==='GET')return J(res,200,{drafts:(db.content||[]).slice().reverse(),autoFetch:!!db.settings.autoFetch,lastAuto:db.settings.lastAuto||null,sources:CONTENT.SOURCES});
   if(a==='content/feed'&&M==='GET'){const it=await CONTENT.fetchFeeds();const seen=new Set((db.content||[]).map(d=>d.url));return J(res,200,{items:it.map(i=>({...i,used:seen.has(i.link)}))})}
   if(a==='content/generate'&&M==='POST'){const b=await body(req);try{const d=await genDraft(b);return J(res,201,{draft:d})}catch(e){return J(res,502,{error:String(e.message||e).slice(0,300)})}}
@@ -183,7 +210,7 @@ function publishDraft(d){const c=db.courses.find(x=>x.updates);if(!c)return{erro
  c.modules[0].lessons.unshift(l);d.status='published';d.lesson=l.id;d.published=now();return{ok:true}}
 setInterval(async()=>{try{if(!db.settings.autoFetch)return;if(db.settings.lastAuto&&Date.now()-Date.parse(db.settings.lastAuto)<24*3600e3)return;db.settings.lastAuto=now();save();
  const seen=new Set((db.content||[]).map(d=>d.url));const it=(await CONTENT.fetchFeeds()).filter(i=>!i.error&&!seen.has(i.link)).slice(0,3);for(const i of it)await genDraft({item:i}).catch(e=>console.log('[content] auto',e.message))}catch(e){console.log('[content] auto error',e.message)}},3600e3).unref();
-module.exports._genDraft=genDraft;module.exports._publish=d=>{const r=publishDraft(d);save();return r};module.exports._db=()=>db;
+module.exports._genDraft=genDraft;module.exports._publish=d=>{const r=publishDraft(d);save();return r};module.exports._db=()=>db;module.exports._save=()=>save();
 // Offline import: drop server/content-import.json ([{draft fields..., publish:true}]) and it is merged within 30s, then removed.
 setInterval(()=>{const f=path.join(__dirname,'content-import.json');if(!fs.existsSync(f))return;try{const arr=JSON.parse(fs.readFileSync(f,'utf8'));fs.unlinkSync(f);
  for(const x of arr){const d={id:id(),status:'draft',created:now(),...x};delete d.publish;(db.content||=[]).push(d);if(x.publish)publishDraft(d)}save();console.log('[content] imported',arr.length)}catch(e){console.log('[content] import error',e.message)}},30000).unref();
