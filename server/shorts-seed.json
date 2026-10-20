@@ -91,17 +91,17 @@
   {
    "id": "pfx-cartoon",
    "genre": "cartoon",
-   "th": "ซีรีส์การ์ตูน (ชื่อเรื่องเร็วๆ นี้)",
-   "en": "Cartoon series (title coming soon)",
+   "th": "น้องบอทกับแก๊งตลาดน้ำ",
+   "en": "Botty & the Floating Market Gang",
    "cover": "shorts/cartoon/cover.jpg",
-   "desc_th": "ซีรีส์การ์ตูนแนวตั้งเรื่องใหม่จาก PureFxAi",
-   "desc_en": "A new vertical cartoon series from PureFxAi.",
+   "desc_th": "หุ่นยนต์ AI ตัวจิ๋วตกจากโดรนส่งของ ได้เด็กหญิงแม่ค้าตลาดน้ำเก็บไปเลี้ยง ช่วยร้านขนมของยายให้รอดก่อนลอยกระทง",
+   "desc_en": "A tiny AI robot falls from a delivery drone and is adopted by a floating-market girl, helping save grandma's dessert shop before Loy Krathong.",
    "episodes": [
     {
      "id": "cartoon-ep01",
      "n": 1,
-     "th": "ตอนที่ 1",
-     "en": "Episode 1",
+     "th": "บอทตกฟ้า",
+     "en": "The Bot Who Fell from the Sky",
      "video": "shorts/cartoon/ep01/ep01.mp4",
      "cover": "shorts/cartoon/ep01/cover.jpg",
      "cap_th": "",

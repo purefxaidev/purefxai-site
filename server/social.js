@@ -8,7 +8,7 @@ let st;const save=()=>{clearTimeout(st);st=setTimeout(()=>{fs.writeFileSync(F+'.
 const id=()=>crypto.randomBytes(8).toString('hex'),now=()=>new Date().toISOString();
 const ORIGINS=['https://localhost','http://localhost','capacitor://localhost','http://localhost:5173','http://localhost:4173'];
 const SERIES=[{id:'isekai',cat:'isekai',th:'ระบบ PureFxAi ต่างโลก',en:'PureFxAi System: Another World',cover:'shorts/ep01/cover.jpg',eps:['ep01','ep02','ep03','ep04','ep05']},
- {id:'cartoon',cat:'cartoon',th:'การ์ตูน PureFxAi',en:'PureFxAi Toons',cover:'shorts/ep02/cover.jpg',eps:[]}];
+ {id:'cartoon',cat:'cartoon',th:'น้องบอทกับแก๊งตลาดน้ำ',en:'Botty & the Floating Market Gang',cover:'shorts/cartoon/cover.jpg',eps:[]}];
 const EPS={ep01:{th:'ไอ้ขี้แพ้กับหน้าต่างสีทอง',en:'The Loser and the Golden Window'},ep02:{th:'เมืองตลาดแห่งโชคชะตา',en:'The Market Town of Chance'},ep03:{th:'วินัยเหนือความโลภ',en:'Discipline over Desire'},ep04:{th:'ชายในผ้าคลุม',en:'The Hooded Figure'},ep05:{th:'ระดับเทพ',en:'God Tier'}};
 const CATS=[{id:'isekai',th:'ต่างโลก',en:'Isekai'},{id:'cartoon',th:'การ์ตูน',en:'Cartoon'}];
 const ROOT=path.join(__dirname,'..');
