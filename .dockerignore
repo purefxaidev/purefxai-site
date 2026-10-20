@@ -1,0 +1,9 @@
+.git
+**/node_modules
+server/data
+*.log
+.env
+.env.*
+secrets
+preview-*.png
+index.before-*.html
