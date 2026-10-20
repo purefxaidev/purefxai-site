@@ -1,0 +1,19 @@
+{
+ "latestVersion": "1.1.0",
+ "versionCode": 2,
+ "minVersionCode": 1,
+ "apkUrl": "https://purefxai-app.onrender.com/downloads/PureFxAi.apk",
+ "notesTh": [
+  "เพิ่มการแจ้งเตือนอัปเดตแอปอัตโนมัติ",
+  "แสดงเวอร์ชันแอปในหน้าโปรไฟล์",
+  "ซับเปิดปิดได้ พร้อม AI แปล 8 ภาษา"
+ ],
+ "notesEn": [
+  "Automatic app update alerts",
+  "App version shown in Profile",
+  "Toggleable subtitles with AI translation in 8 languages"
+ ],
+ "sha256": "4119e5d7a910af76b2a7b4b27a538bd614a0c0b9e56110f808ef80c6d20372fd",
+ "size": 3300705,
+ "released": "2026-10-20"
+}
