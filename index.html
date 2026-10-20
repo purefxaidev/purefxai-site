@@ -1,0 +1,412 @@
+<!DOCTYPE html><html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PureFxAi — คอร์สเรียน AI | AI Courses</title>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0d12;--card:#141821;--gold:#e8b84a;--gold2:#ffd77a;--txt:#e9ecf2;--mut:#9aa3b2}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Prompt',sans-serif;background:var(--bg);color:var(--txt);line-height:1.7}
+a{color:inherit;text-decoration:none}.wrap{max-width:1140px;margin:auto;padding:0 20px}
+nav{position:sticky;top:0;background:rgba(11,13,18,.88);backdrop-filter:blur(10px);z-index:9;border-bottom:1px solid #222}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px;gap:12px}
+.logo{font-weight:700;font-size:1.4rem}.logo span{color:var(--gold)}
+nav ul{display:flex;gap:18px;list-style:none;font-size:.92rem}nav ul a:hover{color:var(--gold)}
+.lang{display:flex;border:1px solid var(--gold);border-radius:20px;overflow:hidden}.lang button{background:none;border:0;color:var(--gold);padding:6px 12px;cursor:pointer;font-family:inherit;font-weight:600}.lang button.on{background:var(--gold);color:#111}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111;padding:11px 24px;border-radius:30px;font-weight:600;border:0;cursor:pointer;font-family:inherit;font-size:1rem}
+.btn.o{background:none;border:1px solid var(--gold);color:var(--gold)}
+.hero{padding:110px 0 90px;text-align:center;background:radial-gradient(circle at 50% 0,rgba(232,184,74,.18),transparent 60%)}
+.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.25}.hero h1 b{color:var(--gold)}
+.hero p{color:var(--mut);max-width:640px;margin:18px auto 30px}.hero .btn{margin:6px}
+section{padding:80px 0}section.alt{background:#0e1118}h2{font-size:2rem;text-align:center;margin-bottom:10px}.sub{text-align:center;color:var(--mut);margin-bottom:40px}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid #232937;border-radius:16px;padding:24px;transition:.3s}.card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.ic{font-size:2rem}.price{color:var(--gold);font-size:1.6rem;font-weight:700;margin:10px 0}
+.tag{display:inline-block;font-size:.75rem;background:#2a2410;color:var(--gold);padding:2px 10px;border-radius:20px}
+.ph{color:#ff9f6b;font-size:.82rem}.mut{color:var(--mut)}
+.about{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:center}
+.avatar{aspect-ratio:1;border-radius:20px;background:linear-gradient(135deg,#1d2230,#2a2410);display:flex;align-items:center;justify-content:center;font-size:5rem;border:1px solid #333}
+.step{display:flex;gap:18px;margin-bottom:18px}.step .n{flex:0 0 46px;height:46px;border-radius:50%;background:var(--gold);color:#111;display:flex;align-items:center;justify-content:center;font-weight:700}
+/* video */
+.vp{display:grid;grid-template-columns:1.6fr 1fr;gap:26px;align-items:center}.player{aspect-ratio:16/9;background:#000;border-radius:16px;overflow:hidden;border:1px solid #333;display:flex;align-items:center;justify-content:center;color:var(--mut);text-align:center}.player iframe,.player video{width:100%;height:100%;border:0}
+.ep{cursor:pointer}.ep.on{border-color:var(--gold)}.th{aspect-ratio:16/9;border-radius:10px;background:linear-gradient(135deg,#1d2230,#2a2410);display:flex;align-items:center;justify-content:center;font-size:2rem;margin-bottom:10px}.dur{float:right;color:var(--mut);font-size:.85rem}
+/* tutor */
+.tutor{display:grid;grid-template-columns:260px 1fr;gap:24px}.lessons button{display:block;width:100%;text-align:left;background:var(--card);border:1px solid #232937;color:var(--txt);padding:12px 14px;border-radius:10px;margin-bottom:8px;cursor:pointer;font-family:inherit}.lessons button.on{border-color:var(--gold);color:var(--gold)}
+.bubble{background:#1a1f2b;border-left:3px solid var(--gold);padding:14px 18px;border-radius:10px;margin:12px 0}
+.opt{display:block;width:100%;text-align:left;background:#10131a;border:1px solid #2c3343;color:var(--txt);padding:11px 14px;border-radius:10px;margin:8px 0;cursor:pointer;font-family:inherit;font-size:.95rem}.opt:hover{border-color:var(--gold)}.opt.ok{border-color:#3ecf7a;background:#0f2a1b}.opt.bad{border-color:#e05a5a;background:#2a1010}
+.fb{margin-top:10px;font-weight:600}.score{float:right;color:var(--gold);font-weight:700}.bar{height:6px;background:#222;border-radius:4px;margin:10px 0}.bar i{display:block;height:100%;background:var(--gold);border-radius:4px;transition:.4s}
+/* pricing */
+.plan{position:relative;display:flex;flex-direction:column}.plan ul{list-style:none;margin:14px 0 20px;flex:1}.plan li{padding:4px 0;color:var(--mut)}.plan li{padding-left:22px;position:relative}.plan li:before{content:"";position:absolute;left:4px;top:.75em;width:9px;height:5px;border-left:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(-45deg)}
+.plan.rec{border:2px solid var(--gold);box-shadow:0 0 40px rgba(232,184,74,.2);transform:scale(1.03)}.badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);color:#111;font-size:.75rem;font-weight:700;padding:3px 14px;border-radius:20px;white-space:nowrap}
+details{background:var(--card);border-radius:12px;padding:18px 22px;margin-bottom:12px;border:1px solid #232937}summary{cursor:pointer;font-weight:600}details p{color:var(--mut);margin-top:10px}
+form{max-width:560px;margin:auto;display:grid;gap:14px}input,select,textarea{width:100%;padding:13px;border-radius:10px;border:1px solid #2c3343;background:var(--card);color:var(--txt);font-family:inherit;font-size:1rem}
+#ok{display:none;text-align:center;color:var(--gold)}footer{border-top:1px solid #222;padding:30px 0;text-align:center;color:var(--mut);font-size:.9rem}
+@media(max-width:900px){nav ul{display:none}.about,.vp,.tutor{grid-template-columns:1fr}.plan.rec{transform:none}}
+.i{display:inline-block;vertical-align:middle}.ic,.avatar,.th,.tico{color:var(--gold)}.stars{color:var(--gold);display:flex;gap:2px}.stars svg{width:16px;height:16px}.hd{display:flex;gap:8px;align-items:center}#chatBtn,#callBtn{display:flex;align-items:center;justify-content:center}
+
+html,body{overflow-x:hidden}@media(min-width:901px){.mo{display:none}.hero h1{white-space:nowrap;font-size:3.1rem}}img,svg,iframe,video{max-width:100%}
+.burger{display:none;background:none;border:1px solid #2c3343;color:var(--txt);border-radius:10px;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer}
+.nr{display:flex;gap:10px;align-items:center}.lang button{min-height:36px}
+@media(min-width:901px){.hero{text-align:left;padding:120px 0 110px}.hero .wrap>*{max-width:640px}.hero p{margin-left:0}.hero .btn{margin:6px 12px 6px 0}}
+@media(max-width:900px){
+ .avatar{max-width:200px;margin:auto;width:100%}.avatar svg{width:72px;height:72px}#epG b{display:block;font-size:.9rem;line-height:1.35}#epG .dur{float:none;display:block;font-size:.75rem}#epG .ph{display:block;margin-top:4px}
+ .burger{display:flex}.nr .btn.cta{display:none}
+ nav ul{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:#0b0d12;border-bottom:1px solid #222;padding:8px 20px 16px}
+ nav ul.open{display:flex}nav ul li a{display:block;padding:12px 4px;font-size:1rem;border-bottom:1px solid #1a1f2b}
+ section{padding:56px 0}h2{font-size:1.6rem}.hero{padding:80px 0 70px}#bg3d{opacity:.35}
+ .lessons{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}.lessons button{flex:0 0 auto;width:auto;white-space:nowrap;margin:0}
+ .tutor .card{padding:18px}.opt{padding:14px;min-height:48px}
+ .grid{grid-template-columns:1fr}#epG{grid-template-columns:repeat(2,1fr);gap:12px}#epG .card{padding:12px}#epG p{display:none}
+ .plan.rec{order:-1}#planG{gap:28px}
+ #chatBox{right:10px;left:10px;width:auto;bottom:84px;height:min(70vh,520px)}
+ #chatBtn{right:14px;bottom:14px}#callBtn{right:14px;bottom:82px}#chatBox.open~#callBtn,body.chat #callBtn{display:none}
+ #callSt{right:80px;bottom:92px;max-width:calc(100vw - 100px)}
+ input,select,textarea{font-size:16px}
+}
+
+.hero-ph{position:absolute;right:max(20px,calc(50% - 570px));bottom:0;height:100%;max-height:560px;z-index:1;pointer-events:none}
+.hero-ph img{height:100%;width:auto;display:block;-webkit-mask-image:radial-gradient(ellipse 50% 55% at 50% 45%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 50% 55% at 50% 45%,#000 55%,transparent 100%);filter:drop-shadow(0 0 40px rgba(232,184,74,.15))}
+.avatar{aspect-ratio:auto;display:block;padding:0;overflow:hidden;position:relative;border:1px solid rgba(232,184,74,.5);box-shadow:0 0 50px rgba(232,184,74,.12)}.avatar img{width:100%;display:block}
+.avatar .cap{font-size:1rem;line-height:1.5;position:absolute;left:0;right:0;bottom:0;padding:40px 18px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85));display:flex;flex-direction:column}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.gi{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;border:1px solid #232937;background:linear-gradient(135deg,#141821,#2a2410);cursor:zoom-in}
+.gi img{width:100%;height:100%;object-fit:cover;transition:.4s}.gi:hover img{transform:scale(1.05)}.gi .gp{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--mut);font-size:.85rem;text-align:center;padding:10px}.gi .gp svg{color:var(--gold);margin-bottom:6px}
+.gi .gc{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 8px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-size:.85rem}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:50;display:none;flex-direction:column;align-items:center;justify-content:center;padding:20px}#lb.open{display:flex}#lb img{max-width:100%;max-height:80vh;border-radius:10px}#lbCap{margin-top:12px;color:var(--mut)}
+#lbx{position:absolute;top:14px;right:18px;background:none;border:0;color:#fff;font-size:2.4rem;cursor:pointer;width:48px;height:48px}
+@media(max-width:1100px){.hero-ph{opacity:.9;max-height:480px}}
+@media(max-width:900px){.hero-ph{position:relative;display:block;margin:0 auto -10px;right:auto;height:auto;max-height:none;width:min(300px,75vw)}.hero-ph img{width:100%;height:auto}.hero{padding-top:20px}.gal{grid-template-columns:repeat(2,1fr);gap:10px}.avatar{max-width:340px}}
+@media(min-width:901px){.hero .wrap{min-height:440px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}.hero .wrap>.btn{display:none}.hero .acts{display:flex;gap:12px}}
+
+.hero{background:linear-gradient(90deg,rgba(11,13,18,.96) 0%,rgba(11,13,18,.85) 42%,rgba(11,13,18,.55) 100%),linear-gradient(0deg,#0b0d12 0%,transparent 30%),image-set(url(assets/hero-bg.webp) type("image/webp"),url(assets/hero-bg.jpg) type("image/jpeg")) center/cover no-repeat}
+#bg3d{opacity:.55}
+.why-banner{position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(232,184,74,.3);margin-bottom:28px;aspect-ratio:21/7}.why-banner img{width:100%;height:100%;object-fit:cover;display:block}
+.why-banner:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,13,18,.8),transparent 60%)}.why-banner p{position:absolute;left:28px;bottom:22px;z-index:1;max-width:420px;font-size:1.15rem;font-weight:600}
+#pricing{background:linear-gradient(rgba(11,13,18,.9),rgba(11,13,18,.82),rgba(11,13,18,.95)),image-set(url(assets/pricing-bg.webp) type("image/webp"),url(assets/pricing-bg.jpg) type("image/jpeg")) center/cover}
+#pricing .card{background:rgba(20,24,33,.92)}
+.av{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1.5px solid var(--gold);flex:0 0 auto}
+.bubble.tb{display:flex;gap:12px;align-items:flex-start}
+@media(max-width:900px){.hero{background:linear-gradient(rgba(11,13,18,.82),rgba(11,13,18,.92)),image-set(url(assets/hero-bg.webp) type("image/webp"),url(assets/hero-bg.jpg) type("image/jpeg")) center/cover}.why-banner{aspect-ratio:16/9}.why-banner p{left:16px;bottom:14px;font-size:1rem;right:16px}}
+.ctabs{display:flex;gap:8px;overflow-x:auto;justify-content:center;flex-wrap:wrap;margin:0 0 22px}.ctabs a{padding:7px 16px;border-radius:20px;border:1px solid #2c3343;color:#aab;font-size:.9rem;white-space:nowrap;text-decoration:none}.ctabs a.on{border-color:#e8b84a;color:#111;background:linear-gradient(135deg,#e8b84a,#f5d27a)}.tag.free{background:rgba(70,200,120,.14);border:1px solid #3fbf7a;color:#7fe0a8}.fl{list-style:none;padding:0;margin:10px 0 0;font-size:.85rem}.fl li{margin:6px 0}.fl a{color:inherit;text-decoration:none}.fl a:hover{color:#e8b84a}
+</style><style>.vr-en{display:none}html[lang=en] .vr-en{display:inline}html[lang=en] .vr-th{display:none}
+.vrg{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-top:22px}
+.vrc{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:1px solid rgba(212,175,55,.45);background:#0b0b0b;cursor:pointer}
+.vrc video{width:100%;height:100%;object-fit:cover;display:block}.vrc .vrl{position:absolute;left:0;right:0;bottom:0;padding:10px;font-size:.8rem;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#f3e3b0}
+.vrc .vrb{position:absolute;top:8px;left:8px;font-size:.66rem;padding:3px 7px;border-radius:10px;background:rgba(0,0,0,.6);border:1px solid rgba(212,175,55,.6);color:#d4af37}
+.vrcomp{max-width:420px;margin:26px auto 0}.vrcomp video{width:100%;border-radius:14px;border:1px solid rgba(212,175,55,.45);aspect-ratio:9/16;background:#000}.vrnote{font-size:.8rem;opacity:.75;text-align:center;margin-top:10px}</style><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
+<style id="polish">
+:root{--s1:8px;--s2:16px;--s3:24px;--s4:40px;--s5:64px;--s6:104px;--glass:rgba(22,26,36,.55);--gb:linear-gradient(135deg,rgba(255,215,122,.55),rgba(232,184,74,.08) 40%,rgba(232,184,74,.04) 60%,rgba(255,215,122,.4));--glow:0 10px 40px -10px rgba(232,184,74,.35)}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'Prompt','Kanit',sans-serif;letter-spacing:.1px;background:radial-gradient(1200px 600px at 80% -10%,rgba(232,184,74,.07),transparent 60%),#090b10;animation:pfIn .7s ease both}
+@keyframes pfIn{from{opacity:0}to{opacity:1}}
+h1,h2,h3{font-family:'Kanit','Prompt',sans-serif;letter-spacing:.2px}h2{font-weight:600;font-size:clamp(1.7rem,3.2vw,2.5rem)}
+.logo{font-family:'Kanit',sans-serif;font-weight:600;letter-spacing:.5px}
+section{padding:var(--s6) 0;position:relative}section.alt{background:linear-gradient(180deg,rgba(14,17,24,.9),rgba(10,12,17,.9))}
+section+section:before,section+div+section:before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(680px,80%);height:1px;background:linear-gradient(90deg,transparent,rgba(232,184,74,.55),transparent)}
+section h2{background:linear-gradient(100deg,#fff 0%,#ffe7a8 25%,#e8b84a 50%,#fff3cf 75%,#fff 100%);background-size:250% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:pfShine 9s linear infinite}
+.hero h1 b{background:linear-gradient(100deg,#e8b84a,#fff1c2,#e8b84a);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:pfShine 6s linear infinite}
+@keyframes pfShine{to{background-position:-250% center}}
+.sub{margin-bottom:var(--s4)}
+/* nav */
+nav{background:rgba(9,11,16,.55);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border-bottom:1px solid rgba(232,184,74,.14);transition:background .3s}
+nav.scrolled{background:rgba(9,11,16,.85);box-shadow:0 8px 30px rgba(0,0,0,.4)}
+nav ul a{position:relative;padding:6px 2px;color:#cfd5df;transition:color .2s}nav ul a:after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--gold2));transform:scaleX(0);transition:transform .3s}
+nav ul a.act,nav ul a:hover{color:var(--gold2)}nav ul a.act:after{transform:scaleX(1)}
+/* buttons */
+.btn{position:relative;overflow:hidden;box-shadow:0 6px 22px -8px rgba(232,184,74,.6);transition:transform .2s,box-shadow .2s;letter-spacing:.2px}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px -8px rgba(232,184,74,.75)}
+.btn:after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(110deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);transition:left .7s}
+.btn:hover:after{left:140%}.btn.o{box-shadow:none;background:rgba(232,184,74,.04)}.btn.o:hover{background:rgba(232,184,74,.12)}
+/* glass cards with gradient borders */
+.card,.scm,details,.vrc,.sit,.gi,.why-banner,.sv,.player,.avatar{position:relative}
+.card,.scm,details{background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid transparent;border-radius:18px;
+ background-image:linear-gradient(var(--glass),var(--glass)),var(--gb);background-origin:border-box;background-clip:padding-box,border-box;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--glow);border-color:transparent}
+#pricing .card{background-image:linear-gradient(rgba(16,19,27,.88),rgba(16,19,27,.88)),var(--gb)}
+.plan.rec{background-image:linear-gradient(rgba(26,22,12,.92),rgba(16,19,27,.92)),linear-gradient(135deg,#ffd77a,#e8b84a,#8a6a24,#ffd77a)!important;border:2px solid transparent;box-shadow:0 0 0 1px rgba(232,184,74,.2),0 20px 60px -15px rgba(232,184,74,.5);animation:pfPulse 4s ease-in-out infinite}
+@keyframes pfPulse{50%{box-shadow:0 0 0 1px rgba(232,184,74,.35),0 24px 70px -12px rgba(232,184,74,.7)}}
+.price{font-family:'Kanit';font-size:1.9rem;letter-spacing:.5px;text-shadow:0 0 24px rgba(232,184,74,.35)}
+.tag{border:1px solid rgba(232,184,74,.35);background:rgba(232,184,74,.08);letter-spacing:.4px}
+.ic svg{width:30px;height:30px}.ic{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 30%,rgba(255,215,122,.25),rgba(232,184,74,.05));border:1px solid rgba(232,184,74,.3);margin-bottom:12px}
+/* media cards */
+.player,.sv,.why-banner,.gi,.vrc{border-radius:18px;transition:transform .35s,box-shadow .35s}
+.gi:hover,.sit:hover,.ep:hover{box-shadow:var(--glow)}.sit{transition:transform .3s,box-shadow .3s}.sit:hover{transform:translateY(-4px)}
+.ep.on,.sit.on{box-shadow:0 0 0 1px var(--gold),var(--glow)}
+.vrc:hover{transform:translateY(-4px);box-shadow:var(--glow)}
+.step .n{box-shadow:0 0 0 6px rgba(232,184,74,.12),0 8px 20px -6px rgba(232,184,74,.6);font-family:'Kanit'}
+input,select,textarea{background:rgba(16,19,27,.7);transition:border-color .2s,box-shadow .2s}input:focus,select:focus,textarea:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,184,74,.15)}
+footer{background:linear-gradient(0deg,#07080c,transparent)}
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
+/* scrollbar */
+::-webkit-scrollbar{width:10px;height:8px}::-webkit-scrollbar-track{background:#0b0d12}::-webkit-scrollbar-thumb{background:linear-gradient(#e8b84a,#8a6a24);border-radius:10px;border:2px solid #0b0d12}*{scrollbar-color:#a8842f #0b0d12;scrollbar-width:thin}
+::selection{background:rgba(232,184,74,.35);color:#fff}
+#cglow{position:fixed;left:0;top:0;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(232,184,74,.09),transparent 65%);transform:translate(-50%,-50%);transition:opacity .3s;opacity:0}
+@media(max-width:900px){section{padding:var(--s5) 0}#cglow{display:none}nav ul{background:rgba(9,11,16,.96);backdrop-filter:blur(16px)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head><body>
+<nav><div class="wrap"><a href="#" class="logo">PureFx<span>Ai</span></a>
+<ul id="navL"><li><a href="studio.html" data-t="stdN" style="color:var(--gold)"></a></li><li><a href="#why" data-t="n1"></a></li><li><a href="#courses" data-t="n2"></a></li><li><a href="#videos" data-t="n3"></a></li><li><a href="#shorts" data-t="st"></a></li><li><a href="#tutor" data-t="n4"></a></li><li><a href="#pricing" data-t="n5"></a></li><li><a href="#faq">FAQ</a></li><li class="mo"><a href="learn.html" data-t="lmsL"></a></li><li class="mo"><a href="#contact" data-t="cta"></a></li></ul>
+<div class="nr"><div class="lang"><button data-l="th">TH</button><button data-l="en">EN</button></div><a href="learn.html" class="btn o cta" style="padding:9px 16px"><span data-t="lmsL"></span></a><a href="#contact" class="btn cta" data-t="cta"></a><button class="burger" id="burger" aria-label="menu"></button></div></div></nav>
+
+<header class="hero"><picture class="hero-ph"><source srcset="assets/hero-model.webp" type="image/webp"><img src="assets/hero-model.jpg" alt="PureFxAi" width="660" height="712" fetchpriority="high"></picture><div class="wrap"><span class="tag">AI Academy by PureFxAi</span><h1 data-h="h1"></h1><p data-t="hp"></p><div class="acts"><a href="#courses" class="btn" data-t="hb1"></a><a href="#tutor" class="btn o" data-t="hb2"></a><a href="studio.html" class="btn o" data-t="stdN"></a></div></div></header>
+
+<section id="why"><div class="wrap"><h2 data-t="wt"></h2><p class="sub" data-t="ws"></p><div class="why-banner"><picture><source srcset="assets/workspace.webp" type="image/webp"><img src="assets/workspace.jpg" alt="AI workspace" loading="lazy"></picture><p data-t="wb"></p></div><div class="grid" id="whyG"></div></div></section>
+
+<section id="courses" class="alt"><div class="wrap"><h2 data-t="ct"></h2><p class="sub ph" data-t="cs"></p><div class="ctabs" id="courseT"></div><div class="grid" id="courseG"></div></div></section>
+
+<section id="about"><div class="wrap about"><div class="avatar"><picture><source srcset="assets/instructor.webp" type="image/webp"><img src="assets/instructor.jpg" alt="PureFxAi instructor" loading="lazy"></picture><div class="cap"><b data-t="fn"></b><span class="ph" data-t="fr"></span></div></div><div style="display:none"><svg class="i" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9 17h6M2 13v3M22 13v3"/><circle cx="12" cy="3" r="1"/></svg></div><div><h2 style="text-align:left" data-t="at"></h2><p data-t="ap"></p><p class="ph" data-t="aph"></p></div></div></section>
+
+<section id="curr" class="alt"><div class="wrap" style="max-width:760px"><h2 data-t="rt"></h2><p class="sub" data-t="rs"></p><div id="currG"></div></div></section>
+
+<section id="videos"><div class="wrap"><h2 data-t="vt"></h2><p class="sub"><span data-t="vs"></span> <span class="ph" data-t="vph"></span></p>
+<div class="vp"><div class="player" id="player"></div><div><h3 id="vTitle"></h3><p id="vDesc" class="mut"></p><a id="vEx" href="#tutor" class="btn o" style="margin-top:12px" data-t="vex"></a></div></div>
+<div class="grid" id="epG" style="margin-top:26px"></div></div></section>
+
+<section id="shorts" class="alt"><div class="wrap"><h2 data-t="st"></h2><p class="sub"><span data-t="ss"></span> <span class="ph" data-t="sph"></span></p>
+<div class="sh"><div class="sp"><div class="sv" id="sv"><video id="svid" playsinline muted preload="metadata"></video><div class="sph" id="sPh"></div>
+<div class="sov"><div class="sep" id="sEp"></div><div class="stl" id="sTitle"></div><div class="sbar" id="sBar"></div></div>
+<div class="sside"><button id="sLike" class="sbtn" aria-label="like"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span id="sLikes">0</span></button>
+<button id="sSnd" class="sbtn" aria-label="sound"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 5 6 9H2v6h4l5 4z"/><path id="sWave" d="M15.5 8.5a5 5 0 0 1 0 7"/></svg><span data-t="snd"></span></button>
+<button id="sNext" class="sbtn" aria-label="next"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m5 4 10 8-10 8zM19 5v14"/></svg><span data-t="snx"></span></button></div></div></div>
+<div class="sr"><div class="slist" id="sList"></div><div class="scm"><h3 data-t="sct"></h3><form id="sForm"><input id="sName" maxlength="40" data-p="scn"><textarea id="sText" maxlength="300" rows="2" required data-p="scp"></textarea><div class="srow"><small id="sCnt" class="mut">0/300</small><small id="sErr" class="ph"></small><button class="btn" data-t="scs"></button></div></form><div id="sCm"></div></div></div></div></div></section>
+<style>
+.sh{display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:28px;align-items:start}
+.sv{position:relative;aspect-ratio:9/16;border-radius:20px;overflow:hidden;background:#000;border:1px solid rgba(232,184,74,.35);box-shadow:0 0 40px rgba(232,184,74,.1)}
+.sv video{width:100%;height:100%;object-fit:cover;display:block}.sph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:linear-gradient(160deg,#1d2230,#2a2410 60%,#0b0d12) center/cover;color:var(--mut)}
+.sph b{color:var(--gold);font-size:1.2rem;margin-bottom:6px}.sov{position:absolute;left:0;right:64px;bottom:0;padding:60px 16px 16px;background:linear-gradient(transparent,rgba(0,0,0,.85));pointer-events:none}.sep{color:var(--gold);font-size:.8rem;font-weight:600}.stl{font-weight:600}
+.sbar{display:flex;gap:3px;margin-top:10px}.sbar i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.25)}.sbar i.on{background:var(--gold)}
+.sside{position:absolute;right:8px;bottom:70px;display:flex;flex-direction:column;gap:14px}.sbtn{background:rgba(0,0,0,.45);border:0;color:#fff;width:52px;padding:8px 0;border-radius:14px;cursor:pointer;display:flex;flex-direction:column;align-items:center;font-family:inherit;font-size:.72rem;gap:2px}.sbtn.on{color:#ff5a7a}.sbtn.on svg{fill:currentColor}
+.slist{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:22px}.sit{cursor:pointer;border-radius:12px;overflow:hidden;border:1px solid #232937;background:var(--card);position:relative}.sit.on{border-color:var(--gold)}
+.sit .cv{aspect-ratio:9/16;background:linear-gradient(160deg,#1d2230,#2a2410) center/cover;display:flex;align-items:flex-end;padding:8px;font-size:.75rem}.sit .cv b{color:var(--gold)}.sit .soon{position:absolute;top:6px;left:6px;background:rgba(0,0,0,.6);font-size:.65rem;padding:2px 8px;border-radius:10px;color:var(--mut)}
+.scm{background:var(--card);border:1px solid #232937;border-radius:16px;padding:18px}#sForm{max-width:none;gap:10px;margin:10px 0}.srow{display:flex;gap:10px;align-items:center;justify-content:space-between}
+#sCm{max-height:320px;overflow:auto}.cm{border-top:1px solid #232937;padding:10px 0}.cm b{color:var(--gold);font-size:.9rem}.cm small{color:var(--mut);margin-left:8px}.cm p{white-space:pre-wrap;word-break:break-word;margin-top:2px}
+@media(max-width:900px){.sh{grid-template-columns:1fr}.sp{max-width:360px;margin:auto;width:100%}.slist{grid-template-columns:repeat(5,minmax(90px,1fr));overflow-x:auto}}
+</style>
+
+<section id="tutor" class="alt"><div class="wrap"><h2 data-t="tt"></h2><p class="sub" data-t="ts"></p>
+<div class="tutor"><div class="lessons" id="lessonBtns"></div><div class="card" style="transform:none"><span class="score" id="score"></span><h3 id="lTitle"></h3><div class="bar"><i id="prog"></i></div>
+<div class="bubble tb"><img class="av" src="assets/ai-avatar.webp" alt="AI Tutor"><div><b>AI Tutor:</b> <span id="lText"></span></div></div><div id="quiz"></div></div></div></div></section>
+
+<section id="pricing"><div class="wrap"><h2 data-t="pt"></h2><p class="sub ph" data-t="ps"></p><div class="grid" id="planG" style="padding-top:14px"></div></div></section>
+
+<section id="video-reviews" class="alt"><div class="wrap"><h2><span class="vr-th">วิดีโอรีวิวจากผู้เรียน</span><span class="vr-en">Video Reviews</span></h2>
+<p class="sub"><span class="vr-th">ตัวอย่างวิดีโอรีวิวประกอบที่สร้างด้วย AI (ไม่ใช่ผู้เรียนจริง) แตะหรือชี้เพื่อเล่น แตะซ้ำเพื่อเปิดเสียง</span><span class="vr-en">Illustrative AI-generated example reviews (not real students). Hover or tap to play, tap again for sound.</span></p>
+<div class="vrg"><div class="vrc" data-i="1"><video src="assets/reviews/review-01.mp4" poster="assets/reviews/thumbs/review-01.jpg" muted loop playsinline preload="none"></video><span class="vrb"><span class="vr-th">ตัวอย่าง AI</span><span class="vr-en">AI example</span></span><div class="vrl"><span class="vr-th">Prompt</span><span class="vr-en">Prompt</span></div></div><div class="vrc" data-i="2"><video src="assets/reviews/review-02.mp4" poster="assets/reviews/thumbs/review-02.jpg" muted loop playsinline preload="none"></video><span class="vrb"><span class="vr-th">ตัวอย่าง AI</span><span class="vr-en">AI example</span></span><div class="vrl"><span class="vr-th">ปูพื้นฐาน AI</span><span class="vr-en">AI Basics</span></div></div><div class="vrc" data-i="3"><video src="assets/reviews/review-03.mp4" poster="assets/reviews/thumbs/review-03.jpg" muted loop playsinline preload="none"></video><span class="vrb"><span class="vr-th">ตัวอย่าง AI</span><span class="vr-en">AI example</span></span><div class="vrl"><span class="vr-th">Vibe Coding</span><span class="vr-en">Vibe Coding</span></div></div><div class="vrc" data-i="4"><video src="assets/reviews/review-04.mp4" poster="assets/reviews/thumbs/review-04.jpg" muted loop playsinline preload="none"></video><span class="vrb"><span class="vr-th">ตัวอย่าง AI</span><span class="vr-en">AI example</span></span><div class="vrl"><span class="vr-th">AI Automation</span><span class="vr-en">AI Automation</span></div></div><div class="vrc" data-i="5"><video src="assets/reviews/review-05.mp4" poster="assets/reviews/thumbs/review-05.jpg" muted loop playsinline preload="none"></video><span class="vrb"><span class="vr-th">ตัวอย่าง AI</span><span class="vr-en">AI example</span></span><div class="vrl"><span class="vr-th">แบบฝึกหัดกับ AI</span><span class="vr-en">AI Tutor Exercises</span></div></div><div class="vrc" data-i="6"><video src="assets/reviews/review-06.mp4" poster="assets/reviews/thumbs/review-06.jpg" muted loop playsinline preload="none"></video><span class="vrb"><span class="vr-th">ตัวอย่าง AI</span><span class="vr-en">AI example</span></span><div class="vrl"><span class="vr-th">AI ช่วยวิเคราะห์ข้อมูลเทรด</span><span class="vr-en">AI for Trading Analysis</span></div></div><div class="vrc" data-i="7"><video src="assets/reviews/review-07.mp4" poster="assets/reviews/thumbs/review-07.jpg" muted loop playsinline preload="none"></video><span class="vrb"><span class="vr-th">ตัวอย่าง AI</span><span class="vr-en">AI example</span></span><div class="vrl"><span class="vr-th">Vibe Coding</span><span class="vr-en">Vibe Coding</span></div></div><div class="vrc" data-i="8"><video src="assets/reviews/review-08.mp4" poster="assets/reviews/thumbs/review-08.jpg" muted loop playsinline preload="none"></video><span class="vrb"><span class="vr-th">ตัวอย่าง AI</span><span class="vr-en">AI example</span></span><div class="vrl"><span class="vr-th">บรรยากาศเวิร์กช็อป</span><span class="vr-en">Workshop Atmosphere</span></div></div><div class="vrc" data-i="9"><video src="assets/reviews/review-09.mp4" poster="assets/reviews/thumbs/review-09.jpg" muted loop playsinline preload="none"></video><span class="vrb"><span class="vr-th">ตัวอย่าง AI</span><span class="vr-en">AI example</span></span><div class="vrl"><span class="vr-th">ถาม-ตอบกับผู้สอน</span><span class="vr-en">Q&A with Instructor</span></div></div><div class="vrc" data-i="10"><video src="assets/reviews/review-10.mp4" poster="assets/reviews/thumbs/review-10.jpg" muted loop playsinline preload="none"></video><span class="vrb"><span class="vr-th">ตัวอย่าง AI</span><span class="vr-en">AI example</span></span><div class="vrl"><span class="vr-th">ภาพรวมคอร์ส</span><span class="vr-en">Course Overview</span></div></div></div>
+<div class="vrcomp"><video src="assets/reviews/review-compilation.mp4" poster="assets/reviews/thumbs/review-01.jpg" controls playsinline preload="none"></video><p class="vrnote"><span class="vr-th">รวมรีวิวทั้งหมด (วิดีโอประกอบที่สร้างด้วย AI)</span><span class="vr-en">Full review compilation (illustrative AI-generated video)</span></p></div></div></section>
+<script>document.querySelectorAll('.vrc').forEach(c=>{const v=c.querySelector('video');c.onmouseenter=()=>{v.play().catch(()=>{})};c.onmouseleave=()=>{v.pause();v.muted=true};c.onclick=()=>{if(v.paused){document.querySelectorAll('.vrc video').forEach(o=>{if(o!==v){o.pause();o.muted=true}});v.play().catch(()=>{})}else v.muted=!v.muted}})</script>
+<section id="gallery"><div class="wrap"><h2 data-t="gt"></h2><p class="sub"><span data-t="gs"></span> <span class="ph" data-t="gph"></span></p><div class="gal" id="galG"></div></div></section>
+<div id="lb" onclick="if(event.target===this||event.target.id==='lbx')lb.classList.remove('open')"><button id="lbx" aria-label="close">&times;</button><img id="lbImg" alt=""><p id="lbCap"></p></div>
+<section class="alt"><div class="wrap"><h2 data-t="tst"></h2><p class="sub ph" data-t="tss"></p><div class="grid" id="testG"></div></div></section>
+
+<section id="faq"><div class="wrap" style="max-width:760px"><h2 data-t="ft"></h2><br><div id="faqG"></div></div></section>
+
+<section id="contact" class="alt"><div class="wrap"><h2 data-t="kt"></h2><p class="sub"><span data-t="ks"></span> <span class="ph" data-t="kph"></span></p>
+<form id="f"><input required data-p="f1"><input required type="email" data-p="f2"><input data-p="f3"><select id="fSel"></select><textarea rows="3" data-p="f4"></textarea><button class="btn" data-t="fb"></button><p id="ok" data-t="fok"></p></form></div></section>
+
+<footer>© <span id="y"></span> PureFxAi · <span class="ph" data-t="fc"></span><br><small data-t="risk"></small></footer>
+
+<script>
+const ICON={bolt:`<svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>`,chart:`<svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/></svg>`,brain:`<svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V5a3 3 0 0 0-3-1zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/></svg>`,tool:`<svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>`,robot:`<svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9 17h6M2 13v3M22 13v3"/><circle cx="12" cy="3" r="1"/></svg>`,play:`<svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16l13-8z"/></svg>`,phone:`<svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>`,chat:`<svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,x:`<svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>`,send:`<svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>`,star:`<svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2L5.8 21 7 14.2 2 9.3l6.9-1z" fill="currentColor"/></svg>`,cam:`<svg class="i" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>`,menu:`<svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>`};
+burger.innerHTML=ICON.menu;burger.onclick=()=>navL.classList.toggle("open");navL.onclick=e=>{if(e.target.tagName=="A")navL.classList.remove("open")};
+const T={th:{n1:"ทำไมต้อง AI",n2:"คอร์ส",n3:"คลิปฟรี",n4:"AI Tutor",n5:"ราคา",cta:"สมัครเรียน",
+h1:"ปลดล็อกพลัง <b>AI</b><br>เพื่องาน ธุรกิจ และการเทรด",hp:"เรียนรู้การใช้ AI แบบลงมือทำจริงกับ PureFxAi ตั้งแต่พื้นฐานจนถึงระบบอัตโนมัติ",hb1:"ดูคอร์สทั้งหมด",hb2:"ลองทำแบบฝึกหัดฟรี",
+wt:"ทำไมต้องเรียน AI วันนี้?",ws:"AI กำลังเปลี่ยนวิธีทำงานในทุกอุตสาหกรรม",wb:"ใช้ AI เป็นผู้ช่วยวิเคราะห์ ทำงาน และสร้างโอกาสใหม่",ct:"คอร์สเรียนของ PureFxAi",cs:"ราคาเป็นตัวอย่าง (placeholder) — โปรดแก้ไขก่อนเผยแพร่",
+at:"เกี่ยวกับ PureFxAi",ap:"PureFxAi มุ่งสร้างการเรียนรู้ AI ที่ใช้ได้จริงสำหรับคนไทย ทั้งคนทำงาน เจ้าของธุรกิจ และนักเทรด",aph:"[ใส่ประวัติผู้สอน ประสบการณ์ และผลงานจริงที่นี่]",
+rt:"เนื้อหาหลักสูตร",rs:"ตัวอย่างโครงสร้างการเรียน",vt:"คลิปวิดีโอปูพื้นฐาน AI",vs:"ดูฟรี! ซีรีส์ปูพื้นฐาน 6 ตอน",vph:"(วิดีโอเป็น placeholder — แก้ไขในอาร์เรย์ EPISODES)",vex:"ทำแบบฝึกหัดของตอนนี้ →",
+vnone:"วิดีโอตัวอย่าง (placeholder)<br><small>ยังไม่ได้ใส่ลิงก์วิดีโอ</small>",exl:"แบบฝึกหัด →",
+tt:"AI Tutor: แบบฝึกหัด AI พื้นฐาน",ts:"อ่านบทเรียนสั้นๆ ตอบคำถาม รับคำอธิบายทันที และเก็บคะแนน",sc:"คะแนน",ok:"ถูกต้อง! ",bad:"ยังไม่ถูก ",nx:"ข้อถัดไป →",done:"จบบทเรียน! คะแนนบทนี้",retry:"ทำใหม่",nextL:"บทถัดไป →",q:"ข้อ",
+pt:"แพ็กเกจราคา",ps:"ราคาเป็นตัวอย่าง (placeholder) — โปรดแก้ไขก่อนเผยแพร่",rec:"แนะนำ",choose:"เลือกแพ็กเกจนี้",
+tst:"เสียงจากผู้เรียน",tss:"รีวิวตัวอย่าง (placeholder) — ไม่ใช่รีวิวจริง",ft:"คำถามที่พบบ่อย",
+kt:"สมัครเรียน / ติดต่อเรา",ks:"กรอกข้อมูล ทีมงาน PureFxAi จะติดต่อกลับ",kph:"(ฟอร์มตัวอย่าง ยังไม่เชื่อมระบบหลังบ้าน)",
+f1:"ชื่อ-นามสกุล",f2:"อีเมล",f3:"เบอร์โทร / LINE ID",f4:"ข้อความเพิ่มเติม",fb:"ส่งข้อมูล",fok:"ขอบคุณ! ได้รับข้อมูลแล้ว (ตัวอย่าง)",
+fc:"[ใส่ช่องทางติดต่อ: LINE / Facebook / อีเมล]",risk:"การลงทุนมีความเสี่ยง เนื้อหาเพื่อการศึกษาเท่านั้น ไม่ใช่คำแนะนำการลงทุน",title:"PureFxAi — คอร์สเรียน AI",lmsL:"ห้องเรียน",stdN:"สร้างวิดีโอฟรี",fn:"ผู้ก่อตั้ง PureFxAi",fr:"[ใส่ชื่อจริงและตำแหน่ง — placeholder]",gt:"บรรยากาศการเรียนการสอน",gs:"ภาพบรรยากาศคลาสเรียนของ PureFxAi",gph:"(ภาพประกอบ)",gslot:"รอใส่รูป",gcap:["งานสัมมนา PureFxAi","คลาสเวิร์กช็อป AI","ลงมือทำร่วมกัน","การนำเสนอในเวิร์กช็อป"]},
+en:{n1:"Why AI",n2:"Courses",n3:"Free Videos",n4:"AI Tutor",n5:"Pricing",cta:"Enroll",
+h1:"Unlock the power of <b>AI</b><br>for work, business & trading",hp:"Learn hands-on AI with PureFxAi — from fundamentals to full automation.",hb1:"View all courses",hb2:"Try free exercises",
+wt:"Why learn AI today?",ws:"AI is changing how every industry works",wb:"Use AI as your partner to analyze, work and create new opportunities",ct:"PureFxAi Courses",cs:"Prices are placeholders — edit before publishing",
+at:"About PureFxAi",ap:"PureFxAi creates practical AI learning for working professionals, business owners and traders.",aph:"[Add real instructor bio, experience and achievements here]",
+rt:"Curriculum",rs:"Sample learning path",vt:"AI Basics Video Series",vs:"Watch free! A 6-episode fundamentals series",vph:"(Videos are placeholders — edit the EPISODES array)",vex:"Do this episode's exercise →",
+vnone:"Sample video (placeholder)<br><small>No video link set yet</small>",exl:"Exercise →",
+tt:"AI Tutor: Basic AI Exercises",ts:"Read a short lesson, answer questions, get instant feedback and earn points",sc:"Score",ok:"Correct! ",bad:"Not quite. ",nx:"Next question →",done:"Lesson complete! Lesson score",retry:"Retry",nextL:"Next lesson →",q:"Q",
+pt:"Pricing Packages",ps:"Prices are placeholders — edit before publishing",rec:"Recommended",choose:"Choose this plan",
+tst:"What learners say",tss:"Sample testimonials (placeholder) — not real reviews",ft:"Frequently Asked Questions",
+kt:"Enroll / Contact us",ks:"Fill in the form and the PureFxAi team will get back to you",kph:"(Demo form, not connected to a backend)",
+f1:"Full name",f2:"Email",f3:"Phone / LINE ID",f4:"Message",fb:"Submit",fok:"Thank you! We received your info (demo)",
+fc:"[Add contact channels: LINE / Facebook / Email]",risk:"Investing involves risk. Educational content only, not investment advice.",title:"PureFxAi — AI Courses",lmsL:"Classroom",stdN:"Free AI Video",fn:"Founder of PureFxAi",fr:"[Add real name & title — placeholder]",gt:"Classroom",gs:"Inside PureFxAi classes",gph:"(Illustrative images)",gslot:"Image coming soon",gcap:["PureFxAi conference","AI workshop class","Hands-on collaboration","Workshop presentation"]}};
+const WHY=[[ICON.bolt,"ทำงานเร็วขึ้น","Work faster","ลดเวลางานซ้ำๆ ด้วยเครื่องมือ AI","Cut repetitive work with AI tools"],[ICON.chart,"เพิ่มโอกาสรายได้","Grow income","ต่อยอดธุรกิจและทักษะที่ตลาดต้องการ","Build in-demand skills and business"],[ICON.brain,"ตัดสินใจด้วยข้อมูล","Data-driven decisions","ใช้ AI ช่วยวิเคราะห์อย่างเป็นระบบ","Use AI for systematic analysis"],[ICON.tool,"ลงมือทำจริง","Hands-on","เวิร์กช็อปและตัวอย่างจริงทุกบท","Workshops and real examples"]];
+var _LC=null,_cat='all';async function lmsCourses(){try{_LC=_LC||await (await fetch('/api/lms/config')).json()}catch(e){return}if(!_LC||!_LC.courses)return;
+ const th=L=='th',cats=(_LC.categories||[]).slice().sort((a,b)=>a.order-b.order),cn=id=>(cats.find(x=>x.id==id)||{})[L]||'';
+ courseT.innerHTML=[{id:'all',th:'ทั้งหมด',en:'All'},...cats].map(x=>`<a href="#courses" data-c="${x.id}" class="${_cat==x.id?'on':''}">${x[L]}</a>`).join('');
+ courseT.querySelectorAll('a').forEach(a=>a.onclick=e=>{e.preventDefault();_cat=a.dataset.c;lmsCourses()});
+ const FB=`<span class="tag free">${th?'ดูฟรี':'FREE'}</span>`;
+ courseG.innerHTML=_LC.courses.filter(c=>_cat=='all'||c.category==_cat).map(c=>`<div class="card"><span class="tag">${cn(c.category)}</span>${c.free&&c.free.length?' '+FB:''}<h3>${c[L]}</h3><p class="mut">${c.lessons} ${th?'บทเรียน':'lessons'}</p>
+  ${c.free&&c.free.length?`<ul class="fl">${c.free.map(l=>`<li><a href="/learn.html#course/${c.id}/${l.id}">${FB} ${l[L]}</a></li>`).join('')}</ul>`:''}
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">${c.free&&c.free.length?`<a href="/learn.html#course/${c.id}" class="btn">${th?'ดูฟรี':'Watch free'}</a>`:''}<a href="#pricing" class="btn o">${t('cta')}</a></div></div>`).join('')}
+const COURSES=[["เริ่มต้น","Beginner","AI พื้นฐาน","AI Fundamentals","เข้าใจ AI, ChatGPT และเครื่องมือยอดนิยม","Understand AI, ChatGPT and popular tools"],["ยอดนิยม","Popular","AI สำหรับเทรด Forex/ทองคำ","AI for Forex/Gold Trading","ใช้ AI ช่วยวิเคราะห์ตลาด (เพื่อการศึกษา)","Use AI for market analysis (educational)"],["ทักษะ","Skill","Prompt Engineering","Prompt Engineering","เขียน Prompt ให้ได้ผลลัพธ์แม่นยำ","Write prompts that get precise results"],["ขั้นสูง","Advanced","AI Automation","AI Automation","สร้างระบบอัตโนมัติด้วย AI และ No-code","Build automations with AI & no-code"],["ใหม่","New","Vibe Coding","Vibe Coding","สร้างเว็บและแอปด้วยการคุยกับ AI (Cursor, ChatGPT) ตั้งแต่ Prompt สู่โค้ด จนถึง Deploy","Build websites & apps by talking to AI (Cursor, ChatGPT): prompts to code to deploy"]];
+const CURR=[["พื้นฐาน AI & เครื่องมือ","AI basics & tools","รู้จัก AI และตั้งค่าเครื่องมือ","Meet AI and set up tools"],["Prompt ที่ได้ผล","Effective prompts","เทคนิคการสั่งงาน AI","Techniques for instructing AI"],["AI วิเคราะห์ข้อมูล & ตลาด","AI for data & markets","ประยุกต์ใช้กับข้อมูลและกราฟ","Apply to data and charts"],["Automation Workflow","Automation workflow","เชื่อมต่อระบบให้ทำงานเอง","Connect systems to run themselves"],["โปรเจกต์จบ","Final project","สร้างผลงานจริงของคุณเอง","Build your own real project"]];
+/* ===== PLACEHOLDER VIDEOS: ใส่ YouTube ID ใน yt หรือ URL .mp4 ใน mp4 / set yt (YouTube ID) or mp4 (URL). lesson = index of tutor lesson ===== */
+const EPISODES=[
+{yt:"",mp4:"",dur:"XX:XX",lesson:0,th:["EP1 AI คืออะไร","ทำความรู้จัก AI และตัวอย่างการใช้งานในชีวิตประจำวัน"],en:["EP1 What is AI?","Meet AI and everyday examples"]},
+{yt:"",mp4:"",dur:"XX:XX",lesson:1,th:["EP2 Machine Learning","หลักการที่ทำให้คอมพิวเตอร์เรียนรู้จากข้อมูล"],en:["EP2 Machine Learning","How computers learn from data"]},
+{yt:"",mp4:"",dur:"XX:XX",lesson:2,th:["EP3 เขียน Prompt","เทคนิคเขียนคำสั่งให้ AI ตอบได้ตรงใจ"],en:["EP3 Writing Prompts","Techniques to get the answers you want"]},
+{yt:"",mp4:"",dur:"XX:XX",lesson:3,th:["EP4 ใช้ ChatGPT","เริ่มใช้ ChatGPT ช่วยทำงานจริงทีละขั้น"],en:["EP4 Using ChatGPT","Step-by-step ChatGPT for real work"]},
+{yt:"",mp4:"",dur:"XX:XX",lesson:4,th:["EP5 AI กับการเทรด","ใช้ AI ช่วยวิเคราะห์ตลาด (ไม่ใช่คำแนะนำการลงทุน)"],en:["EP5 AI & Trading","AI for market analysis (not investment advice)"]},
+{yt:"",mp4:"",dur:"XX:XX",lesson:5,th:["EP6 Vibe Coding","สร้างเว็บแรกด้วยการคุยกับ AI จนออนไลน์ได้จริง"],en:["EP6 Vibe Coding","Build your first website by talking to AI, then deploy it"]}];
+/* Tutor lessons: q = [question, options[], correct index, explanation] */
+const LESSONS=[
+{th:{t:"บทที่ 1: AI คืออะไร",x:"AI (ปัญญาประดิษฐ์) คือระบบคอมพิวเตอร์ที่ทำงานซึ่งปกติต้องใช้ความฉลาดของมนุษย์ เช่น เข้าใจภาษา จดจำภาพ หรือตัดสินใจ",q:[["ข้อใดเป็นตัวอย่างของ AI?",["เครื่องคิดเลขธรรมดา","ระบบแนะนำวิดีโอบน YouTube","หลอดไฟ"],1,"ระบบแนะนำเรียนรู้จากพฤติกรรมผู้ใช้ จึงเป็น AI"],["AI ย่อมาจากอะไร?",["Artificial Intelligence","Automatic Internet","Advanced Input"],0,"AI = Artificial Intelligence หรือปัญญาประดิษฐ์"]]},
+ en:{t:"Lesson 1: What is AI?",x:"AI (Artificial Intelligence) is a computer system that performs tasks normally requiring human intelligence, like understanding language, recognizing images or making decisions.",q:[["Which is an example of AI?",["A basic calculator","YouTube's video recommendations","A light bulb"],1,"Recommendation systems learn from user behavior, so they are AI."],["What does AI stand for?",["Artificial Intelligence","Automatic Internet","Advanced Input"],0,"AI = Artificial Intelligence."]]}},
+{th:{t:"บทที่ 2: Machine Learning",x:"Machine Learning คือการให้คอมพิวเตอร์เรียนรู้รูปแบบจากข้อมูล แทนการเขียนกฎทุกข้อด้วยมือ ยิ่งข้อมูลดี ผลลัพธ์ยิ่งดี",q:[["Machine Learning เรียนรู้จากอะไร?",["ข้อมูล","โชค","สีของหน้าจอ"],0,"ML เรียนรู้รูปแบบจากข้อมูลตัวอย่าง"],["ถ้าข้อมูลฝึกมีคุณภาพต่ำ จะเกิดอะไร?",["โมเดลแม่นขึ้น","โมเดลมีแนวโน้มผิดพลาดมากขึ้น","ไม่มีผล"],1,"Garbage in, garbage out — ข้อมูลแย่ทำให้ผลแย่"]]},
+ en:{t:"Lesson 2: Machine Learning",x:"Machine Learning lets computers learn patterns from data instead of hand-coding every rule. Better data, better results.",q:[["What does Machine Learning learn from?",["Data","Luck","Screen color"],0,"ML learns patterns from example data."],["What happens with low-quality training data?",["Model becomes more accurate","Model tends to make more errors","No effect"],1,"Garbage in, garbage out."]]}},
+{th:{t:"บทที่ 3: เขียน Prompt",x:"Prompt ที่ดีควรระบุ บทบาท งานที่ต้องการ บริบท และรูปแบบผลลัพธ์ให้ชัดเจน",q:[["Prompt ใดดีที่สุด?",["เขียนบทความ","ช่วยหน่อย","ในฐานะนักการตลาด เขียนโพสต์ 3 ย่อหน้าแนะนำคอร์ส AI สำหรับมือใหม่ โทนเป็นกันเอง"],2,"ระบุบทบาท งาน กลุ่มเป้าหมาย และรูปแบบชัดเจน"],["ถ้า AI ตอบไม่ตรงใจ ควรทำอย่างไร?",["เลิกใช้","ปรับ Prompt ให้เจาะจงขึ้นและให้ตัวอย่าง","พิมพ์ซ้ำเดิม"],1,"การปรับปรุง Prompt ทีละรอบ (iterate) ช่วยได้มาก"]]},
+ en:{t:"Lesson 3: Writing Prompts",x:"A good prompt states the role, the task, the context and the output format clearly.",q:[["Which prompt is best?",["Write an article","Help me","As a marketer, write a 3-paragraph friendly post introducing an AI course for beginners"],2,"It specifies role, task, audience and format."],["If the AI's answer misses, what should you do?",["Give up","Refine the prompt and add examples","Retype the same thing"],1,"Iterating on prompts helps a lot."]]}},
+{th:{t:"บทที่ 4: ใช้ ChatGPT",x:"ChatGPT ช่วยสรุป แปล ระดมไอเดีย และร่างงานได้ แต่อาจให้ข้อมูลผิด ควรตรวจสอบข้อเท็จจริงเสมอ",q:[["ข้อใดควรระวังเมื่อใช้ ChatGPT?",["มันไม่เคยผิด","อาจให้ข้อมูลผิด ต้องตรวจสอบ","ใช้ได้แค่ภาษาอังกฤษ"],1,"AI อาจ 'มั่วข้อมูล' (hallucination) ได้"],["ข้อมูลแบบใดไม่ควรใส่ลงในแชต AI สาธารณะ?",["รหัสผ่านและข้อมูลส่วนตัว","คำถามทั่วไป","ไอเดียชื่อร้าน"],0,"อย่าใส่ข้อมูลลับหรือข้อมูลส่วนบุคคล"]]},
+ en:{t:"Lesson 4: Using ChatGPT",x:"ChatGPT can summarize, translate, brainstorm and draft, but it can be wrong — always verify facts.",q:[["What should you watch out for with ChatGPT?",["It is never wrong","It can be wrong; verify","English only"],1,"AI can hallucinate."],["What should you NOT paste into a public AI chat?",["Passwords and personal data","General questions","Shop name ideas"],0,"Never share secrets or personal data."]]}},
+{th:{t:"บทที่ 5: AI กับการเทรด",x:"AI ช่วยสรุปข่าว วิเคราะห์ข้อมูลย้อนหลัง และช่วยวางแผนได้ แต่ไม่สามารถรับประกันกำไร การบริหารความเสี่ยงยังสำคัญที่สุด",q:[["AI รับประกันกำไรในการเทรดได้หรือไม่?",["ได้ 100%","ไม่ได้ ตลาดมีความไม่แน่นอน","ได้ถ้าจ่ายแพง"],1,"ไม่มีเครื่องมือใดรับประกันกำไรได้"],["สิ่งใดสำคัญที่สุดแม้ใช้ AI ช่วยเทรด?",["การบริหารความเสี่ยง","เพิ่ม Lot ให้มากที่สุด","ไม่ต้องตั้ง Stop Loss"],0,"บริหารความเสี่ยงคือหัวใจของการเทรด"]]},
+ en:{t:"Lesson 5: AI & Trading",x:"AI can summarize news, analyze historical data and help plan, but it cannot guarantee profit. Risk management matters most.",q:[["Can AI guarantee trading profits?",["Yes, 100%","No, markets are uncertain","Yes if you pay more"],1,"No tool can guarantee profit."],["What matters most even with AI help?",["Risk management","Max lot size","Skip the stop loss"],0,"Risk management is the core of trading."]]}},
+{th:{t:"บทที่ 6: Vibe Coding",x:"Vibe Coding คือการสร้างเว็บหรือแอปด้วยการอธิบายสิ่งที่ต้องการให้ AI (เช่น Cursor หรือ ChatGPT) เขียนโค้ด แล้วเราทดสอบ ปรับแก้ และ Deploy ขึ้นออนไลน์",q:[["ขั้นตอนใดสำคัญหลังจาก AI เขียนโค้ดให้?",["Deploy ทันทีโดยไม่ดู","ทดสอบผลลัพธ์และสั่งแก้ไขทีละจุด","ลบทิ้งแล้วเริ่มใหม่ทุกครั้ง"],1,"ควรทดสอบและให้ AI แก้ทีละจุดจนใช้งานได้จริง"],["Prompt แบบใดเหมาะกับ Vibe Coding?",["ทำเว็บให้หน่อย","สร้างหน้า Landing ขายคอร์ส มีส่วน Hero ราคา 3 แพ็กเกจ และฟอร์มสมัคร รองรับมือถือ","เขียนโค้ด"],1,"ระบุโครงสร้าง ฟีเจอร์ และข้อกำหนดให้ชัด AI จะสร้างได้ตรงขึ้น"]]},
+ en:{t:"Lesson 6: Vibe Coding",x:"Vibe Coding means building websites or apps by describing what you want to an AI (e.g. Cursor or ChatGPT), then testing, refining and deploying the result.",q:[["What matters most after the AI writes code?",["Deploy immediately without checking","Test the result and ask for fixes step by step","Delete it and start over every time"],1,"Test and iterate with the AI until it really works."],["Which prompt suits Vibe Coding best?",["Make me a website","Create a mobile-friendly course landing page with a hero, 3 pricing tiers and a signup form","Write code"],1,"Clear structure, features and requirements give better results."]]}}];
+const PLANS=[{rec:0,th:["Starter","เริ่มต้นเรียนรู้",["คอร์ส AI พื้นฐาน","คลิปวิดีโอทั้งหมด","AI Tutor แบบฝึกหัด"]],en:["Starter","Start learning",["AI Fundamentals course","All videos","AI Tutor exercises"]]},
+{rec:1,th:["Pro","คุ้มที่สุดสำหรับคนทำงาน",["ทุกอย่างใน Starter","Prompt Engineering + AI Automation","Vibe Coding","เทมเพลต Prompt","กลุ่มคอมมูนิตี้"]],en:["Pro","Best value for professionals",["Everything in Starter","Prompt Engineering + AI Automation","Vibe Coding","Prompt templates","Community group"]]},
+{rec:0,th:["VIP Mentor","ดูแลใกล้ชิด",["ทุกอย่างใน Pro","คอร์ส AI สำหรับเทรด","Mentor 1:1 (จำนวนครั้ง placeholder)","รีวิวโปรเจกต์"]],en:["VIP Mentor","Close mentoring",["Everything in Pro","AI for Trading course","1:1 mentoring (sessions: placeholder)","Project review"]]},
+{rec:0,th:["Lifetime","จ่ายครั้งเดียว",["ทุกคอร์สปัจจุบันและอนาคต","อัปเดตเนื้อหาตลอดชีพ","สิทธิพิเศษสมาชิก"]],en:["Lifetime","Pay once",["All current & future courses","Lifetime updates","Member perks"]]}];
+const TESTS=[["ผู้เรียน A (ตัวอย่าง)","Learner A (sample)","ตัวอย่างรีวิว: เนื้อหาเข้าใจง่าย นำไปใช้ได้จริง","Sample review: easy to follow and practical"],["ผู้เรียน B (ตัวอย่าง)","Learner B (sample)","ตัวอย่างรีวิว: ช่วยประหยัดเวลาทำงาน","Sample review: saves me time at work"],["ผู้เรียน C (ตัวอย่าง)","Learner C (sample)","ตัวอย่างรีวิว: เข้าใจการใช้ AI วิเคราะห์มากขึ้น","Sample review: better at using AI for analysis"]];
+const FAQ=[["ไม่มีพื้นฐานเรียนได้ไหม?","Can beginners join?","ได้ คอร์ส AI พื้นฐานออกแบบมาสำหรับผู้เริ่มต้น","Yes, AI Fundamentals is designed for beginners."],["เรียนออนไลน์หรือออนไซต์?","Online or on-site?","[ระบุรูปแบบการเรียน — placeholder]","[Specify format — placeholder]"],["คอร์สเทรดรับประกันกำไรไหม?","Does the trading course guarantee profit?","ไม่มีการรับประกันผลกำไร การเทรดมีความเสี่ยง","No. Trading involves risk; no profit is guaranteed."],["ชำระเงินอย่างไร?","How do I pay?","[ระบุช่องทางชำระเงิน — placeholder]","[Specify payment methods — placeholder]"]];
+let L=localStorage.getItem('pfx_lang')||'th';const qp=new URLSearchParams(location.search).get('lang');if(qp)L=qp;
+let cur=0,ep=0,qi=0,score=0,lscore=0,answered=false;const I=L=>L=='th'?0:1;
+function t(k){return T[L][k]}
+function render(){const i=I(L);document.documentElement.lang=L;document.title=t('title');
+document.querySelectorAll('[data-t]').forEach(e=>e.textContent=t(e.dataset.t));document.querySelectorAll('[data-h]').forEach(e=>e.innerHTML=t(e.dataset.h));document.querySelectorAll('[data-p]').forEach(e=>e.placeholder=t(e.dataset.p));
+document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l==L));
+whyG.innerHTML=WHY.map(w=>`<div class="card"><div class="ic">${w[0]}</div><h3>${w[1+i]}</h3><p class="mut">${w[3+i]}</p></div>`).join('');
+courseG.innerHTML=COURSES.map(c=>`<div class="card"><span class="tag">${c[i]}</span><h3>${c[2+i]}</h3><p class="mut">${c[4+i]}</p><div class="price">฿X,XXX</div><p class="ph">* placeholder</p><br><a href="#pricing" class="btn">${t('cta')}</a></div>`).join('');lmsCourses();
+currG.innerHTML=CURR.map((c,k)=>`<div class="step"><div class="n">${k+1}</div><div><h3>${c[i]}</h3><p class="mut">${c[2+i]}</p></div></div>`).join('');
+epG.innerHTML=EPISODES.map((e,k)=>`<div class="card ep" onclick="playEp(${k})"><div class="th">${ICON.play}</div><span class="dur">${e.dur}</span><b>${e[L][0]}</b><p class="mut" style="font-size:.9rem">${e[L][1]}</p><a href="#tutor" class="ph" onclick="event.stopPropagation();openLesson(${e.lesson})">${t('exl')}</a></div>`).join('');playEp(ep);
+planG.innerHTML=PLANS.map(p=>{const d=p[L];return `<div class="card plan ${p.rec?'rec':''}">${p.rec?`<span class="badge">${t('rec')}</span>`:''}<h3>${d[0]}</h3><p class="mut">${d[1]}</p><div class="price">฿X,XXX</div><span class="ph">* placeholder</span><ul>${d[2].map(x=>`<li>${x}</li>`).join('')}</ul><a href="#contact" class="btn ${p.rec?'':'o'}" style="text-align:center">${t('choose')}</a></div>`}).join('');
+testG.innerHTML=TESTS.map(x=>`<div class="card"><div class="stars">${ICON.star.repeat(5)}</div><p>"${x[2+i]}"</p><b>— ${x[i]}</b></div>`).join('');
+faqG.innerHTML=FAQ.map(x=>`<details><summary>${x[i]}</summary><p>${x[2+i]}</p></details>`).join('');
+fSel.innerHTML=COURSES.map(c=>`<option>${c[2+i]}</option>`).concat(PLANS.map(p=>`<option>${p[L][0]}</option>`)).join('');
+galG.innerHTML=[1,2,3,4].map(n=>`<div class="gi" data-n="${n}"><div class="gp">${ICON.cam}<span>class-${n}.jpg<br>${t('gslot')}</span></div><img src="assets/class-${n}.jpg" alt="${t('gcap')[n-1]}" loading="lazy" onload="this.previousElementSibling.style.display='none'" onerror="this.remove()"><div class="gc">${t('gcap')[n-1]}</div></div>`).join('');
+galG.querySelectorAll('.gi').forEach(g=>g.onclick=()=>{const im=g.querySelector('img');if(!im)return;lbImg.src=im.src;lbCap.textContent=im.alt;lb.classList.add('open')});
+lessonBtns.innerHTML=LESSONS.map((l,k)=>`<button class="${k==cur?'on':''}" onclick="openLesson(${k})">${l[L].t}</button>`).join('');drawLesson()}
+function playEp(k){ep=k;const e=EPISODES[k];player.innerHTML=e.yt?`<iframe src="https://www.youtube.com/embed/${e.yt}" allowfullscreen></iframe>`:e.mp4?`<video src="${e.mp4}" controls></video>`:`<div>${t('vnone')}</div>`;
+vTitle.textContent=e[L][0]+' · '+e.dur;vDesc.textContent=e[L][1];vEx.onclick=()=>openLesson(e.lesson);document.querySelectorAll('.ep').forEach((c,j)=>c.classList.toggle('on',j==k))}
+function openLesson(k){cur=k;qi=0;lscore=0;answered=false;document.querySelectorAll('.lessons button').forEach((b,j)=>b.classList.toggle('on',j==k));drawLesson()}
+function drawLesson(){const l=LESSONS[cur][L];lTitle.textContent=l.t;lText.textContent=l.x;score.textContent=t('sc')+': '+score;prog.style.width=(qi/l.q.length*100)+'%';
+if(qi>=l.q.length){quiz.innerHTML=`<p class="fb">${t('done')}: ${lscore}/${l.q.length}</p><br><button class="btn o" onclick="openLesson(${cur})">${t('retry')}</button> ${cur<LESSONS.length-1?`<button class="btn" onclick="openLesson(${cur+1})">${t('nextL')}</button>`:''}`;return}
+const q=l.q[qi];quiz.innerHTML=`<p><b>${t('q')} ${qi+1}/${l.q.length}:</b> ${q[0]}</p>`+q[1].map((o,j)=>`<button class="opt" onclick="ans(${j})">${o}</button>`).join('')+`<div id="fbk"></div>`}
+function ans(j){if(answered)return;answered=true;const q=LESSONS[cur][L].q[qi],ok=j==q[2],b=document.querySelectorAll('.opt');b[q[2]].classList.add('ok');if(!ok)b[j].classList.add('bad');if(ok){score+=10;lscore++}
+score_save();fbk.innerHTML=`<div class="bubble fb">${ok?t('ok'):t('bad')}${q[3]}</div><button class="btn" onclick="qi++;answered=false;drawLesson()">${t('nx')}</button>`;score.textContent=t('sc')+': '+score}
+function score_save(){localStorage.setItem('pfx_score',score)}score=+localStorage.getItem('pfx_score')||0;
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{L=b.dataset.l;localStorage.setItem('pfx_lang',L);answered=false;render()});
+y.textContent=new Date().getFullYear();f.onsubmit=e=>{e.preventDefault();ok.style.display='block';f.reset()};render();
+</script><style>.hero{position:relative;overflow:hidden}.hero .wrap{position:relative;z-index:1}#bg3d{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.85}
+#chatBtn,#callBtn{position:fixed;right:20px;z-index:20;border-radius:50%;width:58px;height:58px;font-size:1.5rem;padding:0;box-shadow:0 6px 24px rgba(0,0,0,.5)}#chatBtn{bottom:20px}#callBtn{bottom:90px}#callBtn.live{background:#e05a5a;animation:pl 1.2s infinite}@keyframes pl{50%{box-shadow:0 0 0 12px rgba(224,90,90,.2)}}
+#chatBox{position:fixed;right:20px;bottom:160px;width:min(360px,calc(100vw - 40px));height:460px;background:var(--card);border:1px solid var(--gold);border-radius:16px;z-index:21;display:none;flex-direction:column;overflow:hidden}#chatBox.open{display:flex}
+#chatBox header{padding:12px 16px;background:#1a1f2b;font-weight:600;display:flex;justify-content:space-between}#msgs{flex:1;overflow:auto;padding:12px}.m{max-width:85%;padding:9px 13px;border-radius:12px;margin:6px 0;font-size:.92rem;white-space:pre-wrap}.m.u{background:var(--gold);color:#111;margin-left:auto}.m.b{background:#10131a;border:1px solid #2c3343}
+#chatF{display:flex;gap:6px;padding:10px;border-top:1px solid #2c3343}#chatF input{padding:9px}#chatF .btn{padding:8px 14px}#qr{padding:0 10px 6px;display:flex;gap:6px;flex-wrap:wrap}#qr button{background:none;border:1px solid #2c3343;color:var(--mut);border-radius:14px;padding:3px 10px;font-size:.78rem;cursor:pointer;font-family:inherit}
+#callSt{position:fixed;right:88px;bottom:100px;z-index:20;background:var(--card);border:1px solid #333;border-radius:10px;padding:6px 12px;font-size:.85rem;display:none}</style>
+<button id="callBtn" class="btn" title="Call AI"><svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></button><div id="callSt"></div>
+<button id="chatBtn" class="btn" title="Chat"><svg class="i" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button>
+<div id="chatBox"><header><span class="hd"><img class="av" src="assets/ai-avatar.webp" alt="" style="width:30px;height:30px"> PureFxAi Assistant</span><span style="cursor:pointer" onclick="chatBox.classList.remove('open')" aria-label="close"><svg class="i" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></span></header><div id="msgs"></div><div id="qr"></div><form id="chatF"><input id="chatIn" autocomplete="off"><button class="btn" aria-label="send"><svg class="i" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg></button></form></div>
+<script>
+Object.assign(T.th,{cHi:"สวัสดีครับ ผมคือผู้ช่วย AI ของ PureFxAi สอบถามเรื่องคอร์สหรือแพ็กเกจได้เลยครับ",cPh:"พิมพ์คำถาม...",cQ:["มีคอร์สอะไรบ้าง","แพ็กเกจไหนแนะนำ","ราคาเท่าไหร่","สมัครยังไง"],cOff:"(โหมดตอบอัตโนมัติ — ยังไม่ได้เชื่อม Gemini)",
+ aCourse:"PureFxAi มี 5 คอร์ส: AI พื้นฐาน, AI สำหรับเทรด Forex/ทองคำ (เพื่อการศึกษา), Prompt Engineering, AI Automation และ Vibe Coding (สร้างเว็บ/แอปด้วยการคุยกับ AI)",aPlan:"แพ็กเกจมี Starter, Pro (แนะนำ), VIP Mentor และ Lifetime ดูรายละเอียดได้ที่ส่วนแพ็กเกจราคาครับ",aPrice:"ราคาตอนนี้ยังเป็น placeholder (฿X,XXX) ทีมงานจะแจ้งราคาจริงอีกครั้งครับ",aJoin:"กรอกฟอร์มในส่วน 'สมัครเรียน / ติดต่อเรา' ด้านล่าง ทีมงานจะติดต่อกลับครับ",aDef:"ขอบคุณที่สอบถามครับ สำหรับรายละเอียดเพิ่มเติม กรุณากรอกฟอร์มติดต่อ ทีมงานจะตอบกลับครับ",
+ vNo:"ยังไม่ได้ตั้งค่าการโทรด้วย AI (Gemini)",vCon:"กำลังเชื่อมต่อ...",vOn:"กำลังสนทนา — กดอีกครั้งเพื่อวางสาย",vMic:"ไม่สามารถใช้ไมโครโฟนได้",vEnd:"วางสายแล้ว"});
+Object.assign(T.en,{cHi:"Hi I'm the PureFxAi AI assistant. Ask me about courses or packages!",cPh:"Type a question...",cQ:["What courses?","Which plan?","Prices?","How to enroll?"],cOff:"(Auto-reply mode — Gemini not configured)",
+ aCourse:"PureFxAi offers 5 courses: AI Fundamentals, AI for Forex/Gold Trading (educational), Prompt Engineering, AI Automation and Vibe Coding (build websites/apps by talking to AI).",aPlan:"Plans: Starter, Pro (recommended), VIP Mentor and Lifetime — see the Pricing section.",aPrice:"Prices are placeholders (฿X,XXX) for now; the team will confirm real pricing.",aJoin:"Fill in the 'Enroll / Contact us' form below and our team will reach out.",aDef:"Thanks for asking! For more details please use the contact form and our team will reply.",
+ vNo:"AI voice call (Gemini) is not configured yet",vCon:"Connecting...",vOn:"Live — tap again to hang up",vMic:"Microphone unavailable",vEnd:"Call ended"});
+const hist=[];let gem=null;fetch('/api/status').then(r=>r.json()).then(j=>gem=j.configured).catch(()=>gem=false);
+function addM(txt,who){const d=document.createElement('div');d.className='m '+who;d.textContent=who=='b'?txt.replace(/\*\*|__|^#+\s*/gm,''):txt;msgs.appendChild(d);msgs.scrollTop=1e9}
+function chatUI(){chatIn.placeholder=t('cPh');qr.innerHTML=t('cQ').map(q=>`<button type="button">${q}</button>`).join('');qr.querySelectorAll('button').forEach(b=>b.onclick=()=>ask(b.textContent));if(!hist.length){msgs.innerHTML='';addM(t('cHi'),'b')}}
+function local(q){q=q.toLowerCase();if(/ราคา|price|เท่าไหร่|cost/.test(q))return t('aPrice');if(/แพ็ก|plan|package|แนะนำ|vip|lifetime|pro/.test(q))return t('aPlan');if(/สมัคร|enroll|join|ติดต่อ|contact/.test(q))return t('aJoin');if(/vibe|โค้ด|code|เว็บ|website|app/.test(q))return L=='th'?'Vibe Coding: สร้างเว็บและแอปด้วยการคุยกับ AI เช่น Cursor และ ChatGPT ตั้งแต่ Prompt สู่โค้ด จนถึง Deploy (มีในแพ็กเกจ Pro ขึ้นไป)':'Vibe Coding: build websites and apps by talking to AI such as Cursor and ChatGPT, from prompts to code to deploy (included from the Pro plan up).';if(/คอร์ส|course|เรียน|learn/.test(q))return t('aCourse');return t('aDef')}
+async function ask(q){if(!q.trim())return;addM(q,'u');hist.push({role:'user',text:q});let a;
+ if(gem){try{const r=await fetch('/api/chat',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({messages:hist})});const j=await r.json();a=j.text}catch(e){}}
+ if(!a)a=local(q)+(gem?'':'\n'+t('cOff'));hist.push({role:'model',text:a});addM(a,'b')}
+chatBtn.onclick=()=>{chatBox.classList.toggle('open');document.body.classList.toggle('chat',chatBox.classList.contains('open'));chatUI()};chatF.onsubmit=e=>{e.preventDefault();ask(chatIn.value);chatIn.value=''};
+const _r=render;render=function(){_r();if(window.chatBox){hist.length=0;chatUI()}};chatUI();
+/* ---- Call AI: Gemini Live via server proxy /api/live (16k PCM in, 24k PCM out) ---- */
+let ws,actx,stream,proc,playT=0;
+function st(s){callSt.style.display=s?'block':'none';callSt.textContent=s||''}
+async function startCall(){if(gem===false){st(t('vNo'));setTimeout(()=>st(''),3000);return}
+ st(t('vCon'));try{stream=await navigator.mediaDevices.getUserMedia({audio:true})}catch(e){st(t('vMic'));return}
+ actx=new AudioContext();ws=new WebSocket((location.protocol=='https:'?'wss://':'ws://')+location.host+'/api/live');
+ ws.onmessage=async ev=>{const j=JSON.parse(typeof ev.data=='string'?ev.data:await ev.data.text());if(j.error){st(j.error=='not_configured'?t('vNo'):'Error: '+(j.detail||j.error));return endCall(true)}
+  if(j.setupComplete){st(t('vOn'));callBtn.classList.add('live')}
+  (j.serverContent?.modelTurn?.parts||[]).forEach(p=>{if(p.inlineData?.data)playPCM(p.inlineData.data)});if(j.serverContent?.interrupted)playT=0};
+ ws.onclose=()=>endCall(true);
+ const src=actx.createMediaStreamSource(stream);proc=actx.createScriptProcessor(4096,1,1);src.connect(proc);proc.connect(actx.destination);
+ proc.onaudioprocess=e=>{if(ws.readyState!==1)return;const inp=e.inputBuffer.getChannelData(0),ratio=actx.sampleRate/16000,n=Math.floor(inp.length/ratio),o=new Int16Array(n);
+  for(let i=0;i<n;i++){const s=Math.max(-1,Math.min(1,inp[Math.floor(i*ratio)]));o[i]=s*32767}
+  let b='';new Uint8Array(o.buffer).forEach(x=>b+=String.fromCharCode(x));ws.send(JSON.stringify({realtimeInput:{audio:{mimeType:'audio/pcm;rate=16000',data:btoa(b)}}}))}}
+function playPCM(b64){const bin=atob(b64),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);const pcm=new Int16Array(u.buffer),buf=actx.createBuffer(1,pcm.length,24000),ch=buf.getChannelData(0);
+ for(let i=0;i<pcm.length;i++)ch[i]=pcm[i]/32768;const s=actx.createBufferSource();s.buffer=buf;s.connect(actx.destination);playT=Math.max(playT,actx.currentTime);s.start(playT);playT+=buf.duration}
+function endCall(keep){try{proc&&proc.disconnect();stream&&stream.getTracks().forEach(x=>x.stop());ws&&ws.readyState<2&&ws.close();actx&&actx.close()}catch(e){}ws=null;callBtn.classList.remove('live');if(!keep)st(t('vEnd'));setTimeout(()=>st(''),2500)}
+addEventListener('keydown',e=>{if(e.key=='Escape')lb.classList.remove('open')});
+callBtn.onclick=()=>ws?endCall():startCall();
+</script>
+<script>
+Object.assign(T.th,{st:"หนังสั้น",sser:"ระบบ PureFxAi ต่างโลก",ss:"ซีรีส์แนวตั้ง: ระบบ PureFxAi ต่างโลก",sph:"(วิดีโอเป็น placeholder — วางไฟล์ที่ shorts/epXX/)",snd:"เสียง",snx:"ถัดไป",sct:"ความคิดเห็น",scn:"ชื่อ (ไม่บังคับ)",scp:"เขียนความคิดเห็น...",scs:"ส่ง",sno:"ยังไม่มีความคิดเห็น เป็นคนแรกเลย",soon:"เร็วๆ นี้",vsoon:"วิดีโอกำลังมา",rl:"ส่งถี่เกินไป ลองใหม่อีกครั้ง",off:"ระบบความคิดเห็นยังไม่พร้อม",ep:"ตอนที่"});
+Object.assign(T.en,{st:"Shorts",sser:"PureFxAi System: Another World",ss:"Vertical series: PureFxAi System: Another World",sph:"(Videos are placeholders — drop files in shorts/epXX/)",snd:"Sound",snx:"Next",sct:"Comments",scn:"Name (optional)",scp:"Write a comment...",scs:"Post",sno:"No comments yet. Be the first!",soon:"Coming soon",vsoon:"Video coming soon",rl:"Too many requests, try again shortly",off:"Comments unavailable",ep:"Episode"});
+/* PLACEHOLDER: add clips per episode, e.g. ["shorts/ep01/ep01.mp4"] or 8 files ["shorts/ep01/clip-01.mp4",...] */
+const SHORTS=[
+{id:"ep01",cover:"shorts/ep01/cover.jpg",clips:["shorts/ep01/ep01.mp4"],th:"ไอ้ขี้แพ้กับหน้าต่างสีทอง",en:"The Loser and the Golden Window"},
+{id:"ep02",cover:"shorts/ep02/cover.jpg",clips:[],th:"เมืองตลาดแห่งโชคชะตา",en:"The Market Town of Chance"},
+{id:"ep03",cover:"shorts/ep03/cover.jpg",clips:[],th:"วินัยเหนือความโลภ",en:"Discipline over Desire"},
+{id:"ep04",cover:"shorts/ep04/cover.jpg",clips:[],th:"ชายในผ้าคลุม",en:"The Hooded Figure"},
+{id:"ep05",cover:"shorts/ep05/cover.jpg",clips:[],th:"ระดับเทพ",en:"God Tier"}];
+let sI=0,cI=0;const liked=JSON.parse(localStorage.getItem('pfx_liked')||'{}');
+function sRender(){sList.innerHTML=SHORTS.map((e,i)=>`<div class="sit ${i==sI?'on':''}" onclick="sPlay(${i},0,true)"><div class="cv" style="background-image:url('${e.cover}'),linear-gradient(160deg,#1d2230,#2a2410)"><span><b>EP${i+1}</b><br>${e[L]}</span></div>${e.clips.length?'':`<span class="soon">${t('soon')}</span>`}</div>`).join('');sMeta()}
+function sMeta(){const e=SHORTS[sI];sEp.textContent=t('sser')+' · EP'+(sI+1);sTitle.textContent=e[L];
+ sBar.innerHTML=(e.clips.length?e.clips:[0]).map((_,k)=>`<i class="${k<=cI&&e.clips.length?'on':''}"></i>`).join('');
+ sPh.innerHTML=`<b>EP${sI+1}: ${e[L]}</b>${t('vsoon')}<br><small>${e.clips[0]||'shorts/'+e.id+'/'}</small>`;sPh.style.backgroundImage=`linear-gradient(rgba(11,13,18,.55),rgba(11,13,18,.85)),url('${e.cover}'),linear-gradient(160deg,#1d2230,#2a2410)`;
+ sLike.classList.toggle('on',!!liked[e.id])}
+function sPlay(i,c,user){sI=i;cI=c||0;const e=SHORTS[sI];sRender();sLoad();
+ if(!e.clips.length){svid.removeAttribute('src');svid.load();sPh.style.display='flex';return}
+ svid.src=e.clips[cI];sPh.style.display='flex';const p=svid.play();p&&p.catch(()=>{})}
+svid.onloadeddata=()=>sPh.style.display='none';svid.onerror=()=>{sPh.style.display='flex'};
+svid.onended=()=>{const e=SHORTS[sI];if(cI<e.clips.length-1)sPlay(sI,cI+1);else sNextEp()};
+function sNextEp(){for(let k=1;k<=SHORTS.length;k++){const j=(sI+k)%SHORTS.length;if(SHORTS[j].clips.length){if(j<=sI&&k>0&&j==sI)return;return sPlay(j,0)}}}
+sNext.onclick=()=>sPlay((sI+1)%SHORTS.length,0,true);
+sSnd.onclick=()=>{svid.muted=!svid.muted;sWave.style.display=svid.muted?'none':'';if(!svid.muted)svid.play().catch(()=>{})};sWave.style.display='none';
+sv.onclick=e=>{if(e.target.closest('.sbtn'))return;svid.paused?svid.play().catch(()=>{}):svid.pause()};
+async function sLoad(){const e=SHORTS[sI];try{const r=await fetch('/api/shorts/'+e.id);if(!r.ok)throw 0;const j=await r.json();if(e!==SHORTS[sI])return;sLikes.textContent=j.likes;
+ sCm.innerHTML=j.comments.length?j.comments.map(c=>`<div class="cm"><b>${c.name}</b><small>${new Date(c.at).toLocaleString(L=='th'?'th-TH':'en-US')}</small><p>${c.text}</p></div>`).join(''):`<p class="mut">${t('sno')}</p>`}catch(x){sCm.innerHTML=`<p class="mut">${t('off')}</p>`}}
+sLike.onclick=async()=>{const e=SHORTS[sI],un=!!liked[e.id];try{const r=await fetch(`/api/shorts/${e.id}/like`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({unlike:un})});const j=await r.json();if(!r.ok){sErr.textContent=t(r.status==429?'rl':'off');return}
+ un?delete liked[e.id]:liked[e.id]=1;localStorage.setItem('pfx_liked',JSON.stringify(liked));sLikes.textContent=j.likes;sMeta()}catch(x){sErr.textContent=t('off')}};
+sText.oninput=()=>sCnt.textContent=sText.value.length+'/300';
+sForm.onsubmit=async ev=>{ev.preventDefault();sErr.textContent='';const e=SHORTS[sI];try{const r=await fetch(`/api/shorts/${e.id}/comments`,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({name:sName.value,text:sText.value})});
+ if(!r.ok){sErr.textContent=t(r.status==429?'rl':'off');return}sText.value='';sCnt.textContent='0/300';sLoad()}catch(x){sErr.textContent=t('off')}};
+new IntersectionObserver(en=>{if(!en[0].isIntersecting)svid.pause();else if(svid.src&&svid.paused)svid.play().catch(()=>{})},{threshold:.4}).observe(sv);
+const _r2=render;render=function(){_r2();if(window.sList){sRender();sLoad()}};render();sPlay(0,0);
+</script>
+<script type="module">
+/* three.js gold neural particle sphere; falls back silently to CSS gradient */
+try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)throw 0;
+const THREE=await import('https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js');
+const hero=document.querySelector('.hero'),c=document.createElement('canvas');c.id='bg3d';hero.prepend(c);
+const r=new THREE.WebGLRenderer({canvas:c,alpha:true,antialias:true});const MOB=innerWidth<900;r.setPixelRatio(MOB?1:Math.min(devicePixelRatio,1.5));
+const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(60,1,.1,100);cam.position.z=6;
+const N=MOB?350:1600,pos=new Float32Array(N*3);for(let i=0;i<N;i++){const p=Math.acos(1-2*(i+.5)/N),th=Math.PI*(1+Math.sqrt(5))*i,R=2.3+Math.random()*.15;pos.set([R*Math.sin(p)*Math.cos(th),R*Math.sin(p)*Math.sin(th),R*Math.cos(p)],i*3)}
+const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(pos,3));
+const grp=new THREE.Group();grp.add(new THREE.Points(g,new THREE.PointsMaterial({color:0xffd77a,size:.045,transparent:true,opacity:.9,blending:THREE.AdditiveBlending})));
+const lp=[];for(let i=0;i<N;i+=3){const j=(i+Math.floor(Math.random()*40)+1)%N;lp.push(...pos.slice(i*3,i*3+3),...pos.slice(j*3,j*3+3))}
+if(!MOB){const lg=new THREE.BufferGeometry();lg.setAttribute('position',new THREE.Float32BufferAttribute(lp,3));grp.add(new THREE.LineSegments(lg,new THREE.LineBasicMaterial({color:0xe8b84a,transparent:true,opacity:.12,blending:THREE.AdditiveBlending})))}
+function place(){grp.position.x=hero.clientWidth>900?3.2*cam.aspect/1.8:0;grp.scale.setScalar(1)}sc.add(grp);let mx=0,my=0,vis=true;addEventListener('mousemove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(hero);
+function rs(){const w=hero.clientWidth,h=hero.clientHeight;r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();place()}addEventListener('resize',rs);rs();
+(function loop(tm){requestAnimationFrame(loop);if(!vis||document.hidden)return;grp.rotation.y=tm*.00015+mx*.5;grp.rotation.x=my*.3;r.render(sc,cam)})(0);
+}catch(e){console.info('3D background disabled, using CSS fallback',e)}
+</script>
+<div id="cglow"></div>
+<script>
+(()=>{const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const nav=document.querySelector('nav');addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
+const links=[...document.querySelectorAll('#navL a[href^="#"]')],secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('act',a.getAttribute('href')=='#'+e.target.id))}}),{rootMargin:'-45% 0px -50% 0px'});secs.forEach(s=>so.observe(s));
+if(!RM){const els=document.querySelectorAll('section h2,section .sub,.grid>*,.why-banner,.about>*,.step,.vp,.sh,.tutor,.gal,details,#f,.vrg>*');
+ els.forEach((el,i)=>{el.classList.add('rv');el.style.transitionDelay=(Math.min(i%6,5)*70)+'ms'});
+ const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});els.forEach(el=>ro.observe(el));
+ /* re-observe dynamically rendered cards after language switch */
+ const mo=new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType==1&&n.parentElement&&n.parentElement.matches('.grid'))n.classList.add('rv','in')})));document.querySelectorAll('.grid').forEach(g=>mo.observe(g,{childList:true}));
+ if(matchMedia('(pointer:fine)').matches){const g=document.getElementById('cglow');addEventListener('pointermove',e=>{g.style.opacity=1;g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'},{passive:true})}}
+})();
+</script>
+</body></html>

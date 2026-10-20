@@ -1,0 +1,270 @@
+{
+ "92": {
+  "inputs": {
+   "filename_prefix": "video/PUREFXAI H3",
+   "format": "auto",
+   "format.codec": "auto",
+   "codec": "auto",
+   "video": [
+    "156",
+    0
+   ]
+  },
+  "class_type": "SaveVideo"
+ },
+ "136": {
+  "inputs": {
+   "image": "x.png"
+  },
+  "class_type": "LoadImage"
+ },
+ "141": {
+  "inputs": {
+   "image": [
+    "142",
+    0
+   ]
+  },
+  "class_type": "GetImageSize"
+ },
+ "142": {
+  "inputs": {
+   "upscale_method": "nearest-exact",
+   "megapixels": 0.5,
+   "resolution_steps": 32,
+   "image": [
+    "136",
+    0
+   ]
+  },
+  "class_type": "ImageScaleToTotalPixels"
+ },
+ "145": {
+  "inputs": {
+   "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+  },
+  "class_type": "VAELoader"
+ },
+ "146": {
+  "inputs": {
+   "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+  },
+  "class_type": "VAELoader"
+ },
+ "147": {
+  "inputs": {
+   "samples": [
+    "151",
+    0
+   ],
+   "vae": [
+    "146",
+    0
+   ]
+  },
+  "class_type": "VAEDecodeAudio"
+ },
+ "148": {
+  "inputs": {
+   "samples": [
+    "151",
+    0
+   ],
+   "vae": [
+    "145",
+    0
+   ]
+  },
+  "class_type": "VAEDecode"
+ },
+ "149": {
+  "inputs": {
+   "sampler_name": "res_multistep"
+  },
+  "class_type": "KSamplerSelect"
+ },
+ "150": {
+  "inputs": {
+   "scheduler": "simple",
+   "steps": 8,
+   "denoise": 1,
+   "model": [
+    "160",
+    0
+   ]
+  },
+  "class_type": "BasicScheduler"
+ },
+ "151": {
+  "inputs": {
+   "noise": [
+    "155",
+    0
+   ],
+   "guider": [
+    "152",
+    0
+   ],
+   "sampler": [
+    "149",
+    0
+   ],
+   "sigmas": [
+    "150",
+    0
+   ],
+   "latent_image": [
+    "157",
+    1
+   ]
+  },
+  "class_type": "SamplerCustomAdvanced"
+ },
+ "152": {
+  "inputs": {
+   "model": [
+    "160",
+    0
+   ],
+   "conditioning": [
+    "157",
+    0
+   ]
+  },
+  "class_type": "BasicGuider"
+ },
+ "153": {
+  "inputs": {
+   "unet_name": "fastvideo_fasth3_8step_v2_pruned_int8_convrot.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader"
+ },
+ "154": {
+  "inputs": {
+   "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+   "type": "minimax",
+   "device": "default"
+  },
+  "class_type": "CLIPLoader"
+ },
+ "155": {
+  "inputs": {
+   "noise_seed": 1
+  },
+  "class_type": "RandomNoise"
+ },
+ "156": {
+  "inputs": {
+   "fps": 24,
+   "bit_depth": "auto",
+   "color_space": "sRGB",
+   "codec": "none",
+   "images": [
+    "148",
+    0
+   ],
+   "audio": [
+    "147",
+    0
+   ]
+  },
+  "class_type": "CreateVideo"
+ },
+ "157": {
+  "inputs": {
+   "prompt": "",
+   "width": [
+    "141",
+    0
+   ],
+   "height": [
+    "141",
+    1
+   ],
+   "length": [
+    "158",
+    1
+   ],
+   "clip": [
+    "154",
+    0
+   ],
+   "vae": [
+    "145",
+    0
+   ],
+   "first_frame": [
+    "136",
+    0
+   ]
+  },
+  "class_type": "MiniMaxH3ImageToVideo"
+ },
+ "158": {
+  "inputs": {
+   "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17",
+   "values.a": [
+    "159",
+    0
+   ]
+  },
+  "class_type": "ComfyMathExpression"
+ },
+ "159": {
+  "inputs": {
+   "value": 15
+  },
+  "class_type": "PrimitiveFloat"
+ },
+ "160": {
+  "inputs": {
+   "selection": "vsa",
+   "selection.keep_percent": 10,
+   "start_percent": 0.2,
+   "end_percent": 1,
+   "dense_blocks": "",
+   "min_tokens": 12288,
+   "extra_tokens": 256,
+   "sink_conditioning": "exact_kv_and_rows",
+   "verbose": false,
+   "model": [
+    "161",
+    0
+   ]
+  },
+  "class_type": "BlockSparseAttention"
+ },
+ "161": {
+  "inputs": {
+   "attention": "comfy kitchen attention",
+   "model": [
+    "162",
+    0
+   ]
+  },
+  "class_type": "ModelAttentionBackend"
+ },
+ "162": {
+  "inputs": {
+   "shift_video": 10,
+   "shift_audio": 3,
+   "model": [
+    "165",
+    0
+   ]
+  },
+  "class_type": "MiniMaxH3SigmaShift"
+ },
+ "165": {
+  "inputs": {
+   "lora_name": "H3\\H3_Motion_Booster.safetensors",
+   "strength_model": 1,
+   "model": [
+    "153",
+    0
+   ]
+  },
+  "class_type": "LoraLoaderModelOnly"
+ }
+}

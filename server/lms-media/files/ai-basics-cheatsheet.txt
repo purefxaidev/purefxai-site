@@ -1,0 +1,6 @@
+PureFxAi - AI Basics Cheat Sheet (PLACEHOLDER)
+
+1. AI = systems doing tasks that need human-like intelligence.
+2. ML learns patterns from data.
+3. Good prompt = role + task + context + format.
+4. Always verify AI output; never share secrets.
