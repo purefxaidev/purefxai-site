@@ -21,7 +21,7 @@ const BLOCK=[/\b(nude|naked|nsfw|porn|sex|sexual|erotic|explicit|topless|lingeri
  /\b(child|children|kid|kids|minor|underage|teen|teenager|loli|schoolgirl|schoolboy|baby|toddler)\b/i,
  /\b(gore|blood|bloody|kill|killing|murder|behead|decapitat|torture|shoot(ing)?|gun|stab|suicide|corpse|dismember|terror|bomb)\b/i,
  /\b(deepfake|face ?swap|celebrity|politician|president|prime minister|real person|elon musk|trump|biden|taylor swift)\b/i,
- /(โป๊|เปลือย|ลามก|อนาจาร|ทางเพศ|เซ็กซ์|เย็ด|หื่น|นม|ถอดเสื้อ|เด็ก|ผู้เยาว์|นักเรียนหญิง|ทารก|เลือด|ฆ่า|ฆาตกรรม|ตัดหัว|ทรมาน|ยิง|แทง|ฆ่าตัวตาย|ศพ|ระเบิด|ก่อการร้าย|ดีปเฟค|เปลี่ยนหน้า|ดารา|นักการเมือง|นายก|คนจริง)/];
+ /(โป๊|เปลือย|ลามก|อนาจาร|ทางเพศ|เซ็กซ์|เย็ด|หื่น|นมโป๊|โชว์นม|ถอดเสื้อ|เด็ก|ผู้เยาว์|นักเรียนหญิง|ทารก|เลือด|ฆ่า|ฆาตกรรม|ตัดหัว|ทรมาน|ยิง|แทง|ฆ่าตัวตาย|ศพ|ระเบิด|ก่อการร้าย|ดีปเฟค|เปลี่ยนหน้า|ดารา|นักการเมือง|นายก|คนจริง)/];
 const badPrompt=p=>BLOCK.some(r=>r.test(p));
 const tok=()=>crypto.randomBytes(24).toString('base64url');
 const pos=j=>{const i=queue.indexOf(j);return i<0?0:i+1};
