@@ -1,0 +1,332 @@
+[
+ {
+  "id": "pfx-ceo-love",
+  "slug": "ceo-love",
+  "genre": {
+   "id": "romance",
+   "th": "รักหวาน",
+   "en": "Sweet Romance"
+  },
+  "th": "เด็กฝึกงานของท่านประธานเย็นชา",
+  "en": "The Cold CEO's Intern",
+  "tagline": {
+   "th": "ทำกาแฟหกใส่ประธานวันแรก วันที่สองได้เป็นเลขาส่วนตัว",
+   "en": "Spilled coffee on the CEO on day one. Became his personal assistant on day two."
+  },
+  "synopsis_th": "มายด์ เด็กฝึกงานซุ่มซ่ามทำกาแฟหกใส่สูทตัวละแสนของ 'ธาม' ซีอีโอที่ขึ้นชื่อว่าไม่เคยยิ้ม แทนที่จะโดนไล่ออก เธอกลับถูกย้ายมานั่งหน้าห้องเขา พร้อมกฎข้อเดียว: ห้ามตกหลุมรักเจ้านาย แต่ทำไมคนที่ทำผิดกฎก่อนกลับเป็นเขาเอง",
+  "synopsis_en": "Mind, a clumsy intern, spills coffee on Tharm, the CEO who never smiles. Instead of being fired, she is moved to the desk outside his office with one rule: never fall for the boss. So why is he the first to break it?",
+  "characters": [
+   {
+    "th": "มายด์",
+    "en": "Mind",
+    "role_th": "เด็กฝึกงานสายบวก ซุ่มซ่ามแต่หัวไว"
+   },
+   {
+    "th": "ธาม",
+    "en": "Tharm",
+    "role_th": "ซีอีโอหนุ่มเย็นชา ซ่อนบาดแผลในอดีต"
+   }
+  ],
+  "poster": "shorts/posters/01-ceo-love.png",
+  "cover": "shorts/posters/01-ceo-love.jpg"
+ },
+ {
+  "id": "pfx-ghost-dorm",
+  "slug": "ghost-dorm",
+  "genre": {
+   "id": "horror",
+   "th": "สยองขวัญ",
+   "en": "Horror"
+  },
+  "th": "หอใน ห้อง 404",
+  "en": "Dorm Room 404",
+  "tagline": {
+   "th": "ห้องที่ไม่มีในผังหอ แต่มีคนอยู่ทุกคืน",
+   "en": "A room that is not on the floor plan, yet someone lives there every night."
+  },
+  "synopsis_th": "นิว นักศึกษาปีหนึ่งได้ห้อง 404 ราคาถูกผิดปกติ ทุกคืนตีสามจะมีเสียงเคาะประตูสามครั้ง และรูมเมทที่ไม่มีใครเคยเห็นหน้าก็ทิ้งโน้ตไว้ว่า 'อย่าเปิด' คืนที่เจ็ด นิวเปิดประตู แล้วพบว่าคนที่ยืนอยู่หน้าห้อง คือตัวเขาเอง",
+  "synopsis_en": "First-year student New gets the suspiciously cheap Room 404. Every night at 3 a.m. someone knocks three times, and a roommate nobody has ever seen leaves a note: do not open it. On the seventh night New opens the door, and the person standing outside is himself.",
+  "characters": [
+   {
+    "th": "นิว",
+    "en": "New",
+    "role_th": "นักศึกษาปีหนึ่ง ใจกล้าเกินเหตุ"
+   },
+   {
+    "th": "แพรว",
+    "en": "Praew",
+    "role_th": "รุ่นพี่ชมรมที่รู้ความลับของหอ"
+   }
+  ],
+  "poster": "shorts/posters/02-ghost-dorm.png",
+  "cover": "shorts/posters/02-ghost-dorm.jpg"
+ },
+ {
+  "id": "pfx-time-sukhothai",
+  "slug": "time-sukhothai",
+  "genre": {
+   "id": "fantasy",
+   "th": "แฟนตาซี",
+   "en": "Fantasy"
+  },
+  "th": "ข้ามเวลามาเป็นแม่หญิงสุโขทัย",
+  "en": "Lost in Sukhothai",
+  "tagline": {
+   "th": "นักโบราณคดีสาวตื่นมา ในยุคที่ไม่มีไวไฟ",
+   "en": "An archaeologist wakes up in an age with no Wi-Fi."
+  },
+  "synopsis_th": "ฟ้า นักโบราณคดีสาวยุค 2026 สัมผัสจารึกโบราณแล้วตื่นขึ้นกลางเมืองสุโขทัย ในร่างแม่หญิงที่กำลังจะถูกจับแต่งงาน เธอใช้ความรู้สมัยใหม่เอาตัวรอดจนเป็นที่โจษจัน แต่ขุนศึกหนุ่มที่จับตาเธออยู่ ดูเหมือนจะรู้ว่าเธอไม่ใช่คนยุคนี้",
+  "synopsis_en": "Fah, a 2026 archaeologist, touches an ancient inscription and wakes up in Sukhothai in the body of a young noblewoman about to be married off. Her modern know-how makes her the talk of the city, but the young general watching her seems to know she does not belong here.",
+  "characters": [
+   {
+    "th": "ฟ้า",
+    "en": "Fah",
+    "role_th": "นักโบราณคดีสาวปากไว"
+   },
+   {
+    "th": "ขุนเพชร",
+    "en": "Khun Phet",
+    "role_th": "ขุนศึกหนุ่มผู้มีความลับเรื่องเวลา"
+   }
+  ],
+  "poster": "shorts/posters/03-time-sukhothai.png",
+  "cover": "shorts/posters/03-time-sukhothai.jpg"
+ },
+ {
+  "id": "pfx-street-food-queen",
+  "slug": "street-food-queen",
+  "genre": {
+   "id": "comedy",
+   "th": "ตลก",
+   "en": "Comedy"
+  },
+  "th": "ราชินีตลาดโต้รุ่ง",
+  "en": "Queen of the Night Market",
+  "tagline": {
+   "th": "ผัดกะเพราจานเดียว เปลี่ยนชีวิตทั้งซอย",
+   "en": "One plate of basil stir-fry changes the whole street."
+  },
+  "synopsis_th": "จ๋า แม่ค้าข้าวผัดปากแจ๋วในตลาดโต้รุ่ง ต้องสู้กับเชฟหนุ่มหน้าหล่อที่มาเปิดร้านหรูตรงข้าม ศึกชิงลูกค้าบานปลายจนเป็นไวรัล ทั้งซอยแบ่งเป็นสองฝ่าย แต่คืนที่ร้านเธอโดนเทศกิจไล่ คนที่มาช่วยกลับเป็นคู่ปรับตัวดี",
+  "synopsis_en": "Jaa, a sharp-tongued fried-rice vendor, battles a handsome chef who opens a fancy restaurant across the street. Their customer war goes viral and splits the whole soi in two, but the night inspectors come to shut her stall down, her rival is the one who shows up to help.",
+  "characters": [
+   {
+    "th": "จ๋า",
+    "en": "Jaa",
+    "role_th": "แม่ค้าปากแจ๋ว ฝีมือเทพ"
+   },
+   {
+    "th": "เชฟเคน",
+    "en": "Chef Ken",
+    "role_th": "เชฟหนุ่มจบเมืองนอก ทำอาหารไทยไม่เป็น"
+   }
+  ],
+  "poster": "shorts/posters/04-street-food-queen.png",
+  "cover": "shorts/posters/04-street-food-queen.jpg"
+ },
+ {
+  "id": "pfx-revenge-bride",
+  "slug": "revenge-bride",
+  "genre": {
+   "id": "melodrama",
+   "th": "ละครน้ำเน่า",
+   "en": "Thai Melodrama"
+  },
+  "th": "เจ้าสาวกลับมาทวงแค้น",
+  "en": "The Revenge Bride",
+  "tagline": {
+   "th": "คืนวันแต่ง เธอถูกผลักตกน้ำ ห้าปีต่อมาเธอกลับมาเป็นแขกในงานของเขา",
+   "en": "Pushed into the river on her wedding night. Five years later, she is a guest at his."
+  },
+  "synopsis_th": "คืนวันแต่งงาน ดาวถูกเจ้าบ่าวและเพื่อนรักร่วมกันผลักตกเรือกลางแม่น้ำ ทุกคนเชื่อว่าเธอตายไปแล้ว ห้าปีต่อมา นักธุรกิจสาวผู้ลึกลับนาม 'อัญญา' ปรากฏตัวในงานแต่งครั้งใหม่ของเขา พร้อมของขวัญที่จะทำลายทุกอย่าง",
+  "synopsis_en": "On her wedding night, Dao is pushed off a boat by her groom and her best friend. Everyone believes she is dead. Five years later a mysterious businesswoman named Anya arrives at his new wedding, carrying a gift that will destroy everything.",
+  "characters": [
+   {
+    "th": "ดาว / อัญญา",
+    "en": "Dao / Anya",
+    "role_th": "เจ้าสาวผู้รอดชีวิต กลับมาในตัวตนใหม่"
+   },
+   {
+    "th": "กร",
+    "en": "Korn",
+    "role_th": "อดีตเจ้าบ่าวผู้ทรยศ"
+   },
+   {
+    "th": "เมย์",
+    "en": "May",
+    "role_th": "เพื่อนรักที่หักหลัง"
+   }
+  ],
+  "poster": "shorts/posters/05-revenge-bride.png",
+  "cover": "shorts/posters/05-revenge-bride.jpg"
+ },
+ {
+  "id": "pfx-esports",
+  "slug": "esports",
+  "genre": {
+   "id": "action",
+   "th": "แอ็กชัน",
+   "en": "Action"
+  },
+  "th": "ทีมกระจอกสู่แชมป์โลก",
+  "en": "Underdog Squad",
+  "tagline": {
+   "th": "ห้าคนที่ไม่มีใครเลือก จะยึดเวทีโลก",
+   "en": "Five people nobody picked are coming for the world stage."
+  },
+  "synopsis_th": "ไอซ์ อดีตโปรเพลเยอร์ที่ถูกแบนเพราะถูกใส่ร้าย กลับมาปั้นทีมจากร้านเกมเก่าในซอยเล็ก สมาชิกมีทั้งเด็กส่งอาหาร นักเรียนเกรดตก และแม่บ้านสายโหด เป้าหมายคือรายการชิงแชมป์ที่ทีมของคนที่ใส่ร้ายเขาครองอยู่ เกมแรกพวกเขาแพ้ยับ แต่ไอซ์เพิ่งเห็นอะไรบางอย่างในรีเพลย์",
+  "synopsis_en": "Ice, a former pro banned after being framed, rebuilds a team from an old game shop in a back alley: a food-delivery rider, a failing student and a fierce housewife. Their target is the championship ruled by the man who framed him. They lose their first match badly, but Ice just spotted something in the replay.",
+  "characters": [
+   {
+    "th": "ไอซ์",
+    "en": "Ice",
+    "role_th": "อดีตโปรเพลเยอร์ ผู้ฝึกสอนจอมเฮี้ยบ"
+   },
+   {
+    "th": "บีม",
+    "en": "Beam",
+    "role_th": "ไรเดอร์ส่งอาหาร มือไวที่สุดในทีม"
+   },
+   {
+    "th": "ป้าแดง",
+    "en": "Auntie Daeng",
+    "role_th": "แม่บ้านสายซัพพอร์ตที่ไม่มีใครกล้าเถียง"
+   }
+  ],
+  "poster": "shorts/posters/06-esports.png",
+  "cover": "shorts/posters/06-esports.jpg"
+ },
+ {
+  "id": "pfx-muay-thai",
+  "slug": "muay-thai",
+  "genre": {
+   "id": "action",
+   "th": "แอ็กชัน",
+   "en": "Action"
+  },
+  "th": "หมัดสุดท้ายของลูกชาวนา",
+  "en": "The Last Punch",
+  "tagline": {
+   "th": "ขึ้นเวทีเพื่อเงินรักษาแม่ แต่คู่ชกคือคนที่เขาไม่อยากเจอที่สุด",
+   "en": "He fights to pay for his mother's care, against the one man he never wanted to face."
+  },
+  "synopsis_th": "ต้น เด็กหนุ่มจากบุรีรัมย์ ต้องหาเงินห้าแสนรักษาแม่ภายในหนึ่งเดือน ทางเดียวคือเวทีมวยใต้ดินในกรุงเทพที่ไม่มีกฎ เขาชนะรวดจนเจ้ามือเริ่มจับตา ก่อนไฟต์ตัดสิน ต้นได้รู้ว่าคู่ชกของเขา คือพี่ชายที่หายตัวไปเมื่อสิบปีก่อน",
+  "synopsis_en": "Ton, a young man from Buriram, needs 500,000 baht for his mother's treatment within a month. The only way is an underground ring in Bangkok with no rules. His winning streak catches the bookies' eye, and before the deciding fight he learns his opponent is the older brother who vanished ten years ago.",
+  "characters": [
+   {
+    "th": "ต้น",
+    "en": "Ton",
+    "role_th": "นักมวยหนุ่มหัวใจกตัญญู"
+   },
+   {
+    "th": "ครูเหลิม",
+    "en": "Kru Lerm",
+    "role_th": "ครูมวยแก่ผู้เคยเป็นแชมป์"
+   },
+   {
+    "th": "เสือ",
+    "en": "Suea",
+    "role_th": "คู่ชกปริศนา"
+   }
+  ],
+  "poster": "shorts/posters/07-muay-thai.png",
+  "cover": "shorts/posters/07-muay-thai.jpg"
+ },
+ {
+  "id": "pfx-mermaid-sea",
+  "slug": "mermaid-sea",
+  "genre": {
+   "id": "fantasy",
+   "th": "แฟนตาซี",
+   "en": "Fantasy"
+  },
+  "th": "นางเงือกกับเด็กชายทะเล",
+  "en": "The Mermaid and the Fisher Boy",
+  "tagline": {
+   "th": "เขาช่วยเธอจากอวน เธอช่วยเขาจากพายุ แต่ทะเลไม่ยอมให้รักกัน",
+   "en": "He saved her from a net, she saved him from a storm, but the sea forbids their love."
+  },
+  "synopsis_th": "เล เด็กหนุ่มชาวประมงในเกาะเล็กทางใต้ ช่วยนางเงือกที่ติดอวนไว้ได้ในคืนเดือนมืด เธอแลกขากับเสียงเพื่อขึ้นบกมาตามหาเขา ทั้งที่พูดไม่ได้สักคำ แต่ถ้าเขาไม่บอกรักเธอก่อนจันทร์เต็มดวง เธอจะกลายเป็นฟองคลื่น และนายทุนที่จะยึดเกาะก็กำลังมา",
+  "synopsis_en": "Lay, a young fisherman on a small southern island, frees a mermaid caught in a net on a moonless night. She trades her voice for legs to find him on land. If he does not say he loves her before the full moon, she becomes sea foam, and the developers who want the island are already on their way.",
+  "characters": [
+   {
+    "th": "เล",
+    "en": "Lay",
+    "role_th": "เด็กหนุ่มชาวประมง ซื่อและกล้า"
+   },
+   {
+    "th": "ไข่มุก",
+    "en": "Khaimuk",
+    "role_th": "นางเงือกผู้ยอมแลกเสียงเพื่อรัก"
+   }
+  ],
+  "poster": "shorts/posters/08-mermaid-sea.png",
+  "cover": "shorts/posters/08-mermaid-sea.jpg"
+ },
+ {
+  "id": "pfx-detective",
+  "slug": "detective",
+  "genre": {
+   "id": "mystery",
+   "th": "สืบสวน",
+   "en": "Mystery & Crime"
+  },
+  "th": "นักสืบสาวราตรีกรุงเทพ",
+  "en": "Bangkok Night Detective",
+  "tagline": {
+   "th": "คดีที่ตำรวจปิดไปแล้ว เธอเพิ่งเริ่มเปิด",
+   "en": "The case the police closed, she has only just opened."
+  },
+  "synopsis_th": "พลอย อดีตตำรวจหญิงที่ลาออกหลังคดีพี่สาวถูกปิดแฟ้ม เปิดสำนักงานนักสืบเล็กๆ เหนือร้านโจ๊กเยาวราช รับแต่คดีกลางคืน ลูกค้ารายแรกจ้างตามหาสามีที่หายไป แต่ทุกเบาะแสพาเธอกลับไปที่คืนเดียวกับที่พี่สาวเธอหายตัว",
+  "synopsis_en": "Ploy, an ex-policewoman who quit after her sister's case was closed, opens a tiny detective office above a Yaowarat congee shop and only takes night cases. Her first client wants a missing husband found, but every clue leads back to the night her sister disappeared.",
+  "characters": [
+   {
+    "th": "พลอย",
+    "en": "Ploy",
+    "role_th": "นักสืบสาวช่างสังเกต หมัดหนัก"
+   },
+   {
+    "th": "หมวดเจ",
+    "en": "Lt. Jay",
+    "role_th": "ตำรวจหนุ่มที่แอบช่วยเธอ"
+   },
+   {
+    "th": "เฮียเซ้ง",
+    "en": "Hia Seng",
+    "role_th": "เจ้าของร้านโจ๊ก ผู้รู้ทุกเรื่องในเยาวราช"
+   }
+  ],
+  "poster": "shorts/posters/09-detective.png",
+  "cover": "shorts/posters/09-detective.jpg"
+ },
+ {
+  "id": "pfx-school-love",
+  "slug": "school-love",
+  "genre": {
+   "id": "romance",
+   "th": "รักหวาน",
+   "en": "Sweet Romance"
+  },
+  "th": "แอบรักหลังห้อง",
+  "en": "Love in the Back Row",
+  "tagline": {
+   "th": "ส่งโน้ตผิดคน ชีวิต ม.6 เลยไม่เหมือนเดิม",
+   "en": "One note to the wrong desk, and senior year is never the same."
+  },
+  "synopsis_th": "ใบเตย ม.6 ตั้งใจส่งโน้ตสารภาพรักให้กัปตันทีมบาส แต่โน้ตดันไปตกบนโต๊ะ 'ภูมิ' เด็กเนิร์ดหลังห้องที่ไม่เคยพูดกับใคร เขาตอบกลับมาด้วยบทกลอนทุกวันจนเธอเริ่มใจสั่น วันประกาศผลสอบ เธอได้รู้ว่าโน้ตแผ่นแรกนั้นไม่ได้ส่งผิดคนเลย",
+  "synopsis_en": "Baitoey, a final-year student, means to slip a love note to the basketball captain, but it lands on the desk of Phum, the quiet nerd in the back row. He answers with a short poem every day until her heart starts racing. On results day she learns the first note never went to the wrong person at all.",
+  "characters": [
+   {
+    "th": "ใบเตย",
+    "en": "Baitoey",
+    "role_th": "สาว ม.6 ร่าเริง ใจง่ายแต่จริงใจ"
+   },
+   {
+    "th": "ภูมิ",
+    "en": "Phum",
+    "role_th": "เด็กเนิร์ดหลังห้อง กวีในความเงียบ"
+   }
+  ],
+  "poster": "shorts/posters/10-school-love.png",
+  "cover": "shorts/posters/10-school-love.jpg"
+ }
+]

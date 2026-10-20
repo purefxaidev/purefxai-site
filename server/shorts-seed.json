@@ -23,6 +23,36 @@
    "th": "ละครน้ำเน่า",
    "en": "Thai Melodrama",
    "order": 4
+  },
+  {
+   "id": "horror",
+   "th": "สยองขวัญ",
+   "en": "Horror",
+   "order": 5
+  },
+  {
+   "id": "fantasy",
+   "th": "แฟนตาซี",
+   "en": "Fantasy",
+   "order": 6
+  },
+  {
+   "id": "comedy",
+   "th": "ตลก",
+   "en": "Comedy",
+   "order": 7
+  },
+  {
+   "id": "action",
+   "th": "แอ็กชัน",
+   "en": "Action",
+   "order": 8
+  },
+  {
+   "id": "mystery",
+   "th": "สืบสวน",
+   "en": "Mystery & Crime",
+   "order": 9
   }
  ],
  "series": [
@@ -148,6 +178,246 @@
      "cover": "shorts/melodrama/ep01/cover.jpg",
      "cap_th": "เธอแค่มาส่งของ แต่ได้เห็นความลับที่เปลี่ยนชีวิตทั้งตระกูล",
      "cap_en": "She only came to deliver a package, but saw a secret that changes the whole family."
+    }
+   ]
+  },
+  {
+   "id": "pfx-ceo-love",
+   "genre": "romance",
+   "th": "เด็กฝึกงานของท่านประธานเย็นชา",
+   "en": "The Cold CEO's Intern",
+   "cover": "shorts/posters/01-ceo-love.jpg",
+   "soon": true,
+   "tag_th": "ทำกาแฟหกใส่ประธานวันแรก วันที่สองได้เป็นเลขาส่วนตัว",
+   "tag_en": "Spilled coffee on the CEO on day one. Became his personal assistant on day two.",
+   "desc_th": "มายด์ เด็กฝึกงานซุ่มซ่ามทำกาแฟหกใส่สูทตัวละแสนของ 'ธาม' ซีอีโอที่ขึ้นชื่อว่าไม่เคยยิ้ม แทนที่จะโดนไล่ออก เธอกลับถูกย้ายมานั่งหน้าห้องเขา พร้อมกฎข้อเดียว: ห้ามตกหลุมรักเจ้านาย แต่ทำไมคนที่ทำผิดกฎก่อนกลับเป็นเขาเอง",
+   "desc_en": "Mind, a clumsy intern, spills coffee on Tharm, the CEO who never smiles. Instead of being fired, she is moved to the desk outside his office with one rule: never fall for the boss. So why is he the first to break it?",
+   "episodes": [
+    {
+     "id": "ceo-love-ep01",
+     "n": 1,
+     "th": "ตอนแรก เร็วๆ นี้",
+     "en": "Episode 1, coming soon",
+     "video": "shorts/ceo-love/ep01/ep01.mp4",
+     "cover": "shorts/posters/01-ceo-love.jpg",
+     "cap_th": "ทำกาแฟหกใส่ประธานวันแรก วันที่สองได้เป็นเลขาส่วนตัว",
+     "cap_en": "Spilled coffee on the CEO on day one. Became his personal assistant on day two."
+    }
+   ]
+  },
+  {
+   "id": "pfx-ghost-dorm",
+   "genre": "horror",
+   "th": "หอใน ห้อง 404",
+   "en": "Dorm Room 404",
+   "cover": "shorts/posters/02-ghost-dorm.jpg",
+   "soon": true,
+   "tag_th": "ห้องที่ไม่มีในผังหอ แต่มีคนอยู่ทุกคืน",
+   "tag_en": "A room that is not on the floor plan, yet someone lives there every night.",
+   "desc_th": "นิว นักศึกษาปีหนึ่งได้ห้อง 404 ราคาถูกผิดปกติ ทุกคืนตีสามจะมีเสียงเคาะประตูสามครั้ง และรูมเมทที่ไม่มีใครเคยเห็นหน้าก็ทิ้งโน้ตไว้ว่า 'อย่าเปิด' คืนที่เจ็ด นิวเปิดประตู แล้วพบว่าคนที่ยืนอยู่หน้าห้อง คือตัวเขาเอง",
+   "desc_en": "First-year student New gets the suspiciously cheap Room 404. Every night at 3 a.m. someone knocks three times, and a roommate nobody has ever seen leaves a note: do not open it. On the seventh night New opens the door, and the person standing outside is himself.",
+   "episodes": [
+    {
+     "id": "ghost-dorm-ep01",
+     "n": 1,
+     "th": "ตอนแรก เร็วๆ นี้",
+     "en": "Episode 1, coming soon",
+     "video": "shorts/ghost-dorm/ep01/ep01.mp4",
+     "cover": "shorts/posters/02-ghost-dorm.jpg",
+     "cap_th": "ห้องที่ไม่มีในผังหอ แต่มีคนอยู่ทุกคืน",
+     "cap_en": "A room that is not on the floor plan, yet someone lives there every night."
+    }
+   ]
+  },
+  {
+   "id": "pfx-time-sukhothai",
+   "genre": "fantasy",
+   "th": "ข้ามเวลามาเป็นแม่หญิงสุโขทัย",
+   "en": "Lost in Sukhothai",
+   "cover": "shorts/posters/03-time-sukhothai.jpg",
+   "soon": true,
+   "tag_th": "นักโบราณคดีสาวตื่นมา ในยุคที่ไม่มีไวไฟ",
+   "tag_en": "An archaeologist wakes up in an age with no Wi-Fi.",
+   "desc_th": "ฟ้า นักโบราณคดีสาวยุค 2026 สัมผัสจารึกโบราณแล้วตื่นขึ้นกลางเมืองสุโขทัย ในร่างแม่หญิงที่กำลังจะถูกจับแต่งงาน เธอใช้ความรู้สมัยใหม่เอาตัวรอดจนเป็นที่โจษจัน แต่ขุนศึกหนุ่มที่จับตาเธออยู่ ดูเหมือนจะรู้ว่าเธอไม่ใช่คนยุคนี้",
+   "desc_en": "Fah, a 2026 archaeologist, touches an ancient inscription and wakes up in Sukhothai in the body of a young noblewoman about to be married off. Her modern know-how makes her the talk of the city, but the young general watching her seems to know she does not belong here.",
+   "episodes": [
+    {
+     "id": "time-sukhothai-ep01",
+     "n": 1,
+     "th": "ตอนแรก เร็วๆ นี้",
+     "en": "Episode 1, coming soon",
+     "video": "shorts/time-sukhothai/ep01/ep01.mp4",
+     "cover": "shorts/posters/03-time-sukhothai.jpg",
+     "cap_th": "นักโบราณคดีสาวตื่นมา ในยุคที่ไม่มีไวไฟ",
+     "cap_en": "An archaeologist wakes up in an age with no Wi-Fi."
+    }
+   ]
+  },
+  {
+   "id": "pfx-street-food-queen",
+   "genre": "comedy",
+   "th": "ราชินีตลาดโต้รุ่ง",
+   "en": "Queen of the Night Market",
+   "cover": "shorts/posters/04-street-food-queen.jpg",
+   "soon": true,
+   "tag_th": "ผัดกะเพราจานเดียว เปลี่ยนชีวิตทั้งซอย",
+   "tag_en": "One plate of basil stir-fry changes the whole street.",
+   "desc_th": "จ๋า แม่ค้าข้าวผัดปากแจ๋วในตลาดโต้รุ่ง ต้องสู้กับเชฟหนุ่มหน้าหล่อที่มาเปิดร้านหรูตรงข้าม ศึกชิงลูกค้าบานปลายจนเป็นไวรัล ทั้งซอยแบ่งเป็นสองฝ่าย แต่คืนที่ร้านเธอโดนเทศกิจไล่ คนที่มาช่วยกลับเป็นคู่ปรับตัวดี",
+   "desc_en": "Jaa, a sharp-tongued fried-rice vendor, battles a handsome chef who opens a fancy restaurant across the street. Their customer war goes viral and splits the whole soi in two, but the night inspectors come to shut her stall down, her rival is the one who shows up to help.",
+   "episodes": [
+    {
+     "id": "street-food-queen-ep01",
+     "n": 1,
+     "th": "ตอนแรก เร็วๆ นี้",
+     "en": "Episode 1, coming soon",
+     "video": "shorts/street-food-queen/ep01/ep01.mp4",
+     "cover": "shorts/posters/04-street-food-queen.jpg",
+     "cap_th": "ผัดกะเพราจานเดียว เปลี่ยนชีวิตทั้งซอย",
+     "cap_en": "One plate of basil stir-fry changes the whole street."
+    }
+   ]
+  },
+  {
+   "id": "pfx-revenge-bride",
+   "genre": "melodrama",
+   "th": "เจ้าสาวกลับมาทวงแค้น",
+   "en": "The Revenge Bride",
+   "cover": "shorts/posters/05-revenge-bride.jpg",
+   "soon": true,
+   "tag_th": "คืนวันแต่ง เธอถูกผลักตกน้ำ ห้าปีต่อมาเธอกลับมาเป็นแขกในงานของเขา",
+   "tag_en": "Pushed into the river on her wedding night. Five years later, she is a guest at his.",
+   "desc_th": "คืนวันแต่งงาน ดาวถูกเจ้าบ่าวและเพื่อนรักร่วมกันผลักตกเรือกลางแม่น้ำ ทุกคนเชื่อว่าเธอตายไปแล้ว ห้าปีต่อมา นักธุรกิจสาวผู้ลึกลับนาม 'อัญญา' ปรากฏตัวในงานแต่งครั้งใหม่ของเขา พร้อมของขวัญที่จะทำลายทุกอย่าง",
+   "desc_en": "On her wedding night, Dao is pushed off a boat by her groom and her best friend. Everyone believes she is dead. Five years later a mysterious businesswoman named Anya arrives at his new wedding, carrying a gift that will destroy everything.",
+   "episodes": [
+    {
+     "id": "revenge-bride-ep01",
+     "n": 1,
+     "th": "ตอนแรก เร็วๆ นี้",
+     "en": "Episode 1, coming soon",
+     "video": "shorts/revenge-bride/ep01/ep01.mp4",
+     "cover": "shorts/posters/05-revenge-bride.jpg",
+     "cap_th": "คืนวันแต่ง เธอถูกผลักตกน้ำ ห้าปีต่อมาเธอกลับมาเป็นแขกในงานของเขา",
+     "cap_en": "Pushed into the river on her wedding night. Five years later, she is a guest at his."
+    }
+   ]
+  },
+  {
+   "id": "pfx-esports",
+   "genre": "action",
+   "th": "ทีมกระจอกสู่แชมป์โลก",
+   "en": "Underdog Squad",
+   "cover": "shorts/posters/06-esports.jpg",
+   "soon": true,
+   "tag_th": "ห้าคนที่ไม่มีใครเลือก จะยึดเวทีโลก",
+   "tag_en": "Five people nobody picked are coming for the world stage.",
+   "desc_th": "ไอซ์ อดีตโปรเพลเยอร์ที่ถูกแบนเพราะถูกใส่ร้าย กลับมาปั้นทีมจากร้านเกมเก่าในซอยเล็ก สมาชิกมีทั้งเด็กส่งอาหาร นักเรียนเกรดตก และแม่บ้านสายโหด เป้าหมายคือรายการชิงแชมป์ที่ทีมของคนที่ใส่ร้ายเขาครองอยู่ เกมแรกพวกเขาแพ้ยับ แต่ไอซ์เพิ่งเห็นอะไรบางอย่างในรีเพลย์",
+   "desc_en": "Ice, a former pro banned after being framed, rebuilds a team from an old game shop in a back alley: a food-delivery rider, a failing student and a fierce housewife. Their target is the championship ruled by the man who framed him. They lose their first match badly, but Ice just spotted something in the replay.",
+   "episodes": [
+    {
+     "id": "esports-ep01",
+     "n": 1,
+     "th": "ตอนแรก เร็วๆ นี้",
+     "en": "Episode 1, coming soon",
+     "video": "shorts/esports/ep01/ep01.mp4",
+     "cover": "shorts/posters/06-esports.jpg",
+     "cap_th": "ห้าคนที่ไม่มีใครเลือก จะยึดเวทีโลก",
+     "cap_en": "Five people nobody picked are coming for the world stage."
+    }
+   ]
+  },
+  {
+   "id": "pfx-muay-thai",
+   "genre": "action",
+   "th": "หมัดสุดท้ายของลูกชาวนา",
+   "en": "The Last Punch",
+   "cover": "shorts/posters/07-muay-thai.jpg",
+   "soon": true,
+   "tag_th": "ขึ้นเวทีเพื่อเงินรักษาแม่ แต่คู่ชกคือคนที่เขาไม่อยากเจอที่สุด",
+   "tag_en": "He fights to pay for his mother's care, against the one man he never wanted to face.",
+   "desc_th": "ต้น เด็กหนุ่มจากบุรีรัมย์ ต้องหาเงินห้าแสนรักษาแม่ภายในหนึ่งเดือน ทางเดียวคือเวทีมวยใต้ดินในกรุงเทพที่ไม่มีกฎ เขาชนะรวดจนเจ้ามือเริ่มจับตา ก่อนไฟต์ตัดสิน ต้นได้รู้ว่าคู่ชกของเขา คือพี่ชายที่หายตัวไปเมื่อสิบปีก่อน",
+   "desc_en": "Ton, a young man from Buriram, needs 500,000 baht for his mother's treatment within a month. The only way is an underground ring in Bangkok with no rules. His winning streak catches the bookies' eye, and before the deciding fight he learns his opponent is the older brother who vanished ten years ago.",
+   "episodes": [
+    {
+     "id": "muay-thai-ep01",
+     "n": 1,
+     "th": "ตอนแรก เร็วๆ นี้",
+     "en": "Episode 1, coming soon",
+     "video": "shorts/muay-thai/ep01/ep01.mp4",
+     "cover": "shorts/posters/07-muay-thai.jpg",
+     "cap_th": "ขึ้นเวทีเพื่อเงินรักษาแม่ แต่คู่ชกคือคนที่เขาไม่อยากเจอที่สุด",
+     "cap_en": "He fights to pay for his mother's care, against the one man he never wanted to face."
+    }
+   ]
+  },
+  {
+   "id": "pfx-mermaid-sea",
+   "genre": "fantasy",
+   "th": "นางเงือกกับเด็กชายทะเล",
+   "en": "The Mermaid and the Fisher Boy",
+   "cover": "shorts/posters/08-mermaid-sea.jpg",
+   "soon": true,
+   "tag_th": "เขาช่วยเธอจากอวน เธอช่วยเขาจากพายุ แต่ทะเลไม่ยอมให้รักกัน",
+   "tag_en": "He saved her from a net, she saved him from a storm, but the sea forbids their love.",
+   "desc_th": "เล เด็กหนุ่มชาวประมงในเกาะเล็กทางใต้ ช่วยนางเงือกที่ติดอวนไว้ได้ในคืนเดือนมืด เธอแลกขากับเสียงเพื่อขึ้นบกมาตามหาเขา ทั้งที่พูดไม่ได้สักคำ แต่ถ้าเขาไม่บอกรักเธอก่อนจันทร์เต็มดวง เธอจะกลายเป็นฟองคลื่น และนายทุนที่จะยึดเกาะก็กำลังมา",
+   "desc_en": "Lay, a young fisherman on a small southern island, frees a mermaid caught in a net on a moonless night. She trades her voice for legs to find him on land. If he does not say he loves her before the full moon, she becomes sea foam, and the developers who want the island are already on their way.",
+   "episodes": [
+    {
+     "id": "mermaid-sea-ep01",
+     "n": 1,
+     "th": "ตอนแรก เร็วๆ นี้",
+     "en": "Episode 1, coming soon",
+     "video": "shorts/mermaid-sea/ep01/ep01.mp4",
+     "cover": "shorts/posters/08-mermaid-sea.jpg",
+     "cap_th": "เขาช่วยเธอจากอวน เธอช่วยเขาจากพายุ แต่ทะเลไม่ยอมให้รักกัน",
+     "cap_en": "He saved her from a net, she saved him from a storm, but the sea forbids their love."
+    }
+   ]
+  },
+  {
+   "id": "pfx-detective",
+   "genre": "mystery",
+   "th": "นักสืบสาวราตรีกรุงเทพ",
+   "en": "Bangkok Night Detective",
+   "cover": "shorts/posters/09-detective.jpg",
+   "soon": true,
+   "tag_th": "คดีที่ตำรวจปิดไปแล้ว เธอเพิ่งเริ่มเปิด",
+   "tag_en": "The case the police closed, she has only just opened.",
+   "desc_th": "พลอย อดีตตำรวจหญิงที่ลาออกหลังคดีพี่สาวถูกปิดแฟ้ม เปิดสำนักงานนักสืบเล็กๆ เหนือร้านโจ๊กเยาวราช รับแต่คดีกลางคืน ลูกค้ารายแรกจ้างตามหาสามีที่หายไป แต่ทุกเบาะแสพาเธอกลับไปที่คืนเดียวกับที่พี่สาวเธอหายตัว",
+   "desc_en": "Ploy, an ex-policewoman who quit after her sister's case was closed, opens a tiny detective office above a Yaowarat congee shop and only takes night cases. Her first client wants a missing husband found, but every clue leads back to the night her sister disappeared.",
+   "episodes": [
+    {
+     "id": "detective-ep01",
+     "n": 1,
+     "th": "ตอนแรก เร็วๆ นี้",
+     "en": "Episode 1, coming soon",
+     "video": "shorts/detective/ep01/ep01.mp4",
+     "cover": "shorts/posters/09-detective.jpg",
+     "cap_th": "คดีที่ตำรวจปิดไปแล้ว เธอเพิ่งเริ่มเปิด",
+     "cap_en": "The case the police closed, she has only just opened."
+    }
+   ]
+  },
+  {
+   "id": "pfx-school-love",
+   "genre": "romance",
+   "th": "แอบรักหลังห้อง",
+   "en": "Love in the Back Row",
+   "cover": "shorts/posters/10-school-love.jpg",
+   "soon": true,
+   "tag_th": "ส่งโน้ตผิดคน ชีวิต ม.6 เลยไม่เหมือนเดิม",
+   "tag_en": "One note to the wrong desk, and senior year is never the same.",
+   "desc_th": "ใบเตย ม.6 ตั้งใจส่งโน้ตสารภาพรักให้กัปตันทีมบาส แต่โน้ตดันไปตกบนโต๊ะ 'ภูมิ' เด็กเนิร์ดหลังห้องที่ไม่เคยพูดกับใคร เขาตอบกลับมาด้วยบทกลอนทุกวันจนเธอเริ่มใจสั่น วันประกาศผลสอบ เธอได้รู้ว่าโน้ตแผ่นแรกนั้นไม่ได้ส่งผิดคนเลย",
+   "desc_en": "Baitoey, a final-year student, means to slip a love note to the basketball captain, but it lands on the desk of Phum, the quiet nerd in the back row. He answers with a short poem every day until her heart starts racing. On results day she learns the first note never went to the wrong person at all.",
+   "episodes": [
+    {
+     "id": "school-love-ep01",
+     "n": 1,
+     "th": "ตอนแรก เร็วๆ นี้",
+     "en": "Episode 1, coming soon",
+     "video": "shorts/school-love/ep01/ep01.mp4",
+     "cover": "shorts/posters/10-school-love.jpg",
+     "cap_th": "ส่งโน้ตผิดคน ชีวิต ม.6 เลยไม่เหมือนเดิม",
+     "cap_en": "One note to the wrong desk, and senior year is never the same."
     }
    ]
   }
