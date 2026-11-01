@@ -328,5 +328,41 @@
   ],
   "poster": "shorts/posters/10-school-love.png",
   "cover": "shorts/posters/10-school-love.jpg"
+ },
+ {
+  "id": "pfx-wuxia",
+  "slug": "wuxia",
+  "genre": {
+   "id": "wuxia",
+   "th": "กำลังภายใน",
+   "en": "Wuxia / Martial Arts"
+  },
+  "th": "เพียว จอมยุทธ์ไร้กระบี่",
+  "en": "Pure: The Swordless Wanderer",
+  "tagline": {
+   "th": "เด็กล้างจานไม่มีกระบี่ สู้ด้วยตะเกียบจนยุทธภพต้องจับตามอง",
+   "en": "A dishwasher with no sword fights with chopsticks, and the martial world takes notice."
+  },
+  "synopsis_th": "เพียว เด็กล้างจานโรงเตี๊ยมริมแม่น้ำ บังเอิญได้ยินตาเฒ่าขี้เมาพึมพำเคล็ดวิชา 'ลมหายใจสายน้ำ' พอแก๊งเมฆดำบุกมาทวงหนี้ เขาจึงสู้ด้วยตะเกียบ ไม้กวาด และกาน้ำชา ทั้งที่ยังโค้งคำนับไม่ถูกด้วยซ้ำ งานนี้ศิษย์สำนักบัวหยกต้องมาดูให้เห็นกับตา ว่าใครกันแน่คือจอมยุทธ์ไร้กระบี่",
+  "synopsis_en": "Pure, a dishwasher at a riverside inn, overhears a drunk old man mumble the secret 'River Breath' technique. When the Black Cloud gang comes to collect a debt, he fights back with chopsticks, brooms and a teapot, even though he still cannot bow properly. Now a swordswoman of the Jade Lotus sect wants to see the swordless wanderer for herself.",
+  "characters": [
+   {
+    "th": "เพียว",
+    "en": "Pure",
+    "role_th": "เด็กล้างจานผู้สู้ด้วยตะเกียบ"
+   },
+   {
+    "th": "ซูหลิน",
+    "en": "Su Lin",
+    "role_th": "ศิษย์สำนักบัวหยก จริงจังแต่แอบขำ"
+   },
+   {
+    "th": "ตาเฒ่าเหล้าไห",
+    "en": "Old Jar",
+    "role_th": "ยอดฝีมือที่แกล้งเมา"
+   }
+  ],
+  "poster": "shorts/posters/11-wuxia-pure.png",
+  "cover": "shorts/posters/11-wuxia-pure.jpg"
  }
 ]

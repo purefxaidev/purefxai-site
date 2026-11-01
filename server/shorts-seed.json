@@ -53,6 +53,12 @@
    "th": "สืบสวน",
    "en": "Mystery & Crime",
    "order": 9
+  },
+  {
+   "id": "wuxia",
+   "th": "กำลังภายใน",
+   "en": "Wuxia / Martial Arts",
+   "order": 10
   }
  ],
  "series": [
@@ -418,6 +424,50 @@
      "cover": "shorts/posters/10-school-love.jpg",
      "cap_th": "ส่งโน้ตผิดคน ชีวิต ม.6 เลยไม่เหมือนเดิม",
      "cap_en": "One note to the wrong desk, and senior year is never the same."
+    }
+   ]
+  },
+  {
+   "id": "pfx-wuxia",
+   "genre": "wuxia",
+   "th": "เพียว จอมยุทธ์ไร้กระบี่",
+   "en": "Pure: The Swordless Wanderer",
+   "cover": "shorts/posters/11-wuxia-pure.jpg",
+   "soon": true,
+   "tag_th": "เด็กล้างจานไม่มีกระบี่ สู้ด้วยตะเกียบจนยุทธภพต้องจับตามอง",
+   "tag_en": "A dishwasher with no sword fights with chopsticks, and the martial world takes notice.",
+   "desc_th": "เพียว เด็กล้างจานโรงเตี๊ยมริมแม่น้ำ บังเอิญได้ยินตาเฒ่าขี้เมาพึมพำเคล็ดวิชา 'ลมหายใจสายน้ำ' พอแก๊งเมฆดำบุกมาทวงหนี้ เขาจึงสู้ด้วยตะเกียบ ไม้กวาด และกาน้ำชา ทั้งที่ยังโค้งคำนับไม่ถูกด้วยซ้ำ งานนี้ศิษย์สำนักบัวหยกต้องมาดูให้เห็นกับตา ว่าใครกันแน่คือจอมยุทธ์ไร้กระบี่",
+   "desc_en": "Pure, a dishwasher at a riverside inn, overhears a drunk old man mumble the secret 'River Breath' technique. When the Black Cloud gang comes to collect a debt, he fights back with chopsticks, brooms and a teapot, even though he still cannot bow properly. Now a swordswoman of the Jade Lotus sect wants to see the swordless wanderer for herself.",
+   "episodes": [
+    {
+     "id": "wuxia-ep01",
+     "n": 1,
+     "th": "EP1 ตะเกียบคู่นี้ไม่ได้มีไว้กินข้าว (เร็วๆ นี้)",
+     "en": "EP1 These Chopsticks Aren't for Eating (coming soon)",
+     "video": "shorts/wuxia/ep01/ep01.mp4",
+     "cover": "shorts/posters/11-wuxia-pure.jpg",
+     "cap_th": "เด็กล้างจานไม่มีกระบี่ สู้ด้วยตะเกียบจนยุทธภพต้องจับตามอง",
+     "cap_en": "A dishwasher with no sword fights with chopsticks, and the martial world takes notice."
+    },
+    {
+     "id": "wuxia-ep02",
+     "n": 2,
+     "th": "EP2 ศิษย์ที่ไม่มีใครรับ (เร็วๆ นี้)",
+     "en": "EP2 The Disciple Nobody Wanted (coming soon)",
+     "video": "shorts/wuxia/ep02/ep02.mp4",
+     "cover": "shorts/posters/11-wuxia-pure.jpg",
+     "cap_th": "เด็กล้างจานไม่มีกระบี่ สู้ด้วยตะเกียบจนยุทธภพต้องจับตามอง",
+     "cap_en": "A dishwasher with no sword fights with chopsticks, and the martial world takes notice."
+    },
+    {
+     "id": "wuxia-ep03",
+     "n": 3,
+     "th": "EP3 สะพานหิน ยามหมอก (เร็วๆ นี้)",
+     "en": "EP3 The Stone Bridge in the Mist (coming soon)",
+     "video": "shorts/wuxia/ep03/ep03.mp4",
+     "cover": "shorts/posters/11-wuxia-pure.jpg",
+     "cap_th": "เด็กล้างจานไม่มีกระบี่ สู้ด้วยตะเกียบจนยุทธภพต้องจับตามอง",
+     "cap_en": "A dishwasher with no sword fights with chopsticks, and the martial world takes notice."
     }
    ]
   }
