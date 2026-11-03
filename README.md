@@ -63,3 +63,21 @@ The system prompt is `SYSTEM` in `server/server.js` (prices and other details ar
 - Set secrets in the Render dashboard: `GEMINI_API_KEY`, `ADMIN_PASSWORD`, `PUBLIC_BASE_URL` (e.g. https://purefxai.onrender.com). `ADMIN_EMAIL` defaults to pureai.com@gmail.com.
 - `PORT` is provided by Render automatically.
 - Data (members, orders, slips, certificates, shorts likes/comments) is stored in `DATA_DIR` (default `server/data`). **Render free disk is ephemeral**: data is lost on each redeploy/restart and the service sleeps after ~15 min idle. For production use a paid instance with a persistent Disk (`DATA_DIR=/var/data`) or move to a database (e.g. Postgres/Supabase) + object storage for slips.
+
+---
+
+## 💚 Support PureFxAi / สนับสนุน PureFxAi (USDT)
+
+**Network: Ethereum (ERC20) only / เครือข่าย Ethereum (ERC20) เท่านั้น**
+
+```
+0x920deab53daf94ca2030ad5ceec2265bf5686941
+```
+
+⚠️ Send **only USDT via ERC20**. Other networks or tokens may be lost permanently.
+ส่งเฉพาะ **USDT ผ่าน ERC20** เท่านั้น เครือข่ายหรือเหรียญอื่นอาจสูญหายถาวร
+
+Donations are voluntary support — **not an investment**, with no returns or rewards.
+การบริจาคเป็นการสนับสนุนโดยสมัครใจ **ไม่ใช่การลงทุน** และไม่มีผลตอบแทนใด ๆ
+
+Donation page with QR: https://purefxaidev.github.io/driftwatch-video/
